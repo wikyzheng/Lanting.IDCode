@@ -7,12 +7,12 @@ namespace Lanting.IDCode.EntityFrameworkCore
     {
         public static void Configure(DbContextOptionsBuilder<IDCodeDbContext> builder, string connectionString)
         {
-            builder.UseSqlServer(connectionString);
+            builder.UseMySql(connectionString);
         }
 
         public static void Configure(DbContextOptionsBuilder<IDCodeDbContext> builder, DbConnection connection)
         {
-            builder.UseSqlServer(connection);
+            builder.UseMySql(connection);
         }
     }
 }
