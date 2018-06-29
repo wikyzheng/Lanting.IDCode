@@ -112,7 +112,7 @@
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
 
-                    @await Component.InvokeAsync(typeof(TopBarLanguageSwitchViewComponent))
+                   
 
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
@@ -124,6 +124,7 @@
         <aside id="leftsidebar" class="sidebar">
 
             @await Component.InvokeAsync(typeof(SideBarUserAreaViewComponent))
+
             @await Component.InvokeAsync(typeof(SideBarNavViewComponent), new { activeMenu = ViewBag.CurrentPageName })
 
             <!-- Footer -->

@@ -10,7 +10,7 @@ namespace Lanting.IDCode.Web.Views.Shared.Components.SideBarUserArea
 
         public string GetShownLoginName()
         {
-            var userName = "<span id=\"HeaderCurrentUserName\">" + LoginInformations.User.UserName + "</span>";
+            var userName = "<span id=\"HeaderCurrentUserName\">" + LoginInformations.User.Surname + "</span>";
 
             if (!IsMultiTenancyEnabled)
             {

@@ -40,7 +40,7 @@ namespace Lanting.IDCode
 
             // Use database for language management
             Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
-
+            Configuration.Localization.Languages.Add(new Abp.Localization.LanguageInfo("zh-CN", "简体中文", isDefault: true));
             Configuration.Modules.AbpAspNetCore()
                  .CreateControllersForAppServices(
                      typeof(IDCodeApplicationModule).GetAssembly()
