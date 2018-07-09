@@ -46,6 +46,25 @@
                 </div>
 
                 <div class="row clearfix">
+                    <div class="col-sm-6">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input id="allowCodeCount" type="text" name="AllowCodeCount" value="@Model.User.AllowCodeCount" required maxlength="32" class="validate form-control">
+                                <label for="name" class="form-label">可生成码数量</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input id="allowProductCount" type="text" name="AllowProductCount" value="@Model.User.AllowProductCount" required maxlength="32" class="validate form-control">
+                                <label for="surname" class="form-label">可设置产品数量</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
                     <div class="col-sm-12">
                         <div class="form-group form-float">
                             <div class="form-line">

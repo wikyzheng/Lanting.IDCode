@@ -14,14 +14,14 @@
     <text name="UserLockedOutMessage">帐号被锁定，不能登录</text>
     <text name="PleaseEnterLoginInformation" value="请输入登录信息" />
     <text name="TenancyName" value="租户名" />
-    <text name="UserNameOrEmail" value="用户名或邮箱" />
+    <text name="UserNameOrEmail" value="帐号或邮箱" />
     <text name="Password" value="密码" />
     <text name="RememberMe" value="记住我" />
     <text name="LogIn" value="登录" />
     <text name="LoginFailed" value="登录失败!" />
     <text name="NameSurname" value="昵称" />
-    <text name="UserName" value="用户名" />
-    <text name="Name" value="用户名" />
+    <text name="UserName" value="帐号" />
+    <text name="Name" value="姓名" />
     <text name="Surname" value="昵称" />
     <text name="EmailAddress" value="邮箱地址" />
     <text name="Tenants" value="Tenants" />

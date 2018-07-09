@@ -52,7 +52,9 @@ namespace Lanting.IDCode.Authorization.Users
                 IsActive = true,
                 UserName = userName,
                 IsEmailConfirmed = isEmailConfirmed,
-                Roles = new List<UserRole>()
+                Roles = new List<UserRole>(),
+                AllowCodeCount = 10,
+                AllowProductCount = 2
             };
 
             user.SetNormalizedNames();

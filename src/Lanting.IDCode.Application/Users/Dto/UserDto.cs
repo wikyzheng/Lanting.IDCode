@@ -36,5 +36,16 @@ namespace Lanting.IDCode.Users.Dto
         public DateTime CreationTime { get; set; }
 
         public string[] RoleNames { get; set; }
+
+
+        /// <summary>
+        /// 可生成码数量
+        /// </summary>
+        public virtual int AllowCodeCount { get; set; }
+
+        /// <summary>
+        /// 可设置产品数量
+        /// </summary>
+        public virtual int AllowProductCount { get; set; }
     }
 }

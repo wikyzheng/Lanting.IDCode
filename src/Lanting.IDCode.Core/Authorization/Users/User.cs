@@ -28,5 +28,15 @@ namespace Lanting.IDCode.Authorization.Users
 
             return user;
         }
+
+        /// <summary>
+        /// 可生成码数量
+        /// </summary>
+        public virtual int AllowCodeCount { get; set; }
+
+        /// <summary>
+        /// 可设置产品数量
+        /// </summary>
+        public virtual int AllowProductCount { get; set; }
     }
 }
