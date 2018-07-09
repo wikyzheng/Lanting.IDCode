@@ -10,16 +10,20 @@
 @using Lanting.IDCode.Web.Views.Shared.Components.SideBarUserArea
 @using Lanting.IDCode.Web.Views.Shared.Components.TopBarLanguageSwitch
 @using Lanting.IDCode.Web.Views.Shared.Components.RightSideBar
+@using Lanting.IDCode.Sessions
 @inject Lanting.IDCode.Timing.AppTimes AppTimes
 @inject IAbpAntiForgeryManager AbpAntiForgeryManager
 @inject IMultiTenancyConfig MultiTenancyConfig
 @inject IWebResourceManager WebResourceManager
 @inject ISettingManager SettingManager
 @inject IAlertManager AlertManager
+@inject ISessionAppService _sessionAppService
 @{
     Layout = null;
     AbpAntiForgeryManager.SetCookie(Context);
     var uiTheme = await SettingManager.GetSettingValueAsync(AppSettingNames.UiTheme);
+    var loginInformation = await _sessionAppService.GetCurrentLoginInformations();
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -104,17 +108,11 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="fa fa-cubes"></i> IDCode</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="fa fa-cubes"></i> IDCode -- @loginInformation.User.Surname</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Call Search -->
-                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
-                    <!-- #END# Call Search -->
-
-                   
-
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    <li><a href="@Url.Action("Logout", "Account", new { area= string.Empty })" title="@L("Logout")"><i class="material-icons">input</i></a></li>
                 </ul>
             </div>
         </div>

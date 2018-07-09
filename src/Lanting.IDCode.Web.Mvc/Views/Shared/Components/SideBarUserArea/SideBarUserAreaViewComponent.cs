@@ -25,6 +25,8 @@ namespace Lanting.IDCode.Web.Views.Shared.Components.SideBarUserArea
                 IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled,
             };
 
+          
+
             return View(model);
         }
     }
