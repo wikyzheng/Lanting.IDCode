@@ -48,7 +48,7 @@ namespace Lanting.IDCode.Web.Startup
                     new MenuItemDefinition(
                         PageNames.Tasks,
                         L("Tasks"),
-                        url: "Tasks",
+                        url: "Task",
                         icon: "info",
                         requiredPermissionName: PermissionNames.Pages_Codes
                     )
@@ -56,7 +56,7 @@ namespace Lanting.IDCode.Web.Startup
                     new MenuItemDefinition(
                         PageNames.Products,
                         L("Products"),
-                        url: "Products",
+                        url: "Product",
                        icon: "info",
                         requiredPermissionName: PermissionNames.Pages_Codes
                     )
