@@ -7,10 +7,8 @@ using System.Text;
 namespace Lanting.IDCode.Entity
 {
     [Table("identity_code")]
-    public class IdentityCode
+    public class IdentityCode : Abp.Domain.Entities.Entity<long>
     {
-        [Key]
-        public long Id { get; set; }
         public string Code { get; set; }
         public int ProductId { get; set; }
         public string AntiFakeCode { get; set; }

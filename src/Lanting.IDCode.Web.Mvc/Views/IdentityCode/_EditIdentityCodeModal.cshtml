@@ -1,0 +1,51 @@
+﻿@using Abp.MultiTenancy
+@using Lanting.IDCode.Application
+@using Lanting.IDCode.Web.Models.Common.Modals
+@model IdentityCodeDto
+@{
+    Layout = null;
+}
+@Html.Partial("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditIdentityCode")))
+<div class="modal-body">
+    <form name="IdentityCodeEditForm" role="form" novalidate class="form-validation">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="Code" value="@Model.Code">
+                <label for="Code" class="form-label">@L("Code")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="ProductId" value="@Model.ProductId" required maxlength="11">
+                <label for="ProductId" class="form-label">@L("ProductId")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="AntiFakeCode" value="@Model.AntiFakeCode">
+                <label for="AntiFakeCode" class="form-label">@L("AntiFakeCode")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="">
+                <input id="IsActived" type="checkbox" name="IsActived" value="true" @(Model.IsActived ? "checked" : "") class="form-control" />
+                <label for="IsActived" class="form-label">@L("IsActived")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="Created" value="@Model.Created" required maxlength="6">
+                <label for="Created" class="form-label">@L("Created")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="TaskId" value="@Model.TaskId" required maxlength="11">
+                <label for="TaskId" class="form-label">@L("TaskId")</label>
+            </div>
+        </div>
+    </form>
+</div>
+@Html.Partial("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+<script src="~/view-resources/Views/IdentityCode/_EditIdentityCodeModal.js" asp-append-version="true"></script>

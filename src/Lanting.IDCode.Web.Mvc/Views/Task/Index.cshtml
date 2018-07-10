@@ -1,0 +1,223 @@
+﻿@using Abp.MultiTenancy
+@using Abp.Authorization.Users
+@using Lanting.IDCode.Application
+@using Lanting.IDCode.Web.Startup
+@model Abp.Application.Services.Dto.PagedResultDto<GenerateTaskDto>
+@{
+    ViewBag.CurrentPageName = PageNames.Tasks; //The menu item will be active for this page.
+}
+@section scripts
+    {
+    <environment names="Development">
+        <script src="~/view-resources/Views/GenerateTask/Index.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/view-resources/Views/GenerateTask/Index.min.js" asp-append-version="true"></script>
+    </environment>
+}
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @L("GenerateTaskList")
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a id="RefreshButton" href="javascript:void(0);" class="waves-effect waves-block"><i class="material-icons">refresh</i>Refresh</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>@L("UserId")</th>
+                            <th>@L("Remark")</th>
+                            <th>@L("Created")</th>
+                            <th>@L("IsSuccess")</th>
+                            <th>@L("FailReason")</th>
+                            <th>@L("Completed")</th>
+                            <th>@L("ProductId")</th>
+                            <th>@L("GenerateCount")</th>
+                            <th>@L("TaskStatu")</th>
+                            <th>@L("DataFilePath")</th>
+                            <th>@L("IsAntiFake")</th>
+                            <th>@L("AFCodeLength")</th>
+                            <th>@L("AntiFackCodeType")</th>
+                            <th>@L("AntiFackCode")</th>
+                            <th>@L("StartOne")</th>
+                            <th>@L("EndOne")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@item.UserId</td>
+                                <td>@item.Remark</td>
+                                <td>@item.Created</td>
+                                <td>@item.IsSuccess</td>
+                                <td>@item.FailReason</td>
+                                <td>@item.Completed</td>
+                                <td>@item.ProductId</td>
+                                <td>@item.GenerateCount</td>
+                                <td>@item.TaskStatu</td>
+                                <td>@item.DataFilePath</td>
+                                <td>@item.IsAntiFake</td>
+                                <td>@item.AFCodeLength</td>
+                                <td>@item.AntiFackCodeType</td>
+                                <td>@item.AntiFackCode</td>
+                                <td>@item.StartOne</td>
+                                <td>@item.EndOne</td>
+                                <td class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">menu</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="#" class="waves-effect waves-block edit-generatetask" data-generatetask-id="@item.Id" data-toggle="modal" data-target="#GenerateTaskEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
+                                        <li><a href="#" class="waves-effect waves-block delete-generatetask" data-generatetask-id="@item.Id" data-generatetask-name="@item.Id"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#GenerateTaskCreateModal">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="GenerateTaskCreateModal" tabindex="-1" role="dialog" aria-labelledby="GenerateTaskCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form name="generateTaskCreateForm" role="form" novalidate class="form-validation">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span>@L("CreateNewGenerateTask")</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="UserId" name="UserId" required maxlength="11">
+                            <label for="UserId" class="form-label">@L("UserId")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="Remark" name="Remark">
+                            <label for="Remark" class="form-label">@L("Remark")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="Created" name="Created" required maxlength="6">
+                            <label for="Created" class="form-label">@L("Created")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="">
+                            <input type="checkbox" name="IsSuccess" value="true" checked class="filled-in" />
+                            <label for="IsSuccess" class="form-label">@L("IsSuccess")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="FailReason" name="FailReason">
+                            <label for="FailReason" class="form-label">@L("FailReason")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="Completed" name="Completed" maxlength="6">
+                            <label for="Completed" class="form-label">@L("Completed")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="ProductId" name="ProductId" required maxlength="11">
+                            <label for="ProductId" class="form-label">@L("ProductId")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="GenerateCount" name="GenerateCount" required maxlength="11">
+                            <label for="GenerateCount" class="form-label">@L("GenerateCount")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="TaskStatu" name="TaskStatu" required maxlength="11">
+                            <label for="TaskStatu" class="form-label">@L("TaskStatu")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="DataFilePath" name="DataFilePath">
+                            <label for="DataFilePath" class="form-label">@L("DataFilePath")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="">
+                            <input type="checkbox" name="IsAntiFake" value="true" checked class="filled-in" />
+                            <label for="IsAntiFake" class="form-label">@L("IsAntiFake")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="AFCodeLength" name="AFCodeLength" maxlength="11">
+                            <label for="AFCodeLength" class="form-label">@L("AFCodeLength")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="AntiFackCodeType" name="AntiFackCodeType" required maxlength="11">
+                            <label for="AntiFackCodeType" class="form-label">@L("AntiFackCodeType")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="AntiFackCode" name="AntiFackCode">
+                            <label for="AntiFackCode" class="form-label">@L("AntiFackCode")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="StartOne" name="StartOne" required maxlength="20">
+                            <label for="StartOne" class="form-label">@L("StartOne")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="EndOne" name="EndOne" required maxlength="20">
+                            <label for="EndOne" class="form-label">@L("EndOne")</label>
+                        </div>
+                    </div>
+                    <p>Tips information is here</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
+                    <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="GenerateTaskEditModal" tabindex="-1" role="dialog" aria-labelledby="GenerateTaskEditModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>

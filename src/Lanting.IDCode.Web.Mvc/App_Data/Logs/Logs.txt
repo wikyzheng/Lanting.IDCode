@@ -19271,3 +19271,917 @@ MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'u.AllowCodeC
    at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
 INFO  2018-07-09 18:30:33,620 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
 INFO  2018-07-09 18:30:33,746 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 127.5577ms 500 text/html; charset=utf-8
+DEBUG 2018-07-10 15:11:00,973 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-07-10 15:11:01,035 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2018-07-10 15:11:01,048 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.Web.Startup.IDCodeWebMvcModule, Lanting.IDCode.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeWebCoreModule, Lanting.IDCode.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeApplicationModule, Lanting.IDCode.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeCoreModule, Lanting.IDCode.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.EntityFrameworkCore.IDCodeEntityFrameworkModule, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:01,055 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2018-07-10 15:11:01,117 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:11:01,117 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:11:01,117 [1    ] o.Configuration.LanguageManagementConfig - Converted IDCode (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:11:01,117 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:11:01,369 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Lanting.IDCode.EntityFrameworkCore.IDCodeDbContext, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:11:02,319 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-07-10 15:11:02,343 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-07-10 15:11:02,351 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-07-10 15:11:02,355 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: IDCode
+DEBUG 2018-07-10 15:11:02,360 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-07-10 15:11:02,565 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-07-10 15:11:02,611 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 17 classes define auto mapping attributes
+DEBUG 2018-07-10 15:11:02,611 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2018-07-10 15:11:02,615 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.CreateUserDto
+DEBUG 2018-07-10 15:11:02,615 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.UserDto
+DEBUG 2018-07-10 15:11:02,615 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-07-10 15:11:02,615 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-07-10 15:11:02,615 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.CreateRoleDto
+DEBUG 2018-07-10 15:11:02,615 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.PermissionDto
+DEBUG 2018-07-10 15:11:02,615 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.RoleDto
+DEBUG 2018-07-10 15:11:02,615 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-07-10 15:11:02,616 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.TenantDto
+DEBUG 2018-07-10 15:11:02,616 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateGenerateTaskDto
+DEBUG 2018-07-10 15:11:02,616 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.GenerateTaskDto
+DEBUG 2018-07-10 15:11:02,616 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateIdentityCodeDto
+DEBUG 2018-07-10 15:11:02,616 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.IdentityCodeDto
+DEBUG 2018-07-10 15:11:02,616 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateProductInfoDto
+DEBUG 2018-07-10 15:11:02,616 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.ProductInfoDto
+DEBUG 2018-07-10 15:11:02,616 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+INFO  2018-07-10 15:11:06,511 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:62114/  0
+INFO  2018-07-10 15:11:06,511 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/  
+INFO  2018-07-10 15:11:06,581 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 72.149ms 200 
+INFO  2018-07-10 15:11:09,567 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc)
+WARN  2018-07-10 15:11:09,861 [7    ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 43
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 98
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 57
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 43
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 98
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 57
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+INFO  2018-07-10 15:11:09,868 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2018-07-10 15:11:09,878 [7    ] Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes ().
+INFO  2018-07-10 15:11:09,897 [7    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application was challenged.
+INFO  2018-07-10 15:11:09,901 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) in 328.6846ms
+INFO  2018-07-10 15:11:09,916 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Account/Login?ReturnUrl=%2F  
+INFO  2018-07-10 15:11:09,923 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3419.3456ms 302 
+INFO  2018-07-10 15:11:09,950 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Login", controller = "Account", area = ""}. Executing action Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:12,104 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc) with arguments (, /, ) - Validation state: Valid
+INFO  2018-07-10 15:11:12,113 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 5.4835ms.
+INFO  2018-07-10 15:11:12,324 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Login.
+INFO  2018-07-10 15:11:12,626 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Login executed in 333.6405ms.
+INFO  2018-07-10 15:11:12,693 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc) in 2682.68ms
+INFO  2018-07-10 15:11:12,703 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/view-resources/Views/Account/Login.css?v=poK-oXF5FUWfhU9hEaEbjLzGQhIVms6YtQoQ3OEZtec  
+INFO  2018-07-10 15:11:12,714 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668322625670000  
+INFO  2018-07-10 15:11:12,719 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668322625670000  
+INFO  2018-07-10 15:11:12,725 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/view-resources/Views/Account/_Layout.css?v=xwt8JYbj8Mkb1RNju6XwW_7TfGRHHIDWaSjBggiszMY  
+INFO  2018-07-10 15:11:12,729 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:11:12,738 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:11:12,745 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2823.3383ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:11:12,753 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/css/style.css?v=m0ydJaKxWztkLmikIIxn3RFBicYtgCQHx4YLh31yvsQ  
+INFO  2018-07-10 15:11:12,754 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:11:12,768 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /view-resources/Views/Account/Login.css was not modified
+INFO  2018-07-10 15:11:12,774 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /view-resources/Views/Account/_Layout.css was not modified
+INFO  2018-07-10 15:11:12,778 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 60.2655ms 304 text/css
+INFO  2018-07-10 15:11:12,799 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 80.6989ms 304 text/css
+INFO  2018-07-10 15:11:12,807 [6    ] NetCore.StaticFiles.StaticFileMiddleware - The file /css/style.css was not modified
+INFO  2018-07-10 15:11:12,814 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 62.1003ms 304 text/css
+INFO  2018-07-10 15:11:12,817 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/view-resources/Views/Account/Login.js?v=fva4_U7JLc8QKq91dLZyvV5oMz9WxjutKXJ_MOl_Dj8  
+INFO  2018-07-10 15:11:12,821 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /view-resources/Views/Account/Login.js was not modified
+INFO  2018-07-10 15:11:12,826 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 13.5911ms 304 application/javascript
+INFO  2018-07-10 15:11:12,833 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:11:12,898 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 156.7451ms.
+INFO  2018-07-10 15:11:12,907 [11   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:12,913 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 180.5383ms
+INFO  2018-07-10 15:11:12,916 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 215.2337ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:12,962 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 127.4511ms.
+INFO  2018-07-10 15:11:12,965 [7    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:11:12,972 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 211.4564ms
+INFO  2018-07-10 15:11:12,974 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 265.4155ms 200 application/x-javascript
+INFO  2018-07-10 15:11:14,444 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/Account/Login application/x-www-form-urlencoded 256
+INFO  2018-07-10 15:11:14,454 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Login", controller = "Account", area = ""}. Executing action Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:14,538 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc) with arguments (Lanting.IDCode.Web.Models.Account.LoginViewModel, /, ) - Validation state: Valid
+INFO  2018-07-10 15:11:15,192 [12   ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application signed in.
+INFO  2018-07-10 15:11:15,197 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 657.9234ms.
+INFO  2018-07-10 15:11:15,425 [12   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2018-07-10 15:11:15,435 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc) in 978.8439ms
+INFO  2018-07-10 15:11:15,445 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 993.5333ms 200 application/json; charset=utf-8
+INFO  2018-07-10 15:11:15,448 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/  
+INFO  2018-07-10 15:11:15,485 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:15,512 [7    ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:11:15,516 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:11:15,519 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.305ms.
+INFO  2018-07-10 15:11:15,568 [4    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2018-07-10 15:11:16,085 [10   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 542.803ms.
+INFO  2018-07-10 15:11:16,096 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) in 607.7818ms
+INFO  2018-07-10 15:11:16,114 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 651.8598ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:11:16,174 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668322625670000  
+INFO  2018-07-10 15:11:16,189 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668322625670000  
+INFO  2018-07-10 15:11:16,195 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:11:16,197 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:11:16,202 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/images/lanting_code.png  
+INFO  2018-07-10 15:11:16,205 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:11:16,205 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:11:16,208 [11   ] NetCore.StaticFiles.StaticFileMiddleware - The file /images/lanting_code.png was not modified
+INFO  2018-07-10 15:11:16,210 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 14.3347ms 304 image/png
+INFO  2018-07-10 15:11:16,222 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 10.8794ms.
+INFO  2018-07-10 15:11:16,225 [7    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:11:16,229 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 30.3389ms
+INFO  2018-07-10 15:11:16,232 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 111.1491ms 200 application/x-javascript
+INFO  2018-07-10 15:11:16,244 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 37.5853ms.
+INFO  2018-07-10 15:11:16,247 [10   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:16,249 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 47.9221ms
+INFO  2018-07-10 15:11:16,255 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 126.646ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:16,262 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:11:16,301 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 37.1003ms 200 application/json
+INFO  2018-07-10 15:11:16,324 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:11:16,332 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.9848ms 200 application/json
+INFO  2018-07-10 15:11:16,336 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=7xzbiDXMqjVLa_jaY_CxPQ  
+INFO  2018-07-10 15:11:16,376 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=7xzbiDXMqjVLa_jaY_CxPQ text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:11:16,407 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 27.5306ms 200 text/plain
+INFO  2018-07-10 15:11:16,410 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=7xzbiDXMqjVLa_jaY_CxPQ text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:11:16,420 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.5861ms 200 text/plain
+INFO  2018-07-10 15:11:16,454 [7    ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+DEBUG 2018-07-10 15:11:16,492 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"7xzbiDXMqjVLa_jaY_CxPQ","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2018-07-10T15:11:16.48+08:00","Properties":{}}
+DEBUG 2018-07-10 15:11:16,558 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: 7xzbiDXMqjVLa_jaY_CxPQ
+INFO  2018-07-10 15:11:18,543 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Account/Logout  
+INFO  2018-07-10 15:11:18,564 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Logout", controller = "Account", area = ""}. Executing action Lanting.IDCode.Web.Controllers.AccountController.Logout (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:18,572 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.AccountController.Logout (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:11:18,591 [7    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application signed out.
+INFO  2018-07-10 15:11:18,596 [7    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.External signed out.
+INFO  2018-07-10 15:11:18,599 [7    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.TwoFactorUserId signed out.
+INFO  2018-07-10 15:11:18,605 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.AccountController.Logout (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 30.5943ms.
+INFO  2018-07-10 15:11:18,614 [12   ] ft.AspNetCore.Mvc.RedirectToActionResult - Executing RedirectResult, redirecting to /Account/Login.
+INFO  2018-07-10 15:11:18,616 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.AccountController.Logout (Lanting.IDCode.Web.Mvc) in 49.9865ms
+INFO  2018-07-10 15:11:18,620 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 79.8352ms 302 
+INFO  2018-07-10 15:11:18,622 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Account/Login  
+INFO  2018-07-10 15:11:18,627 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Login", controller = "Account", area = ""}. Executing action Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:18,632 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc) with arguments (, , ) - Validation state: Valid
+INFO  2018-07-10 15:11:18,636 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.62ms.
+INFO  2018-07-10 15:11:18,644 [4    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Login.
+INFO  2018-07-10 15:11:18,649 [4    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Login executed in 5.8159ms.
+INFO  2018-07-10 15:11:18,656 [4    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc) in 22.38ms
+INFO  2018-07-10 15:11:18,687 [4    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 36.6095ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:11:18,689 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668322625670000  
+INFO  2018-07-10 15:11:18,701 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668322625670000  
+INFO  2018-07-10 15:11:18,704 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:11:18,708 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:11:18,712 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:11:18,715 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:11:18,728 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 5.7188ms.
+INFO  2018-07-10 15:11:18,731 [7    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:11:18,738 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 19.796ms
+INFO  2018-07-10 15:11:18,740 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 21.3377ms.
+INFO  2018-07-10 15:11:18,742 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 74.7133ms 200 application/x-javascript
+INFO  2018-07-10 15:11:18,744 [6    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:18,750 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 40.7927ms
+INFO  2018-07-10 15:11:18,754 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 86.2356ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:27,722 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/Account/Login application/x-www-form-urlencoded 258
+INFO  2018-07-10 15:11:27,731 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Login", controller = "Account", area = ""}. Executing action Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:27,741 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc) with arguments (Lanting.IDCode.Web.Models.Account.LoginViewModel, /, ) - Validation state: Valid
+INFO  2018-07-10 15:11:27,841 [7    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application signed in.
+INFO  2018-07-10 15:11:27,843 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 100.6824ms.
+INFO  2018-07-10 15:11:27,856 [3    ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2018-07-10 15:11:27,859 [3    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.AccountController.Login (Lanting.IDCode.Web.Mvc) in 124.9266ms
+INFO  2018-07-10 15:11:27,864 [3    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 157.178ms 200 application/json; charset=utf-8
+INFO  2018-07-10 15:11:27,867 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/  
+INFO  2018-07-10 15:11:27,874 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:27,877 [7    ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:11:27,880 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:11:27,882 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0651ms.
+INFO  2018-07-10 15:11:27,889 [10   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2018-07-10 15:11:27,922 [12   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 33.4599ms.
+INFO  2018-07-10 15:11:27,926 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) in 48.7095ms
+INFO  2018-07-10 15:11:27,929 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 61.6645ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:11:27,955 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668322625670000  
+INFO  2018-07-10 15:11:27,961 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668322625670000  
+INFO  2018-07-10 15:11:27,968 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:11:27,973 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:11:27,977 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:11:27,979 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:11:27,985 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 3.8128ms.
+INFO  2018-07-10 15:11:27,987 [13   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:11:27,991 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 17.3759ms
+INFO  2018-07-10 15:11:27,996 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 39.9624ms 200 application/x-javascript
+INFO  2018-07-10 15:11:28,001 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 20.0572ms.
+INFO  2018-07-10 15:11:28,003 [11   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:28,006 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 30.2342ms
+INFO  2018-07-10 15:11:28,010 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 52.3823ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:28,029 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:11:28,038 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.5274ms 200 application/json
+INFO  2018-07-10 15:11:28,053 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:11:28,062 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.0675ms 200 application/json
+INFO  2018-07-10 15:11:28,079 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=JypQ_mU6aaA0vahA651CtQ  
+INFO  2018-07-10 15:11:28,085 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=JypQ_mU6aaA0vahA651CtQ text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:11:28,095 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.3101ms 200 text/plain
+INFO  2018-07-10 15:11:28,097 [7    ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+INFO  2018-07-10 15:11:28,099 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=JypQ_mU6aaA0vahA651CtQ text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:11:28,104 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.4522ms 200 text/plain
+DEBUG 2018-07-10 15:11:28,106 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"JypQ_mU6aaA0vahA651CtQ","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:11:28.1+08:00","Properties":{}}
+DEBUG 2018-07-10 15:11:28,107 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: JypQ_mU6aaA0vahA651CtQ
+INFO  2018-07-10 15:11:31,331 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Task  
+INFO  2018-07-10 15:11:31,355 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10.1316ms 404 
+DEBUG 2018-07-10 15:11:32,304 [10   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is disconnected: 7xzbiDXMqjVLa_jaY_CxPQ
+INFO  2018-07-10 15:11:32,315 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15977.4516ms 200 text/event-stream
+DEBUG 2018-07-10 15:11:43,290 [10   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is disconnected: JypQ_mU6aaA0vahA651CtQ
+INFO  2018-07-10 15:11:43,295 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15213.881ms 200 text/event-stream
+INFO  2018-07-10 15:11:43,320 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/  
+INFO  2018-07-10 15:11:43,326 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:43,328 [10   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:11:43,336 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:11:43,338 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0814ms.
+INFO  2018-07-10 15:11:43,351 [4    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2018-07-10 15:11:43,378 [17   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 25.8436ms.
+INFO  2018-07-10 15:11:43,381 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) in 52.471ms
+INFO  2018-07-10 15:11:43,384 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 63.8588ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:11:43,482 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:11:43,490 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.9172ms 200 application/json
+INFO  2018-07-10 15:11:43,501 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:11:43,508 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.5191ms 200 application/json
+INFO  2018-07-10 15:11:43,560 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=Tli6cJPZ748dpld68X0HJQ  
+INFO  2018-07-10 15:11:43,572 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=Tli6cJPZ748dpld68X0HJQ text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:11:43,579 [7    ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+INFO  2018-07-10 15:11:43,589 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=Tli6cJPZ748dpld68X0HJQ text/plain;charset=UTF-8 65
+DEBUG 2018-07-10 15:11:43,593 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"Tli6cJPZ748dpld68X0HJQ","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:11:43.579+08:00","Properties":{}}
+INFO  2018-07-10 15:11:43,594 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.2387ms 200 text/plain
+INFO  2018-07-10 15:11:43,608 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 11.6882ms 200 text/plain
+DEBUG 2018-07-10 15:11:43,608 [16   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: Tli6cJPZ748dpld68X0HJQ
+INFO  2018-07-10 15:11:44,936 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Product  
+INFO  2018-07-10 15:11:44,948 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Product", area = ""}. Executing action Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:11:44,951 [6    ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:11:45,278 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:11:45,343 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 63.1316ms.
+INFO  2018-07-10 15:11:45,359 [17   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+WARN  2018-07-10 15:11:45,369 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'ProductInfoList' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,370 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,370 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Code' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,371 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'IsEnabled' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,371 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Description' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,371 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,372 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Modified' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,375 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNewProductInfo' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,375 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,375 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Code' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,376 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'IsEnabled' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,376 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Description' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,376 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:11:45,376 [17   ] naries.DictionaryBasedLocalizationSource - Can not find 'Modified' in localization source 'IDCode'!
+INFO  2018-07-10 15:11:45,404 [17   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 43.279ms.
+INFO  2018-07-10 15:11:45,423 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc) in 456.4035ms
+INFO  2018-07-10 15:11:45,428 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668322625670000  
+INFO  2018-07-10 15:11:45,432 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 499.5554ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:11:45,458 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668322625670000  
+INFO  2018-07-10 15:11:45,477 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:11:45,480 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:11:45,486 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:11:45,494 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/view-resources/Views/Products/Index.js?v=NiqUzYKNH3i7-A7xARRZiiY-dWv-fd66_BUtVRGMKwI  
+INFO  2018-07-10 15:11:45,503 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:11:45,504 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 9.449ms.
+INFO  2018-07-10 15:11:45,509 [15   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:11:45,520 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 32.3875ms
+INFO  2018-07-10 15:11:45,524 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 101.8807ms 200 application/x-javascript
+INFO  2018-07-10 15:11:45,534 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 23.2479ms.
+INFO  2018-07-10 15:11:45,540 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Products/Index.js'. Physical path: 'E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Mvc\wwwroot\view-resources\Views\Products\Index.js'
+INFO  2018-07-10 15:11:45,541 [13   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:45,549 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 61.1324ms
+INFO  2018-07-10 15:11:45,563 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 116.2929ms 200 application/javascript
+INFO  2018-07-10 15:11:45,568 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:11:45,588 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.9002ms 200 application/json
+INFO  2018-07-10 15:11:45,590 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 134.6852ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:11:45,592 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:11:45,600 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.5225ms 200 application/json
+INFO  2018-07-10 15:11:45,603 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=6kAJPVdTtVv_UnpnqK2cNw  
+INFO  2018-07-10 15:11:45,614 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=6kAJPVdTtVv_UnpnqK2cNw text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:11:45,627 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 11.7505ms 200 text/plain
+INFO  2018-07-10 15:11:45,632 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=6kAJPVdTtVv_UnpnqK2cNw text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:11:45,626 [11   ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+INFO  2018-07-10 15:11:45,649 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10.3012ms 200 text/plain
+DEBUG 2018-07-10 15:11:45,655 [11   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"6kAJPVdTtVv_UnpnqK2cNw","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:11:45.633+08:00","Properties":{}}
+DEBUG 2018-07-10 15:11:45,658 [11   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: 6kAJPVdTtVv_UnpnqK2cNw
+DEBUG 2018-07-10 15:11:59,263 [16   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is disconnected: Tli6cJPZ748dpld68X0HJQ
+INFO  2018-07-10 15:11:59,269 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15705.0674ms 200 text/event-stream
+INFO  2018-07-10 15:12:02,518 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/lib/bootstrap-select/dist/css/bootstrap-select.css.map  
+INFO  2018-07-10 15:12:02,520 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/lib/bootstrap/dist/css/bootstrap.css.map  
+INFO  2018-07-10 15:12:02,535 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap-select/dist/css/bootstrap-select.css.map'. Physical path: 'E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Mvc\wwwroot\lib\bootstrap-select\dist\css\bootstrap-select.css.map'
+INFO  2018-07-10 15:12:02,548 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 19.7583ms 200 text/plain
+INFO  2018-07-10 15:12:02,575 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css.map'. Physical path: 'E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Mvc\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map'
+INFO  2018-07-10 15:12:02,586 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 59.9745ms 200 text/plain
+INFO  2018-07-10 15:13:39,635 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/lib/bootstrap/dist/css/bootstrap.css.map  
+INFO  2018-07-10 15:13:39,638 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/lib/bootstrap-select/dist/css/bootstrap-select.css.map  
+INFO  2018-07-10 15:13:39,650 [16   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap-select/dist/css/bootstrap-select.css.map'. Physical path: 'E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Mvc\wwwroot\lib\bootstrap-select\dist\css\bootstrap-select.css.map'
+INFO  2018-07-10 15:13:39,662 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 14.42ms 200 text/plain
+INFO  2018-07-10 15:13:39,684 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css.map'. Physical path: 'E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Mvc\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map'
+INFO  2018-07-10 15:13:39,698 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 56.0669ms 200 text/plain
+DEBUG 2018-07-10 15:18:50,068 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-07-10 15:18:50,127 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2018-07-10 15:18:50,142 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.Web.Startup.IDCodeWebMvcModule, Lanting.IDCode.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,144 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeWebCoreModule, Lanting.IDCode.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,144 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeApplicationModule, Lanting.IDCode.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,145 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeCoreModule, Lanting.IDCode.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,145 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,145 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,145 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,146 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,146 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.EntityFrameworkCore.IDCodeEntityFrameworkModule, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,146 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,146 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,146 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,147 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,147 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,147 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:50,149 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2018-07-10 15:18:50,202 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:18:50,202 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:18:50,202 [1    ] o.Configuration.LanguageManagementConfig - Converted IDCode (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:18:50,202 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:18:50,448 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Lanting.IDCode.EntityFrameworkCore.IDCodeDbContext, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:18:51,454 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-07-10 15:18:51,481 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-07-10 15:18:51,504 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-07-10 15:18:51,508 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: IDCode
+DEBUG 2018-07-10 15:18:51,511 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-07-10 15:18:51,706 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-07-10 15:18:51,770 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 17 classes define auto mapping attributes
+DEBUG 2018-07-10 15:18:51,770 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2018-07-10 15:18:51,774 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.CreateUserDto
+DEBUG 2018-07-10 15:18:51,775 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.UserDto
+DEBUG 2018-07-10 15:18:51,775 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-07-10 15:18:51,775 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-07-10 15:18:51,775 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.CreateRoleDto
+DEBUG 2018-07-10 15:18:51,775 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.PermissionDto
+DEBUG 2018-07-10 15:18:51,775 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.RoleDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.TenantDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateGenerateTaskDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.GenerateTaskDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateIdentityCodeDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.IdentityCodeDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateProductInfoDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.ProductInfoDto
+DEBUG 2018-07-10 15:18:51,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+INFO  2018-07-10 15:18:55,506 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/  
+INFO  2018-07-10 15:18:55,508 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:62114/  0
+INFO  2018-07-10 15:18:55,582 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 101.2538ms 200 
+INFO  2018-07-10 15:18:58,565 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:18:58,607 [11   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:18:58,651 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:18:58,660 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 5.6966ms.
+INFO  2018-07-10 15:18:58,891 [3    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2018-07-10 15:19:00,181 [10   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 1297.0016ms.
+INFO  2018-07-10 15:19:00,194 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668327317110000  
+INFO  2018-07-10 15:19:00,203 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668327317110000  
+INFO  2018-07-10 15:19:00,204 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/css/style.css?v=J6HF7ei0HN-Hc9ldvsl4SZ27GvSzc0I-ZCLtLdAHfl8  
+INFO  2018-07-10 15:19:00,211 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) in 1641.8472ms
+INFO  2018-07-10 15:19:00,244 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4761.4947ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:19:00,249 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:19:00,268 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:19:00,295 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/style.css'. Physical path: 'E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Mvc\wwwroot\css\style.css'
+INFO  2018-07-10 15:19:00,300 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 107.9859ms 200 text/css
+INFO  2018-07-10 15:19:00,329 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:19:00,366 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:19:00,531 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 200.7348ms.
+INFO  2018-07-10 15:19:00,539 [7    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:19:00,542 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 289.729ms
+INFO  2018-07-10 15:19:00,544 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 357.6671ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:19:00,561 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 192.9236ms.
+INFO  2018-07-10 15:19:00,563 [11   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:19:00,566 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 295.7856ms
+INFO  2018-07-10 15:19:00,568 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 380.156ms 200 application/x-javascript
+INFO  2018-07-10 15:19:00,576 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:19:00,622 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 42.2169ms 200 application/json
+INFO  2018-07-10 15:19:00,643 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:19:00,649 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.4613ms 200 application/json
+INFO  2018-07-10 15:19:00,655 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=dRDBLzMhpeBCCe5OZMHC6Q  
+INFO  2018-07-10 15:19:00,719 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=dRDBLzMhpeBCCe5OZMHC6Q text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:19:00,792 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 63.3421ms 200 text/plain
+INFO  2018-07-10 15:19:00,811 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=dRDBLzMhpeBCCe5OZMHC6Q text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:19:00,827 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 18.2881ms 200 text/plain
+INFO  2018-07-10 15:19:00,864 [13   ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+DEBUG 2018-07-10 15:19:00,910 [13   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"dRDBLzMhpeBCCe5OZMHC6Q","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:19:00.897+08:00","Properties":{}}
+DEBUG 2018-07-10 15:19:00,976 [13   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: dRDBLzMhpeBCCe5OZMHC6Q
+INFO  2018-07-10 15:19:04,949 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Product  
+INFO  2018-07-10 15:19:04,964 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Product", area = ""}. Executing action Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:19:04,971 [6    ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:19:05,265 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:19:05,358 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 91.0182ms.
+INFO  2018-07-10 15:19:05,372 [12   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+WARN  2018-07-10 15:19:05,381 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'ProductInfoList' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,382 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,382 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Code' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,382 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'IsEnabled' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,383 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Description' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,383 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,383 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Modified' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,396 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNewProductInfo' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,396 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,396 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Code' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,397 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'IsEnabled' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,397 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Description' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,397 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:19:05,397 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Modified' in localization source 'IDCode'!
+INFO  2018-07-10 15:19:05,432 [11   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 56.0242ms.
+INFO  2018-07-10 15:19:05,434 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc) in 467.506ms
+INFO  2018-07-10 15:19:05,451 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 498.343ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:19:05,456 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/css/style.css?v=J6HF7ei0HN-Hc9ldvsl4SZ27GvSzc0I-ZCLtLdAHfl8  
+INFO  2018-07-10 15:19:05,458 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/view-resources/Views/Products/Index.js?v=NiqUzYKNH3i7-A7xARRZiiY-dWv-fd66_BUtVRGMKwI  
+INFO  2018-07-10 15:19:05,460 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668327317110000  
+INFO  2018-07-10 15:19:05,463 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668327317110000  
+INFO  2018-07-10 15:19:05,469 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /view-resources/Views/Products/Index.js was not modified
+INFO  2018-07-10 15:19:05,471 [11   ] NetCore.StaticFiles.StaticFileMiddleware - The file /css/style.css was not modified
+INFO  2018-07-10 15:19:05,475 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:19:05,478 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 17.9368ms 304 application/javascript
+INFO  2018-07-10 15:19:05,480 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:19:05,504 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 22.0334ms 304 text/css
+INFO  2018-07-10 15:19:05,509 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:19:05,510 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:19:05,517 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 4.797ms.
+INFO  2018-07-10 15:19:05,520 [13   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:19:05,527 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 39.2204ms
+INFO  2018-07-10 15:19:05,531 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 75.118ms 200 application/x-javascript
+INFO  2018-07-10 15:19:05,537 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 25.2764ms.
+INFO  2018-07-10 15:19:05,539 [6    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:19:05,541 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 61.7399ms
+INFO  2018-07-10 15:19:05,546 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 86.3594ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:19:05,548 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:19:05,556 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.5117ms 200 application/json
+INFO  2018-07-10 15:19:05,568 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:19:05,575 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.633ms 200 application/json
+INFO  2018-07-10 15:19:05,580 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=CVyzGGUigP6IUGz6nkebbA  
+INFO  2018-07-10 15:19:05,586 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=CVyzGGUigP6IUGz6nkebbA text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:19:05,591 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.1942ms 200 text/plain
+INFO  2018-07-10 15:19:05,593 [11   ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+INFO  2018-07-10 15:19:05,615 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=CVyzGGUigP6IUGz6nkebbA text/plain;charset=UTF-8 65
+DEBUG 2018-07-10 15:19:05,623 [11   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"CVyzGGUigP6IUGz6nkebbA","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:19:05.594+08:00","Properties":{}}
+INFO  2018-07-10 15:19:05,624 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 28.9328ms 200 text/plain
+DEBUG 2018-07-10 15:19:05,625 [11   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: CVyzGGUigP6IUGz6nkebbA
+DEBUG 2018-07-10 15:19:58,472 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-07-10 15:19:58,534 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2018-07-10 15:19:58,546 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.Web.Startup.IDCodeWebMvcModule, Lanting.IDCode.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,548 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeWebCoreModule, Lanting.IDCode.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,548 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeApplicationModule, Lanting.IDCode.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,548 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeCoreModule, Lanting.IDCode.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,548 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,549 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,549 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,549 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,549 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.EntityFrameworkCore.IDCodeEntityFrameworkModule, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,549 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,550 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,550 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,550 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,550 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,550 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:58,552 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2018-07-10 15:19:58,605 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:19:58,606 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:19:58,606 [1    ] o.Configuration.LanguageManagementConfig - Converted IDCode (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:19:58,606 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:19:58,881 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Lanting.IDCode.EntityFrameworkCore.IDCodeDbContext, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:19:59,656 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-07-10 15:19:59,681 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-07-10 15:19:59,692 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-07-10 15:19:59,698 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: IDCode
+DEBUG 2018-07-10 15:19:59,703 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-07-10 15:19:59,911 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-07-10 15:19:59,957 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 17 classes define auto mapping attributes
+DEBUG 2018-07-10 15:19:59,957 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2018-07-10 15:19:59,961 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.CreateUserDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.UserDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.CreateRoleDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.PermissionDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.RoleDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.TenantDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateGenerateTaskDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.GenerateTaskDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateIdentityCodeDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.IdentityCodeDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateProductInfoDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.ProductInfoDto
+DEBUG 2018-07-10 15:19:59,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+INFO  2018-07-10 15:20:03,912 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/  
+INFO  2018-07-10 15:20:03,912 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:62114/  0
+INFO  2018-07-10 15:20:03,988 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 72.5073ms 200 
+INFO  2018-07-10 15:20:07,501 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:20:07,543 [7    ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:20:07,584 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:20:07,592 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 5.6152ms.
+INFO  2018-07-10 15:20:07,831 [3    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2018-07-10 15:20:09,212 [4    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 1404.6201ms.
+INFO  2018-07-10 15:20:09,234 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668327999140000  
+INFO  2018-07-10 15:20:09,237 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/css/style.css?v=J6HF7ei0HN-Hc9ldvsl4SZ27GvSzc0I-ZCLtLdAHfl8  
+INFO  2018-07-10 15:20:09,242 [4    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) in 1732.5726ms
+INFO  2018-07-10 15:20:09,256 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668327999140000  
+INFO  2018-07-10 15:20:09,273 [4    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5362.5165ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:20:09,292 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /css/style.css was not modified
+INFO  2018-07-10 15:20:09,299 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 65.7501ms 304 text/css
+INFO  2018-07-10 15:20:09,311 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:20:09,324 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:20:09,358 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:20:09,436 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:20:09,571 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 210.8722ms.
+INFO  2018-07-10 15:20:09,577 [14   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:20:09,582 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 268.9124ms
+INFO  2018-07-10 15:20:09,586 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 339.0675ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:20:09,607 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 169.5952ms.
+INFO  2018-07-10 15:20:09,610 [7    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:20:09,614 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 286.2918ms
+INFO  2018-07-10 15:20:09,618 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 385.9597ms 200 application/x-javascript
+INFO  2018-07-10 15:20:09,624 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:20:09,664 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 38.7644ms 200 application/json
+INFO  2018-07-10 15:20:09,694 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:20:09,711 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.4313ms 200 application/json
+INFO  2018-07-10 15:20:09,714 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=K1JRpuOuNd03NtaB10FXlg  
+INFO  2018-07-10 15:20:09,770 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=K1JRpuOuNd03NtaB10FXlg text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:20:09,837 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 66.7466ms 200 text/plain
+INFO  2018-07-10 15:20:09,851 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=K1JRpuOuNd03NtaB10FXlg text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:20:09,865 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.6106ms 200 text/plain
+INFO  2018-07-10 15:20:09,906 [6    ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+DEBUG 2018-07-10 15:20:09,945 [6    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"K1JRpuOuNd03NtaB10FXlg","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:20:09.934+08:00","Properties":{}}
+DEBUG 2018-07-10 15:20:10,010 [6    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: K1JRpuOuNd03NtaB10FXlg
+INFO  2018-07-10 15:20:12,086 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Task  
+INFO  2018-07-10 15:20:12,099 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Task", area = ""}. Executing action OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:20:12,444 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:20:12,539 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 93.6846ms.
+INFO  2018-07-10 15:20:12,552 [3    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+ERROR 2018-07-10 15:20:12,555 [3    ] Core.Mvc.ViewFeatures.ViewResultExecutor - The view 'Index' was not found. Searched locations: /Views/Task/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml
+INFO  2018-07-10 15:20:12,560 [3    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc) in 457.8942ms
+ERROR 2018-07-10 15:20:12,748 [3    ] nostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+/Views/Task/Index.cshtml
+/Views/Shared/Index.cshtml
+/Pages/Shared/Index.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Lanting.IDCode.Authentication.JwtBearer.JwtTokenMiddleware.<>c__DisplayClass0_0.<<UseJwtTokenMiddleware>b__0>d.MoveNext() in E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Core\Authentication\JwtBearer\JwtTokenMiddleware.cs:line 22
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+INFO  2018-07-10 15:20:12,835 [3    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 755.0838ms 500 text/html; charset=utf-8
+DEBUG 2018-07-10 15:21:31,166 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-07-10 15:21:31,221 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2018-07-10 15:21:31,233 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.Web.Startup.IDCodeWebMvcModule, Lanting.IDCode.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,235 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeWebCoreModule, Lanting.IDCode.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeApplicationModule, Lanting.IDCode.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeCoreModule, Lanting.IDCode.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.EntityFrameworkCore.IDCodeEntityFrameworkModule, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:31,240 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2018-07-10 15:21:31,293 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:21:31,293 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:21:31,293 [1    ] o.Configuration.LanguageManagementConfig - Converted IDCode (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:21:31,293 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 15:21:31,529 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Lanting.IDCode.EntityFrameworkCore.IDCodeDbContext, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 15:21:32,523 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-07-10 15:21:32,547 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-07-10 15:21:32,554 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-07-10 15:21:32,558 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: IDCode
+DEBUG 2018-07-10 15:21:32,564 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-07-10 15:21:32,772 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-07-10 15:21:32,818 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 17 classes define auto mapping attributes
+DEBUG 2018-07-10 15:21:32,818 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2018-07-10 15:21:32,821 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.CreateUserDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.UserDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.CreateRoleDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.PermissionDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.RoleDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.TenantDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateGenerateTaskDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.GenerateTaskDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateIdentityCodeDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.IdentityCodeDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateProductInfoDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.ProductInfoDto
+DEBUG 2018-07-10 15:21:32,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+INFO  2018-07-10 15:21:36,363 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:62114/  0
+INFO  2018-07-10 15:21:36,396 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/  
+INFO  2018-07-10 15:21:36,462 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 106.4018ms 200 
+INFO  2018-07-10 15:21:40,187 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:21:40,247 [6    ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:21:40,312 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:21:40,324 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 8.3077ms.
+INFO  2018-07-10 15:21:40,637 [10   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2018-07-10 15:21:42,059 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 1456.7043ms.
+INFO  2018-07-10 15:21:42,078 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/css/style.css?v=J6HF7ei0HN-Hc9ldvsl4SZ27GvSzc0I-ZCLtLdAHfl8  
+INFO  2018-07-10 15:21:42,088 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Controllers.HomeController.Index (Lanting.IDCode.Web.Mvc) in 1882.0214ms
+INFO  2018-07-10 15:21:42,106 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668328927750000  
+INFO  2018-07-10 15:21:42,115 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668328927750000  
+INFO  2018-07-10 15:21:42,132 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5776.4223ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:21:42,138 [7    ] NetCore.StaticFiles.StaticFileMiddleware - The file /css/style.css was not modified
+INFO  2018-07-10 15:21:42,157 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 85.931ms 304 text/css
+INFO  2018-07-10 15:21:42,160 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:21:42,176 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:21:42,214 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:21:42,250 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:21:42,391 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 174.6291ms.
+INFO  2018-07-10 15:21:42,397 [10   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:21:42,403 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 239.4443ms
+INFO  2018-07-10 15:21:42,406 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 303.2521ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:21:42,416 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 163.026ms.
+INFO  2018-07-10 15:21:42,419 [11   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:21:42,423 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 243.7378ms
+INFO  2018-07-10 15:21:42,426 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 323.1314ms 200 application/x-javascript
+INFO  2018-07-10 15:21:42,433 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:21:42,468 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 34.5995ms 200 application/json
+INFO  2018-07-10 15:21:42,494 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:21:42,500 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.3503ms 200 application/json
+INFO  2018-07-10 15:21:42,503 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=yZWi4YgAUeRWN7gfhSeLUg  
+INFO  2018-07-10 15:21:42,545 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=yZWi4YgAUeRWN7gfhSeLUg text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:21:42,630 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 82.3215ms 200 text/plain
+INFO  2018-07-10 15:21:42,633 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=yZWi4YgAUeRWN7gfhSeLUg text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:21:42,645 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 11.2982ms 200 text/plain
+INFO  2018-07-10 15:21:42,684 [7    ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+DEBUG 2018-07-10 15:21:42,740 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"yZWi4YgAUeRWN7gfhSeLUg","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:21:42.72+08:00","Properties":{}}
+DEBUG 2018-07-10 15:21:42,825 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: yZWi4YgAUeRWN7gfhSeLUg
+INFO  2018-07-10 15:21:44,412 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Task  
+INFO  2018-07-10 15:21:44,427 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Task", area = ""}. Executing action OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:21:44,760 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:21:44,870 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 108.2377ms.
+INFO  2018-07-10 15:21:44,885 [3    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+WARN  2018-07-10 15:21:44,899 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'GenerateTaskList' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,900 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,900 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'Remark' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,900 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,901 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsSuccess' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,901 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'FailReason' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,901 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'Completed' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,901 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'ProductId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,902 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'GenerateCount' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,902 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'TaskStatu' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,902 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'DataFilePath' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,903 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsAntiFake' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,903 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'AFCodeLength' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,904 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'AntiFackCodeType' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,904 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'AntiFackCode' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,904 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'StartOne' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,904 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'EndOne' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,918 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNewGenerateTask' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,918 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,919 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'Remark' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,919 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,920 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsSuccess' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,920 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'FailReason' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,920 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'Completed' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,920 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'ProductId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,920 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'GenerateCount' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,921 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'TaskStatu' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,921 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'DataFilePath' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,921 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsAntiFake' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,921 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'AFCodeLength' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,922 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'AntiFackCodeType' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,922 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'AntiFackCode' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,922 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'StartOne' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:44,922 [3    ] naries.DictionaryBasedLocalizationSource - Can not find 'EndOne' in localization source 'IDCode'!
+INFO  2018-07-10 15:21:44,954 [4    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 67.9559ms.
+INFO  2018-07-10 15:21:44,956 [4    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc) in 526.8837ms
+INFO  2018-07-10 15:21:44,972 [4    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 558.4837ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:21:44,976 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668328927750000  
+INFO  2018-07-10 15:21:44,982 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668328927750000  
+INFO  2018-07-10 15:21:44,990 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:21:44,993 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/view-resources/Views/GenerateTask/Index.js?v=dj1F2e3iaaFnlGv9ZJuWQLjwmldz-BlrxBpod-M-6Oc  
+INFO  2018-07-10 15:21:44,997 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:21:45,004 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:21:45,011 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:21:45,022 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 8.1947ms.
+INFO  2018-07-10 15:21:45,043 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/GenerateTask/Index.js'. Physical path: 'E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Mvc\wwwroot\view-resources\Views\GenerateTask\Index.js'
+INFO  2018-07-10 15:21:45,047 [13   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:21:45,055 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 62.0702ms 200 application/javascript
+INFO  2018-07-10 15:21:45,058 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 50.2213ms
+INFO  2018-07-10 15:21:45,059 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 85.5059ms 200 application/x-javascript
+INFO  2018-07-10 15:21:45,062 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 49.1447ms.
+INFO  2018-07-10 15:21:45,064 [11   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:21:45,066 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 73.8187ms
+INFO  2018-07-10 15:21:45,069 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 94.0147ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:21:45,073 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:21:45,080 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.9346ms 200 application/json
+INFO  2018-07-10 15:21:45,092 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:21:45,100 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.6831ms 200 application/json
+INFO  2018-07-10 15:21:45,102 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=pnalvulp6zcC9nX8xFES4w  
+INFO  2018-07-10 15:21:45,109 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=pnalvulp6zcC9nX8xFES4w text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:21:45,115 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.2473ms 200 text/plain
+INFO  2018-07-10 15:21:45,116 [10   ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+INFO  2018-07-10 15:21:45,118 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=pnalvulp6zcC9nX8xFES4w text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:21:45,126 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.1765ms 200 text/plain
+DEBUG 2018-07-10 15:21:45,126 [10   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"pnalvulp6zcC9nX8xFES4w","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:21:45.118+08:00","Properties":{}}
+DEBUG 2018-07-10 15:21:45,127 [10   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: pnalvulp6zcC9nX8xFES4w
+INFO  2018-07-10 15:21:48,959 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Product  
+INFO  2018-07-10 15:21:48,972 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Product", area = ""}. Executing action Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:21:48,983 [10   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:21:49,293 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:21:49,321 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 26.2776ms.
+INFO  2018-07-10 15:21:49,334 [4    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+WARN  2018-07-10 15:21:49,341 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'ProductInfoList' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,341 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,341 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'Code' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,342 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsEnabled' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,342 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'Description' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,342 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,342 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'Modified' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,344 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNewProductInfo' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,345 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,345 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'Code' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,345 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsEnabled' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,346 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'Description' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,346 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:49,346 [4    ] naries.DictionaryBasedLocalizationSource - Can not find 'Modified' in localization source 'IDCode'!
+INFO  2018-07-10 15:21:49,391 [12   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 41.9886ms.
+INFO  2018-07-10 15:21:49,394 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc) in 418.3931ms
+INFO  2018-07-10 15:21:49,420 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 443.522ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:21:49,432 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668328927750000  
+INFO  2018-07-10 15:21:49,441 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668328927750000  
+INFO  2018-07-10 15:21:49,449 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:21:49,458 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:21:49,466 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/view-resources/Views/Product/Index.js?v=NiqUzYKNH3i7-A7xARRZiiY-dWv-fd66_BUtVRGMKwI  
+INFO  2018-07-10 15:21:49,469 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:21:49,472 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 7.1186ms.
+INFO  2018-07-10 15:21:49,475 [10   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:21:49,483 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:21:49,495 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 27.4712ms
+INFO  2018-07-10 15:21:49,500 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 78.9636ms 200 application/x-javascript
+INFO  2018-07-10 15:21:49,507 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Product/Index.js'. Physical path: 'E:\Code\Lanting.IDCode\src\Lanting.IDCode.Web.Mvc\wwwroot\view-resources\Views\Product\Index.js'
+INFO  2018-07-10 15:21:49,508 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 83.0847ms 200 application/javascript
+INFO  2018-07-10 15:21:49,512 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 27.5699ms.
+INFO  2018-07-10 15:21:49,514 [13   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:21:49,518 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 43.2222ms
+INFO  2018-07-10 15:21:49,520 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 98.0191ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:21:49,523 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:21:49,534 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.6241ms 200 application/json
+INFO  2018-07-10 15:21:49,546 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:21:49,553 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.0226ms 200 application/json
+INFO  2018-07-10 15:21:49,555 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=c8MLNBjluJPYvDmD2u1PSQ  
+INFO  2018-07-10 15:21:49,565 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=c8MLNBjluJPYvDmD2u1PSQ text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:21:49,572 [7    ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+INFO  2018-07-10 15:21:49,574 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.4969ms 200 text/plain
+INFO  2018-07-10 15:21:49,575 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=c8MLNBjluJPYvDmD2u1PSQ text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:21:49,581 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.8671ms 200 text/plain
+DEBUG 2018-07-10 15:21:49,582 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"c8MLNBjluJPYvDmD2u1PSQ","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:21:49.575+08:00","Properties":{}}
+DEBUG 2018-07-10 15:21:49,582 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: c8MLNBjluJPYvDmD2u1PSQ
+INFO  2018-07-10 15:21:52,137 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Task  
+INFO  2018-07-10 15:21:52,148 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Task", area = ""}. Executing action OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:21:52,155 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:21:52,173 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 16.3287ms.
+INFO  2018-07-10 15:21:52,195 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+WARN  2018-07-10 15:21:52,196 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'GenerateTaskList' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,196 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,197 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Remark' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,197 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,197 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsSuccess' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,198 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'FailReason' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,198 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Completed' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,198 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'ProductId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,198 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'GenerateCount' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,199 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'TaskStatu' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,199 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'DataFilePath' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,199 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsAntiFake' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,199 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'AFCodeLength' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,200 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'AntiFackCodeType' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,200 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'AntiFackCode' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,200 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'StartOne' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,200 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'EndOne' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,201 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNewGenerateTask' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,201 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,201 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Remark' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,201 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,202 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsSuccess' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,202 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'FailReason' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,202 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Completed' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,202 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'ProductId' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,203 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'GenerateCount' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,203 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'TaskStatu' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,203 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'DataFilePath' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,203 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'IsAntiFake' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,203 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'AFCodeLength' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,204 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'AntiFackCodeType' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,204 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'AntiFackCode' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,204 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'StartOne' in localization source 'IDCode'!
+WARN  2018-07-10 15:21:52,204 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'EndOne' in localization source 'IDCode'!
+INFO  2018-07-10 15:21:52,239 [4    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 29.9941ms.
+INFO  2018-07-10 15:21:52,247 [4    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action OneCode.BaseInfo.Web.Controllers.TaskController.Index (Lanting.IDCode.Web.Mvc) in 90.2445ms
+INFO  2018-07-10 15:21:52,248 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668328927750000  
+INFO  2018-07-10 15:21:52,270 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:21:52,279 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668328927750000  
+INFO  2018-07-10 15:21:52,327 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:21:52,331 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:21:52,334 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:21:52,339 [4    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 118.9551ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:21:52,343 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 5.3469ms.
+INFO  2018-07-10 15:21:52,346 [7    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:21:52,349 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 15.1621ms
+INFO  2018-07-10 15:21:52,352 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 109.3786ms 200 application/x-javascript
+INFO  2018-07-10 15:21:52,355 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 22.1632ms.
+INFO  2018-07-10 15:21:52,357 [6    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:21:52,361 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 88.0592ms
+INFO  2018-07-10 15:21:52,369 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 116.1555ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:21:52,371 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:21:52,385 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 11.8342ms 200 application/json
+INFO  2018-07-10 15:21:52,396 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:21:52,404 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.8519ms 200 application/json
+INFO  2018-07-10 15:21:52,406 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=Qzx0wUkrgiYPX69TRl4COg  
+INFO  2018-07-10 15:21:52,418 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=Qzx0wUkrgiYPX69TRl4COg text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:21:52,425 [6    ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+INFO  2018-07-10 15:21:52,428 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=Qzx0wUkrgiYPX69TRl4COg text/plain;charset=UTF-8 65
+INFO  2018-07-10 15:21:52,433 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.1201ms 200 text/plain
+DEBUG 2018-07-10 15:21:52,442 [6    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"Qzx0wUkrgiYPX69TRl4COg","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:21:52.429+08:00","Properties":{}}
+INFO  2018-07-10 15:21:52,442 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.612ms 200 text/plain
+DEBUG 2018-07-10 15:21:52,442 [6    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: Qzx0wUkrgiYPX69TRl4COg
+DEBUG 2018-07-10 15:21:58,156 [7    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is disconnected: yZWi4YgAUeRWN7gfhSeLUg
+INFO  2018-07-10 15:21:58,166 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15662.4356ms 200 text/event-stream
+DEBUG 2018-07-10 15:22:01,096 [6    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is disconnected: pnalvulp6zcC9nX8xFES4w
+INFO  2018-07-10 15:22:01,101 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15995.4812ms 200 text/event-stream
+DEBUG 2018-07-10 15:22:05,092 [6    ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is disconnected: c8MLNBjluJPYvDmD2u1PSQ
+INFO  2018-07-10 15:22:05,094 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15537.7781ms 200 text/event-stream
+INFO  2018-07-10 15:22:06,271 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/Product  
+INFO  2018-07-10 15:22:06,277 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Product", area = ""}. Executing action Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc)
+INFO  2018-07-10 15:22:06,280 [7    ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2018-07-10 15:22:06,282 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc) - Validation state: Valid
+INFO  2018-07-10 15:22:06,296 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 11.8743ms.
+INFO  2018-07-10 15:22:06,307 [12   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+WARN  2018-07-10 15:22:06,308 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'ProductInfoList' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,309 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,309 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Code' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,309 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'IsEnabled' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,310 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Description' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,310 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,310 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Modified' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,310 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'CreateNewProductInfo' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,310 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'UserId' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,311 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Code' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,311 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'IsEnabled' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,311 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Description' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,311 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Created' in localization source 'IDCode'!
+WARN  2018-07-10 15:22:06,312 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'Modified' in localization source 'IDCode'!
+INFO  2018-07-10 15:22:06,331 [15   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 21.2089ms.
+INFO  2018-07-10 15:22:06,333 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Mvc.Controllers.ProductController.Index (Lanting.IDCode.Web.Mvc) in 54.1043ms
+INFO  2018-07-10 15:22:06,346 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 65.7493ms 200 text/html; charset=utf-8
+INFO  2018-07-10 15:22:06,349 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpScripts/GetScripts?v=636668328927750000  
+INFO  2018-07-10 15:22:06,351 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/css/style.css?v=J6HF7ei0HN-Hc9ldvsl4SZ27GvSzc0I-ZCLtLdAHfl8  
+INFO  2018-07-10 15:22:06,357 [11   ] NetCore.StaticFiles.StaticFileMiddleware - The file /css/style.css was not modified
+INFO  2018-07-10 15:22:06,358 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2018-07-10 15:22:06,362 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/AbpServiceProxies/GetAll?v=636668328927750000  
+INFO  2018-07-10 15:22:06,370 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments () - Validation state: Valid
+INFO  2018-07-10 15:22:06,372 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 14.6244ms 304 text/css
+INFO  2018-07-10 15:22:06,376 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2018-07-10 15:22:06,380 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2018-07-10 15:22:06,390 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 4.2533ms.
+INFO  2018-07-10 15:22:06,392 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 17.7138ms.
+INFO  2018-07-10 15:22:06,394 [6    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2018-07-10 15:22:06,398 [16   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:22:06,402 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 19.2508ms
+INFO  2018-07-10 15:22:06,406 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 38.4472ms
+INFO  2018-07-10 15:22:06,407 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 52.8385ms 200 application/x-javascript
+INFO  2018-07-10 15:22:06,409 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 60.7592ms 200 application/x-javascript; charset=utf-8
+INFO  2018-07-10 15:22:06,426 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:22:06,434 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.9441ms 200 application/json
+INFO  2018-07-10 15:22:06,447 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr/negotiate text/plain;charset=UTF-8 0
+INFO  2018-07-10 15:22:06,456 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.8646ms 200 application/json
+INFO  2018-07-10 15:22:06,458 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62114/signalr?id=vkNXSpWAikIc9SJ45CP1iA  
+INFO  2018-07-10 15:22:06,467 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=vkNXSpWAikIc9SJ45CP1iA text/plain;charset=UTF-8 32
+INFO  2018-07-10 15:22:06,476 [17   ] .AspNetCore.SignalR.HubConnectionContext - Completed connection handshake. Using HubProtocol 'json'.
+INFO  2018-07-10 15:22:06,478 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10.9626ms 200 text/plain
+INFO  2018-07-10 15:22:06,481 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62114/signalr?id=vkNXSpWAikIc9SJ45CP1iA text/plain;charset=UTF-8 65
+DEBUG 2018-07-10 15:22:06,485 [17   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is connected: {"ConnectionId":"vkNXSpWAikIc9SJ45CP1iA","IpAddress":"::1","TenantId":1,"UserId":3,"ConnectTime":"2018-07-10T15:22:06.479+08:00","Properties":{}}
+DEBUG 2018-07-10 15:22:06,486 [17   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is registered: vkNXSpWAikIc9SJ45CP1iA
+INFO  2018-07-10 15:22:06,490 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.4357ms 200 text/plain
+DEBUG 2018-07-10 15:22:08,100 [11   ] Abp.AspNetCore.SignalR.Hubs.AbpCommonHub - A client is disconnected: Qzx0wUkrgiYPX69TRl4COg
+INFO  2018-07-10 15:22:08,110 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15694.9904ms 200 text/event-stream

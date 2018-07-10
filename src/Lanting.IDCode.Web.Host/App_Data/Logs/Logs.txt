@@ -129,3 +129,84 @@ WARN  2018-06-29 11:15:04,091 [7    ] calization.RequestLocalizationMiddleware -
 INFO  2018-06-29 11:15:04,122 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
 INFO  2018-06-29 11:15:04,127 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 93.4807ms 200 image/png
 INFO  2018-06-29 11:15:04,373 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 525.5731ms 200 application/json;charset=utf-8
+DEBUG 2018-07-10 14:41:58,241 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-07-10 14:41:58,310 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2018-07-10 14:41:58,322 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.Web.Host.Startup.IDCodeWebHostModule, Lanting.IDCode.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,324 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeWebCoreModule, Lanting.IDCode.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,324 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeApplicationModule, Lanting.IDCode.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,324 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.IDCodeCoreModule, Lanting.IDCode.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,324 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,324 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,325 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,325 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,325 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Lanting.IDCode.EntityFrameworkCore.IDCodeEntityFrameworkModule, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,325 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,326 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,326 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,326 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,326 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,326 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.7.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:58,328 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2018-07-10 14:41:58,381 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 14:41:58,381 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 14:41:58,381 [1    ] o.Configuration.LanguageManagementConfig - Converted IDCode (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 14:41:58,381 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-07-10 14:41:58,646 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Lanting.IDCode.EntityFrameworkCore.IDCodeDbContext, Lanting.IDCode.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-07-10 14:41:59,434 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-07-10 14:41:59,457 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-07-10 14:41:59,463 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-07-10 14:41:59,467 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: IDCode
+DEBUG 2018-07-10 14:41:59,470 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-07-10 14:41:59,616 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-07-10 14:41:59,648 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 16 classes define auto mapping attributes
+DEBUG 2018-07-10 14:41:59,648 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateGenerateTaskDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.GenerateTaskDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateIdentityCodeDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.IdentityCodeDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.CreateProductInfoDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Application.ProductInfoDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.CreateUserDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Users.Dto.UserDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.CreateRoleDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.PermissionDto
+DEBUG 2018-07-10 14:41:59,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.Roles.Dto.RoleDto
+DEBUG 2018-07-10 14:41:59,652 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2018-07-10 14:41:59,652 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Lanting.IDCode.MultiTenancy.Dto.TenantDto
+INFO  2018-07-10 14:42:03,163 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2018-07-10 14:42:03,163 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:21021/  0
+INFO  2018-07-10 14:42:03,270 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 109.4417ms 200 
+INFO  2018-07-10 14:42:06,195 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Lanting.IDCode.Web.Host.Controllers.HomeController.Index (Lanting.IDCode.Web.Host)
+INFO  2018-07-10 14:42:07,034 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Lanting.IDCode.Web.Host.Controllers.HomeController.Index (Lanting.IDCode.Web.Host) - Validation state: Valid
+INFO  2018-07-10 14:42:07,040 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Lanting.IDCode.Web.Host.Controllers.HomeController.Index (Lanting.IDCode.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 1.8036ms.
+INFO  2018-07-10 14:42:07,313 [4    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2018-07-10 14:42:07,323 [4    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Lanting.IDCode.Web.Host.Controllers.HomeController.Index (Lanting.IDCode.Web.Host) in 1123.5069ms
+INFO  2018-07-10 14:42:07,343 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2018-07-10 14:42:07,348 [4    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4192.349ms 302 
+INFO  2018-07-10 14:42:07,375 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 32.0376ms 200 text/html
+INFO  2018-07-10 14:42:07,391 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2018-07-10 14:42:07,396 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2018-07-10 14:42:07,400 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2018-07-10 14:42:07,403 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2018-07-10 14:42:07,405 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2018-07-10 14:42:07,416 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.swagger.js was not modified
+INFO  2018-07-10 14:42:07,419 [11   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.js was not modified
+INFO  2018-07-10 14:42:07,422 [6    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2018-07-10 14:42:07,424 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2018-07-10 14:42:07,426 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 28.6757ms 304 application/javascript
+INFO  2018-07-10 14:42:07,428 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 38.0884ms 304 application/javascript
+INFO  2018-07-10 14:42:07,439 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 27.9426ms 304 application/javascript
+INFO  2018-07-10 14:42:07,442 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 38.2844ms 304 application/javascript
+INFO  2018-07-10 14:42:07,470 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2018-07-10 14:42:07,475 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 85.4792ms 200 text/css
+INFO  2018-07-10 14:42:07,902 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2018-07-10 14:42:07,906 [6    ] uthentication.JwtBearer.JwtBearerHandler - JwtBearer was not authenticated. Failure message: No SecurityTokenValidator available for token: null
+INFO  2018-07-10 14:42:07,937 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-32x32.png  
+INFO  2018-07-10 14:42:07,943 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+INFO  2018-07-10 14:42:07,949 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.2292ms 200 image/png
+INFO  2018-07-10 14:42:07,951 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-16x16.png  
+INFO  2018-07-10 14:42:07,955 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+INFO  2018-07-10 14:42:07,957 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.734ms 200 image/png
+INFO  2018-07-10 14:42:08,116 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 212.9827ms 200 application/json;charset=utf-8

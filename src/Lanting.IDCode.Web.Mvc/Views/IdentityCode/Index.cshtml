@@ -1,0 +1,143 @@
+﻿@using Abp.MultiTenancy
+@using Abp.Authorization.Users
+@using Lanting.IDCode.Application
+@using Lanting.IDCode.Web.Startup
+@model Abp.Application.Services.Dto.PagedResultDto<IdentityCodeDto>
+@{
+    ViewBag.CurrentPageName = PageNames.Tasks; //The menu item will be active for this page.
+}
+@section scripts
+{
+    <environment names="Development">
+        <script src="~/view-resources/Views/IdentityCode/Index.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/view-resources/Views/IdentityCode/Index.min.js" asp-append-version="true"></script>
+    </environment>
+}
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @L("IdentityCodeList")
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a id="RefreshButton" href="javascript:void(0);" class="waves-effect waves-block"><i class="material-icons">refresh</i>Refresh</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>@L("Code")</th>
+                            <th>@L("ProductId")</th>
+                            <th>@L("AntiFakeCode")</th>
+                            <th>@L("IsActived")</th>
+                            <th>@L("Created")</th>
+                            <th>@L("TaskId")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@item.Code</td>
+                                <td>@item.ProductId</td>
+                                <td>@item.AntiFakeCode</td>
+                                <td>@item.IsActived</td>
+                                <td>@item.Created</td>
+                                <td>@item.TaskId</td>
+                                <td class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">menu</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="#" class="waves-effect waves-block edit-identitycode" data-identitycode-id="@item.Id" data-toggle="modal" data-target="#IdentityCodeEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
+                                        <li><a href="#" class="waves-effect waves-block delete-identitycode" data-identitycode-id="@item.Id" data-identitycode-name="@item.Id"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#IdentityCodeCreateModal">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="IdentityCodeCreateModal" tabindex="-1" role="dialog" aria-labelledby="IdentityCodeCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form name="identityCodeCreateForm" role="form" novalidate class="form-validation">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span>@L("CreateNewIdentityCode")</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="Code" name="Code" >
+                            <label for="Code" class="form-label">@L("Code")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="ProductId" name="ProductId" required maxlength="11">
+                            <label for="ProductId" class="form-label">@L("ProductId")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="AntiFakeCode" name="AntiFakeCode" >
+                            <label for="AntiFakeCode" class="form-label">@L("AntiFakeCode")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="">
+                            <input type="checkbox" name="IsActived" value="true" checked class="filled-in" />
+                            <label for="IsActived" class="form-label">@L("IsActived")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="Created" name="Created" required maxlength="6">
+                            <label for="Created" class="form-label">@L("Created")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" id="TaskId" name="TaskId" required maxlength="11">
+                            <label for="TaskId" class="form-label">@L("TaskId")</label>
+                        </div>
+                    </div>
+                    <p>Tips information is here</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
+                    <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="IdentityCodeEditModal" tabindex="-1" role="dialog" aria-labelledby="IdentityCodeEditModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>

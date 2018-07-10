@@ -1,0 +1,57 @@
+﻿@using Abp.MultiTenancy
+@using Lanting.IDCode.Application
+@using Lanting.IDCode.Web.Models.Common.Modals
+@model ProductInfoDto
+@{
+    Layout = null;
+}
+@Html.Partial("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditProductInfo")))
+<div class="modal-body">
+    <form name="ProductInfoEditForm" role="form" novalidate class="form-validation">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="UserId" value="@Model.UserId" required maxlength="11">
+                <label for="UserId" class="form-label">@L("UserId")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="Code" value="@Model.Code">
+                <label for="Code" class="form-label">@L("Code")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="FullName" value="@Model.FullName">
+                <label for="FullName" class="form-label">@L("FullName")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="">
+                <input id="IsEnabled" type="checkbox" name="IsEnabled" value="true" @(Model.IsEnabled ? "checked" : "") class="form-control" />
+                <label for="IsEnabled" class="form-label">@L("IsEnabled")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="Description" value="@Model.Description">
+                <label for="Description" class="form-label">@L("Description")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="Created" value="@Model.Created" required maxlength="6">
+                <label for="Created" class="form-label">@L("Created")</label>
+            </div>
+        </div>
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input class="form-control" type="text" name="Modified" value="@Model.Modified" maxlength="6">
+                <label for="Modified" class="form-label">@L("Modified")</label>
+            </div>
+        </div>
+    </form>
+</div>
+@Html.Partial("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+<script src="~/view-resources/Views/ProductInfo/_EditProductInfoModal.js" asp-append-version="true"></script>
