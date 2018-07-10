@@ -23,7 +23,7 @@
 
             e.preventDefault();
             $.ajax({
-                url: abp.appPath + 'ProductInfo/EditProductInfoModal?id=' + id,
+                url: abp.appPath + 'Product/EditProductInfoModal?id=' + id,
                 type: 'POST',
                 contentType: 'application/html',
                 success: function (content) {

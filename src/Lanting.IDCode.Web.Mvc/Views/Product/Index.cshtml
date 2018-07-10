@@ -8,20 +8,80 @@
 }
 @section scripts
     {
-    <environment names="Development">
-        <script src="~/view-resources/Views/Product/Index.js" asp-append-version="true"></script>
-    </environment>
 
-    <environment names="Staging,Production">
-        <script src="~/view-resources/Views/Product/Index.min.js" asp-append-version="true"></script>
-    </environment>
+    <script src="~/view-resources/Views/Product/Index.js" asp-append-version="true"></script>
+
 }
+
+<script src="~/view-resources/Views/Product/tiny/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: "h1.editable#elm2",       //elm2为ID                 可将selector值理解为css中class、ID等，以此使用tinymce中样式（比如编辑框内文本显示样式、工具栏样式）--个人理解，不保证正确
+        inline: true,                       //为true时，编辑工具栏隐藏
+        toolbar: "undo redo",
+        menubar: false
+    });
+    tinymce.init({
+        selector: 'textarea#elm1',          //<textarea>中为编辑区域
+        theme: "modern",                  //主题
+        language: "zh_cn",                //语言 ，可自行下载中文
+
+        height: 300,
+        plugins: [                             //插件，可自行根据现实内容删除
+            "advlist autolink lists charmap print preview hr anchor pagebreak spellchecker",
+            "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime  nonbreaking image imagetools",
+            "save table contextmenu directionality emoticons paste textcolor"
+        ],
+
+        //content_css: "css/content.css",      //引用的外部CSS样式，可删除
+        toolbar: "insertfile undo redo | styleselect fontselect fontsizeselect| bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      | print preview fullpage | forecolor backcolor | image",                          //工具栏，可根据需求删除
+        style_formats: [                        //初始时提供的默认格式
+            { title: 'Bold text', inline: 'b' },
+            { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+            { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
+            { title: 'Example 1', inline: 'span', classes: 'example1' },
+            { title: 'Example 2', inline: 'span', classes: 'example2' },
+            { title: 'Table styles' },
+            { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
+        ],
+        language: 'zh_CN',
+        images_upload_handler: function (blobInfo, success, failure) {
+
+            var formData = new FormData();
+            // formData.ppend(name, element);
+            formData.append('file', blobInfo.blob(), blobInfo.filename());
+            $.ajax({
+                url: abp.appPath + 'Product/FileUpload',
+                method: 'POST',
+                data: formData,
+                contentType: false, // 注意这里应设为false
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    if (data.result.statusCode == 200) {
+                        success(data.result.data.url);
+                    }
+                },
+                error: function (jqXHR) {
+                    console.log(JSON.stringify(jqXHR));
+                }
+            }).done(function (data) {
+                console.log('done');
+            }).fail(function (data) {
+                console.log('fail');
+            }).always(function (data) {
+                console.log('always');
+            });
+        }
+    });
+</script>
+
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
                 <h2>
-                    @L("ProductInfoList")
+                    @L(PageNames.Products)
                 </h2>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
@@ -38,26 +98,23 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@L("UserId")</th>
-                            <th>@L("Code")</th>
-                            <th>@L("FullName")</th>
-                            <th>@L("IsEnabled")</th>
-                            <th>@L("Description")</th>
-                            <th>@L("Created")</th>
-                            <th>@L("Modified")</th>
+
+                            <th>产品代号</th>
+                            <th>产品名称</th>
+                            <th>有否有效</th>
+                            <th>描述</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model.Items)
                         {
                             <tr>
-                                <td>@item.UserId</td>
+
                                 <td>@item.Code</td>
                                 <td>@item.FullName</td>
                                 <td>@item.IsEnabled</td>
                                 <td>@item.Description</td>
-                                <td>@item.Created</td>
-                                <td>@item.Modified</td>
                                 <td class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">menu</i>
@@ -85,57 +142,38 @@
             <form name="productInfoCreateForm" role="form" novalidate class="form-validation">
                 <div class="modal-header">
                     <h4 class="modal-title">
-                        <span>@L("CreateNewProductInfo")</span>
+                        <span>创建新产品图文</span>
                     </h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <input class="form-control" type="text" id="UserId" name="UserId" required maxlength="11">
-                            <label for="UserId" class="form-label">@L("UserId")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
                             <input class="form-control" type="text" id="Code" name="Code">
-                            <label for="Code" class="form-label">@L("Code")</label>
+                            <label for="Code" class="form-label">产品代号</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input class="form-control" type="text" id="FullName" name="FullName">
-                            <label for="FullName" class="form-label">@L("FullName")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="">
-                            <input type="checkbox" name="IsEnabled" value="true" checked class="filled-in" />
-                            <label for="IsEnabled" class="form-label">@L("IsEnabled")</label>
+                            <label for="FullName" class="form-label">产品名称</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input class="form-control" type="text" id="Description" name="Description">
-                            <label for="Description" class="form-label">@L("Description")</label>
+                            <label for="Description" class="form-label">描述</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="Created" name="Created" required maxlength="6">
-                            <label for="Created" class="form-label">@L("Created")</label>
+                        <div class="activityshow_box" style="margin-top:40%;width: 100%;display:none;margin-let:15%;margin-right:15%;padding:0;margin:2px 0;">
                         </div>
+                        <textarea id="elm1" name="HtmlContent">请输入产品图文内容...</textarea>
+                        <p>Tips information is here</p>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="Modified" name="Modified" maxlength="6">
-                            <label for="Modified" class="form-label">@L("Modified")</label>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
+                        <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
                     </div>
-                    <p>Tips information is here</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
-                    <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
                 </div>
             </form>
         </div>

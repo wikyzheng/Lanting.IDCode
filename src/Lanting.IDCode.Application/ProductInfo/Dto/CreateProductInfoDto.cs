@@ -13,24 +13,24 @@ namespace Lanting.IDCode.Application
     [AutoMapTo(typeof(ProductInfo))]
     public class CreateProductInfoDto : EntityDto
     {
-        [Required]
         public int UserId { get; set; }
 
+        [Required]
         public string Code { get; set; }
 
+        [Required]
         public string FullName { get; set; }
 
-        [Required]
         public bool IsEnabled { get; set; }
 
         public string Description { get; set; }
 
-        [Required]
         public DateTime Created { get; set; }
 
         public DateTime? Modified { get; set; }
 
-        public string Remark { get; set; }
+        public string HtmlContent { get; set; }
+
     }
 }
 

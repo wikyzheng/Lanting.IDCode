@@ -36,6 +36,10 @@ namespace Lanting.IDCode.Application
         {
             var productInfo = ObjectMapper.Map<ProductInfo>(input);
 
+            productInfo.Created = DateTime.Now;
+            productInfo.IsEnabled = true;
+            productInfo.UserId = (int)(base.AbpSession.UserId ?? 0);
+
             var entity = _productInfoRepository.Insert(productInfo);
             var dto = ObjectMapper.Map<ProductInfoDto>(entity);
 
@@ -52,14 +56,9 @@ namespace Lanting.IDCode.Application
         public override async Task<ProductInfoDto> Update(ProductInfoDto input)
         {
             var productInfo = await _productInfoRepository.SingleAsync(x => x.Id == input.Id);
-
-            productInfo.UserId = input.UserId;
-            productInfo.Code = input.Code;
             productInfo.FullName = input.FullName;
-            productInfo.IsEnabled = input.IsEnabled;
             productInfo.Description = input.Description;
-            productInfo.Created = input.Created;
-            productInfo.Modified = input.Modified;
+            productInfo.Modified = DateTime.Now;
 
             return ObjectMapper.Map<ProductInfoDto>(productInfo);
         }
@@ -67,7 +66,7 @@ namespace Lanting.IDCode.Application
         public override async Task<PagedResultDto<ProductInfoDto>> GetAll(PagedResultRequestDto input)
         {
             var all = from x in _productInfoRepository.GetAll()
-                           select ObjectMapper.Map<ProductInfoDto>(x);
+                      select ObjectMapper.Map<ProductInfoDto>(x);
 
             var pagedResultDto = new PagedResultDto<ProductInfoDto>();
             pagedResultDto.Items = all.ToList().AsReadOnly();
