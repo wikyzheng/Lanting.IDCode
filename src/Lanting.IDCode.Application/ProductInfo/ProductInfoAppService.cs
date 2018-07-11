@@ -9,6 +9,9 @@ using System.Collections.Generic;
 using Abp.Authorization;
 using Lanting.IDCode.Entity;
 using Lanting.IDCode.Authorization;
+using Lanting.IDCode.Sessions;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Lanting.IDCode.Application
 {
@@ -19,16 +22,19 @@ namespace Lanting.IDCode.Application
         /// ProductInfoRepository
         /// </summary>
         private readonly IRepository<ProductInfo, int> _productInfoRepository;
-
+        private readonly ISessionAppService _sessionAppService;
+        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly string _htmlDiretory = "codepage";
         /// <summary>
         /// EventBus
         /// </summary>
         public IEventBus EventBus { get; set; }
 
-        public ProductInfoAppService(IRepository<ProductInfo, int> productInfoRepository) : base(productInfoRepository)
+        public ProductInfoAppService(IRepository<ProductInfo, int> productInfoRepository, ISessionAppService sessionAppService, IHostingEnvironment hostingEnvironment) : base(productInfoRepository)
         {
             _productInfoRepository = productInfoRepository;
-
+            _sessionAppService = sessionAppService;
+            _hostingEnvironment = hostingEnvironment;
             EventBus = NullEventBus.Instance;
         }
 
@@ -40,17 +46,20 @@ namespace Lanting.IDCode.Application
             productInfo.IsEnabled = true;
             productInfo.UserId = (int)(base.AbpSession.UserId ?? 0);
 
-            var entity = _productInfoRepository.Insert(productInfo);
+            var entity = await _productInfoRepository.InsertAsync(productInfo);
             var dto = ObjectMapper.Map<ProductInfoDto>(entity);
-
+            if (!string.IsNullOrEmpty(input.HtmlContent))
+                await GenerateHtml(input.Code, input.HtmlContent);
             return await Task.FromResult(dto);
+
         }
 
-        public override Task<ProductInfoDto> Get(EntityDto<int> input)
+        public override async Task<ProductInfoDto> Get(EntityDto<int> input)
         {
             var entity = _productInfoRepository.Get(input.Id);
             var dto = ObjectMapper.Map<ProductInfoDto>(entity);
-            return Task.FromResult<ProductInfoDto>(dto);
+            dto.HtmlContent = await GetHtmlContent(dto.Code);
+            return await Task.FromResult<ProductInfoDto>(dto);
         }
 
         public override async Task<ProductInfoDto> Update(ProductInfoDto input)
@@ -59,7 +68,8 @@ namespace Lanting.IDCode.Application
             productInfo.FullName = input.FullName;
             productInfo.Description = input.Description;
             productInfo.Modified = DateTime.Now;
-
+            if (!string.IsNullOrEmpty(input.HtmlContent))
+                await GenerateHtml(input.Code, input.HtmlContent);
             return ObjectMapper.Map<ProductInfoDto>(productInfo);
         }
 
@@ -74,5 +84,30 @@ namespace Lanting.IDCode.Application
 
             return await Task.FromResult(pagedResultDto);
         }
+
+        public async Task GenerateHtml(string productCode, string htmlContent)
+        {
+            var user = await _sessionAppService.GetCurrentLoginInformations();
+            var fileName = $"{productCode}.html";
+            //  root/codepage/baolong/dd.html
+            string dir = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName);
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            string filePath = Path.Combine(dir, fileName);
+            await File.WriteAllTextAsync(filePath, htmlContent);
+        }
+
+        public async Task<string> GetHtmlContent(string productCode)
+        {
+            var user = await _sessionAppService.GetCurrentLoginInformations();
+            var fileName = $"{productCode}.html";
+            //  root/codepage/baolong/dd.html
+            string filePath = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName, fileName);
+            if (!File.Exists(filePath))
+                return string.Empty;
+            return await File.ReadAllTextAsync(filePath);
+        }
+
+
     }
 }

@@ -9,9 +9,9 @@
         if (!_$form.valid()) {
             return;
         }
-
+        var tmp = tinymce.get('htmlContentEdit').getContent();
         var productinfo = _$form.serializeFormToObject(); //serializeFormToObject is defined in main.js
-
+        productinfo.htmlContent = tmp;
         abp.ui.setBusy(_$form);
         _service.update(productinfo).done(function () {
             _$modal.modal('hide');

@@ -16,6 +16,8 @@ namespace Lanting.IDCode.Application
         public int UserId { get; set; }
 
         [Required]
+        [RegularExpression("^[A-Za-z0-9]+$", ErrorMessage = "[产品代码]只能输入字母、数字！")]
+        [MaxLength(10, ErrorMessage = "[产品代码]长度不能超10位")]
         public string Code { get; set; }
 
         [Required]

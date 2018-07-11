@@ -6,7 +6,8 @@
     Layout = null;
 }
 
-<script src="~/view-resources/Views/Product/tiny/tinymce.min.js"></script>
+@Html.Partial("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("修改产品图文"))
+
 <script>
     tinymce.init({
         selector: "h1.editable#elm2",       //elm2为ID                 可将selector值理解为css中class、ID等，以此使用tinymce中样式（比如编辑框内文本显示样式、工具栏样式）--个人理解，不保证正确
@@ -15,7 +16,7 @@
         menubar: false
     });
     tinymce.init({
-        selector: 'textarea#elm1',          //<textarea>中为编辑区域
+        selector: '#htmlContentEdit',          //<textarea>中为编辑区域
         theme: "modern",                  //主题
         language: "zh_cn",                //语言 ，可自行下载中文
 
@@ -39,38 +40,35 @@
         ],
         language: 'zh_CN',
         images_upload_handler: function (blobInfo, success, failure) {
-            var xhr, formData;
-            xhr = new XMLHttpRequest();
-            xhr.withCredentials = false;
-            xhr.open('POST', _this.myPackage.template_api + '/api/services/app/Template/UploadPhoto', true);
-            xhr.setRequestHeader("Authorization", 'Bearer ' + _this.oidc_msg.access_token);
-            xhr.onload = function () {
-                var json;
-                if (xhr.status != 200) {
-                    if (xhr.status == 401) {
-                        failure('HTTP Error: 401,token 授权过期');
-                    } else {
-                        failure('HTTP Error: ' + xhr.status);
-                    }
-                    return;
-                }
-                console.log(xhr.responseText);
-                json = JSON.parse(xhr.responseText);
-                if (!json || typeof json.result.url != 'string') {
-                    failure('Invalid JSON: ' + xhr.responseText);
-                    return;
-                }
 
-                success(json.result.url);
-            };
-            formData = new FormData();
+            var formData = new FormData();
+            // formData.ppend(name, element);
             formData.append('file', blobInfo.blob(), blobInfo.filename());
-            xhr.send(formData);
+            $.ajax({
+                url: abp.appPath + 'Product/FileUpload',
+                method: 'POST',
+                data: formData,
+                contentType: false, // 注意这里应设为false
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    if (data.result.statusCode == 200) {
+                        success(data.result.data.url);
+                    }
+                },
+                error: function (jqXHR) {
+                    console.log(JSON.stringify(jqXHR));
+                }
+            }).done(function (data) {
+                console.log('done');
+            }).fail(function (data) {
+                console.log('fail');
+            }).always(function (data) {
+                console.log('always');
+            });
         }
     });
 </script>
-
-@Html.Partial("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("修改产品图文"))
 <div class="modal-body">
     <form name="ProductInfoEditForm" role="form" novalidate class="form-validation">
         <input type="hidden" name="Id" value="@Model.Id" />
@@ -78,23 +76,30 @@
         <div class="form-group form-float">
             <div class="form-line">
                 <input class="form-control" type="text" name="Code" value="@Model.Code" readonly="readonly">
-                <label for="Code" class="form-label">@L("Code")</label>
+                <label for="Code" class="form-label">产品代码</label>
             </div>
         </div>
         <div class="form-group form-float">
             <div class="form-line">
                 <input class="form-control" type="text" name="FullName" value="@Model.FullName">
-                <label for="FullName" class="form-label">@L("FullName")</label>
+                <label for="FullName" class="form-label">产品名称</label>
             </div>
         </div>
         <div class="form-group form-float">
             <div class="form-line">
                 <input class="form-control" type="text" name="Description" value="@Model.Description">
-                <label for="Description" class="form-label">@L("Description")</label>
+                <label for="Description" class="form-label">描述</label>
             </div>
+        </div>
+
+        <div class="form-group form-float">
+            <div class="activityshow_box" style="margin-top:40%;width: 100%;display:none;margin-let:15%;margin-right:15%;padding:0;margin:2px 0;">
+            </div>
+            <textarea id="htmlContentEdit" name="HtmlContent">@Model.HtmlContent</textarea>
+            <p>Tips information is here</p>
         </div>
 
     </form>
 </div>
 @Html.Partial("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
-<script src="~/view-resources/Views/Product/_EditProductInfoModal.js" asp-append-version="true"></script>
+<script src="~/view-resources/Views/Product/_EditProductInfoModal.js"></script>
