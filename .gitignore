@@ -259,3 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/src/Lanting.IDCode.Web.Mvc/wwwroot/images/products
+/src/Lanting.IDCode.Web.Mvc/wwwroot/codepage/baolong

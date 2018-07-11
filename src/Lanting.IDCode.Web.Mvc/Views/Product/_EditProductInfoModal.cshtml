@@ -101,5 +101,8 @@
 
     </form>
 </div>
-@Html.Partial("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
-<script src="~/view-resources/Views/Product/_EditProductInfoModal.js"></script>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default waves-effect">@L("Cancel")</button>
+    <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
+</div>
+<script src="~/view-resources/Views/Product/_EditProductInfoModal.js" asp-append-version="true"></script>
