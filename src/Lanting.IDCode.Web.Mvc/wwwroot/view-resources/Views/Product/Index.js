@@ -12,9 +12,9 @@
             theme: "modern",                  //主题
             language: "zh_cn",                //语言 ，可自行下载中文
 
-            height: 300,
+            height: 280,
 
-            menubar: "insert",
+            
 
             plugins: [                             //插件，可自行根据现实内容删除
                 "advlist autolink lists charmap print preview hr anchor pagebreak spellchecker",
@@ -77,16 +77,19 @@
             template_popup_width: "320",
             templates: [
                 {
-                    title: "详情",
-                    url: "template/editor_details.htm",
-                    description: "详情编辑页"
+                    title: "商品",
+                    url: "template/product.htm",
+                    description: "产品编辑页"
                 },
                 {
-                    title: "时间",
-                    url: "template/time.htm",
-                    description: "时间示例"
+                    title: "商城",
+                    url: "template/shop.html",
+                    description: "商城模板"
                 }
-            ]
+            ],
+
+            plugin_preview_width: 250,
+            plugin_preview_height: 500,
         });
 
         var _service = abp.services.app.productInfo;

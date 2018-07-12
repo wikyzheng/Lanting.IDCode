@@ -10,7 +10,7 @@
 <script src="~/view-resources/Views/Product/tiny/tinymce.min.js"></script>
 
 @section scripts
-{
+    {
     <script src="~/view-resources/Views/Product/Index.js" asp-append-version="true"></script>
 }
 
@@ -85,16 +85,22 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="Code" name="Code">
-                            <label for="Code" class="form-label">产品代号</label>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input class="form-control" type="text" id="Code" name="Code">
+                                    <label for="Code" class="form-label">产品代号</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="FullName" name="FullName">
-                            <label for="FullName" class="form-label">产品名称</label>
+                        <div class="col-sm-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input class="form-control" type="text" id="FullName" name="FullName">
+                                    <label for="FullName" class="form-label">产品名称</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group form-float">
@@ -104,10 +110,10 @@
                         </div>
                     </div>
                     <div class="form-group form-float">
-                        <div class="activityshow_box" style="margin-top:40%;width: 100%;display:none;margin-let:15%;margin-right:15%;padding:0;margin:2px 0;">
+                        <div class="activityshow_box" style="margin-top:40%;width: 100%;display:none;margin-left:15%;margin-right:15%;padding:0;margin:2px 0;">
                         </div>
-                        <textarea id="elm1" name="HtmlContent">请输入产品图文内容...</textarea>
-                        <p>Tips information is here</p>
+                        <textarea id="elm1" name="HtmlContent" >请输入产品图文内容...</textarea>
+                       
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
