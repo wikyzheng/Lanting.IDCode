@@ -46,7 +46,7 @@ namespace Lanting.IDCode.Application
         [Required]
         public int AntiFackCodeType { get; set; }
 
-        public string AntiFackCode { get; set; }
+       
 
         [Required]
         public Int64 StartOne { get; set; }

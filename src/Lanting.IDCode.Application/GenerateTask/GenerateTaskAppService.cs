@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Abp.Authorization;
 using Lanting.IDCode.Authorization;
 using Lanting.IDCode.Entity;
+using Abp.UI;
 
 namespace Lanting.IDCode.Application
 {
@@ -33,12 +34,24 @@ namespace Lanting.IDCode.Application
 
         public override async Task<GenerateTaskDto> Create(CreateGenerateTaskDto input)
         {
+
+            var isExist = _generateTaskRepository.GetAll().Any(x => x.Remark.Equals(input.Remark, StringComparison.OrdinalIgnoreCase));
+            if (isExist)
+                throw new UserFriendlyException("任务名重复！");
+
+            //generate the task
+            input.Created = DateTime.Now;
+            input.TaskStatu = (int)TaskStatu.Init;
+            input.UserId = (int)(base.AbpSession.UserId ?? 0);
+            input.IsAntiFake = input.AFCodeLength.HasValue && input.AFCodeLength.Value > 0;
+            input.IsSuccess = false;
             var generateTask = ObjectMapper.Map<GenerateTask>(input);
+            var entity = await _generateTaskRepository.InsertAndGetIdAsync(generateTask);
 
-            var entity = _generateTaskRepository.Insert(generateTask);
-            var dto = ObjectMapper.Map<GenerateTaskDto>(entity);
+            //run the task
 
-            return await Task.FromResult(dto);
+
+            return new GenerateTaskDto();
         }
 
         public override Task<GenerateTaskDto> Get(EntityDto<int> input)
@@ -57,7 +70,7 @@ namespace Lanting.IDCode.Application
             generateTask.Created = input.Created;
             generateTask.IsSuccess = input.IsSuccess;
             generateTask.FailReason = input.FailReason;
-            generateTask.Completed = input.Completed;
+
             generateTask.ProductId = input.ProductId;
             generateTask.GenerateCount = input.GenerateCount;
             generateTask.TaskStatu = (TaskStatu)input.TaskStatu;
@@ -65,7 +78,7 @@ namespace Lanting.IDCode.Application
             generateTask.IsAntiFake = input.IsAntiFake;
             generateTask.AFCodeLength = input.AFCodeLength;
             generateTask.AntiFackCodeType = (AntiFackCodeType)input.AntiFackCodeType;
-            generateTask.AntiFackCode = input.AntiFackCode;
+
             generateTask.StartOne = input.StartOne;
             generateTask.EndOne = input.EndOne;
 

@@ -13,6 +13,10 @@ namespace Lanting.IDCode.Application
     [AutoMapFrom(typeof(GenerateTask))]
     public class GenerateTaskDto : EntityDto
     {
+        public GenerateTaskDto()
+        {
+            this.Product = new ProductInfoDto();
+        }
         [Required]
         public int UserId { get; set; }
 
@@ -31,6 +35,8 @@ namespace Lanting.IDCode.Application
         [Required]
         public int ProductId { get; set; }
 
+        public ProductInfoDto Product { get; set; }
+
         [Required]
         public int GenerateCount { get; set; }
 
@@ -46,8 +52,6 @@ namespace Lanting.IDCode.Application
 
         [Required]
         public int AntiFackCodeType { get; set; }
-
-        public string AntiFackCode { get; set; }
 
         [Required]
         public Int64 StartOne { get; set; }

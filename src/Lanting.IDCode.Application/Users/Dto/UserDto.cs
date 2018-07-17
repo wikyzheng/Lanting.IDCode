@@ -44,7 +44,7 @@ namespace Lanting.IDCode.Users.Dto
         public virtual int AllowCodeCount { get; set; }
 
         /// <summary>
-        /// 可设置产品数量
+        /// 可设置页面数量
         /// </summary>
         public virtual int AllowProductCount { get; set; }
     }

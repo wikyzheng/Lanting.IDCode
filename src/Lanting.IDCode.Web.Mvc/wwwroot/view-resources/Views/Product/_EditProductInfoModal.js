@@ -4,17 +4,13 @@
         selector: '#htmlContentEdit',          //<textarea>中为编辑区域
         theme: "modern",                  //主题
         language: "zh_cn",                //语言 ，可自行下载中文
-
         height: 280,
-
-
 
         plugins: [                             //插件，可自行根据现实内容删除
             "advlist autolink lists charmap print preview hr anchor pagebreak spellchecker",
             "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime  nonbreaking image imagetools template",
             "save table contextmenu directionality emoticons paste textcolor"
         ],
-
 
         //content_css: "css/content.css",      //引用的外部CSS样式，可删除
         toolbar: "insertfile undo redo | styleselect fontselect fontsizeselect| bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      | print preview fullpage | forecolor backcolor | image | template",                          //工具栏，可根据需求删除
@@ -70,16 +66,19 @@
         template_popup_width: "320",
         templates: [
             {
-                title: "详情",
-                url: "template/editor_details.htm",
-                description: "详情编辑页"
+                title: "商城(中文)",
+                url: "template/shop.html",
+                description: "商城模板"
             },
             {
-                title: "时间",
-                url: "template/time.htm",
-                description: "时间示例"
+                title: "欢迎页(英文)",
+                url: "template/product.html",
+                description: "页面编辑页"
             }
-        ]
+        ],
+
+        plugin_preview_width: 250,
+        plugin_preview_height: 500
     });
     var _service = abp.services.app.productInfo;
     var _$modal = $('#ProductInfoEditModal');

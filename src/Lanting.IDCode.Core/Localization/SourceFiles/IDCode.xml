@@ -92,7 +92,7 @@
     <text name="Skins">皮肤</text>
     <text name="Settings">设置</text>
     <text name="Tasks">生成任务</text>
-    <text name="Products">产品维护</text>
+    <text name="Products">页面维护</text>
     <text name="Codes">标识码业务</text>
   </texts>
 </localizationDictionary>

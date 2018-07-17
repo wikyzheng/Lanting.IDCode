@@ -121,7 +121,7 @@
     <section>
         <aside id="leftsidebar" class="sidebar">
 
-            @await Component.InvokeAsync(typeof(SideBarUserAreaViewComponent))
+            @*@await Component.InvokeAsync(typeof(SideBarUserAreaViewComponent))*@
 
             @await Component.InvokeAsync(typeof(SideBarNavViewComponent), new { activeMenu = ViewBag.CurrentPageName })
 

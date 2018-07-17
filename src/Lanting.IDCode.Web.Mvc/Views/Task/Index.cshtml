@@ -21,7 +21,7 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    @L("GenerateTaskList")
+                    任务列表
                 </h2>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
@@ -38,51 +38,35 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@L("UserId")</th>
-                            <th>@L("Remark")</th>
-                            <th>@L("Created")</th>
-                            <th>@L("IsSuccess")</th>
-                            <th>@L("FailReason")</th>
-                            <th>@L("Completed")</th>
-                            <th>@L("ProductId")</th>
-                            <th>@L("GenerateCount")</th>
-                            <th>@L("TaskStatu")</th>
-                            <th>@L("DataFilePath")</th>
-                            <th>@L("IsAntiFake")</th>
-                            <th>@L("AFCodeLength")</th>
-                            <th>@L("AntiFackCodeType")</th>
-                            <th>@L("AntiFackCode")</th>
-                            <th>@L("StartOne")</th>
-                            <th>@L("EndOne")</th>
+                            <th>任务名称</th>
+                            <th>创建时间</th>
+                            <th>是否成功</th>
+                            <th>是否完成</th>
+                            <th>页面名称</th>
+                            <th>生成数量</th>
+                            <th>任务状态</th>
+                            <th>文件</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model.Items)
                         {
                             <tr>
-                                <td>@item.UserId</td>
                                 <td>@item.Remark</td>
                                 <td>@item.Created</td>
                                 <td>@item.IsSuccess</td>
-                                <td>@item.FailReason</td>
                                 <td>@item.Completed</td>
-                                <td>@item.ProductId</td>
+                                <td>@item.Product.FullName</td>
                                 <td>@item.GenerateCount</td>
                                 <td>@item.TaskStatu</td>
                                 <td>@item.DataFilePath</td>
-                                <td>@item.IsAntiFake</td>
-                                <td>@item.AFCodeLength</td>
-                                <td>@item.AntiFackCodeType</td>
-                                <td>@item.AntiFackCode</td>
-                                <td>@item.StartOne</td>
-                                <td>@item.EndOne</td>
                                 <td class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">menu</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="#" class="waves-effect waves-block edit-generatetask" data-generatetask-id="@item.Id" data-toggle="modal" data-target="#GenerateTaskEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
-                                        <li><a href="#" class="waves-effect waves-block delete-generatetask" data-generatetask-id="@item.Id" data-generatetask-name="@item.Id"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                        <li><a href="#" class="waves-effect waves-block edit-generatetask" data-generatetask-id="@item.Id" data-toggle="modal" data-target="#GenerateTaskEditModal"><i class="material-icons">edit</i>查看</a></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -103,104 +87,48 @@
             <form name="generateTaskCreateForm" role="form" novalidate class="form-validation">
                 <div class="modal-header">
                     <h4 class="modal-title">
-                        <span>@L("CreateNewGenerateTask")</span>
+                        <span>创建任务</span>
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="UserId" name="UserId" required maxlength="11">
-                            <label for="UserId" class="form-label">@L("UserId")</label>
-                        </div>
-                    </div>
+
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input class="form-control" type="text" id="Remark" name="Remark">
-                            <label for="Remark" class="form-label">@L("Remark")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="Created" name="Created" required maxlength="6">
-                            <label for="Created" class="form-label">@L("Created")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="">
-                            <input type="checkbox" name="IsSuccess" value="true" checked class="filled-in" />
-                            <label for="IsSuccess" class="form-label">@L("IsSuccess")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="FailReason" name="FailReason">
-                            <label for="FailReason" class="form-label">@L("FailReason")</label>
+                            <label for="Remark" class="form-label">名称</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input class="form-control" type="text" id="Completed" name="Completed" maxlength="6">
-                            <label for="Completed" class="form-label">@L("Completed")</label>
+                            <label for="Completed" class="form-label">是否完成</label>
                         </div>
                     </div>
+                 
                     <div class="form-group form-float">
+                        <label for="ProductId" class="form-label" style="color:#aaa;font-weight:normal">选择页面</label>
                         <div class="form-line">
-                            <input class="form-control" type="text" id="ProductId" name="ProductId" required maxlength="11">
-                            <label for="ProductId" class="form-label">@L("ProductId")</label>
+                            @Html.DropDownList("ProductId", ViewBag.Products as IEnumerable<SelectListItem>, new { @class = "form-control" })
+
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input class="form-control" type="text" id="GenerateCount" name="GenerateCount" required maxlength="11">
-                            <label for="GenerateCount" class="form-label">@L("GenerateCount")</label>
+                            <label for="GenerateCount" class="form-label">生成数量</label>
                         </div>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="TaskStatu" name="TaskStatu" required maxlength="11">
-                            <label for="TaskStatu" class="form-label">@L("TaskStatu")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="DataFilePath" name="DataFilePath">
-                            <label for="DataFilePath" class="form-label">@L("DataFilePath")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="">
-                            <input type="checkbox" name="IsAntiFake" value="true" checked class="filled-in" />
-                            <label for="IsAntiFake" class="form-label">@L("IsAntiFake")</label>
-                        </div>
-                    </div>
+
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input class="form-control" type="text" id="AFCodeLength" name="AFCodeLength" maxlength="11">
-                            <label for="AFCodeLength" class="form-label">@L("AFCodeLength")</label>
+                            <label for="AFCodeLength" class="form-label">防伪码长度</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input class="form-control" type="text" id="AntiFackCodeType" name="AntiFackCodeType" required maxlength="11">
-                            <label for="AntiFackCodeType" class="form-label">@L("AntiFackCodeType")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="AntiFackCode" name="AntiFackCode">
-                            <label for="AntiFackCode" class="form-label">@L("AntiFackCode")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="StartOne" name="StartOne" required maxlength="20">
-                            <label for="StartOne" class="form-label">@L("StartOne")</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="EndOne" name="EndOne" required maxlength="20">
-                            <label for="EndOne" class="form-label">@L("EndOne")</label>
+                            <label for="AntiFackCodeType" class="form-label">防伪码类型</label>
                         </div>
                     </div>
                     <p>Tips information is here</p>

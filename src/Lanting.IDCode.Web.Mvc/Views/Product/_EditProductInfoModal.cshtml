@@ -6,7 +6,7 @@
     Layout = null;
 }
 
-@Html.Partial("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("修改产品图文"))
+@Html.Partial("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("修改页面"))
 
 <div class="modal-body">
     <form name="ProductInfoEditForm" role="form" novalidate class="form-validation">
@@ -16,7 +16,7 @@
                 <div class="form-group form-float">
                     <div class="form-line">
                         <input class="form-control" type="text" name="Code" value="@Model.Code" readonly="readonly">
-                        <label for="Code" class="form-label">产品代码</label>
+                        <label for="Code" class="form-label">页面代号</label>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="form-group form-float">
                     <div class="form-line">
                         <input class="form-control" type="text" name="FullName" value="@Model.FullName">
-                        <label for="FullName" class="form-label">产品名称</label>
+                        <label for="FullName" class="form-label">页面名称</label>
                     </div>
                 </div>
             </div>
