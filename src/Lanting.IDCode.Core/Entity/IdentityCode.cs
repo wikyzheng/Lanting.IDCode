@@ -9,11 +9,14 @@ namespace Lanting.IDCode.Entity
     [Table("identity_code")]
     public class IdentityCode : Abp.Domain.Entities.Entity<long>
     {
+
         public string Code { get; set; }
         public int ProductId { get; set; }
         public string AntiFakeCode { get; set; }
         public bool IsActived { get; set; }
         public DateTime Created { get; set; }
         public int TaskId { get; set; }
+        public int ScanTimes { get; set; }
+        public string ComfuseCode { get; set; }
     }
 }

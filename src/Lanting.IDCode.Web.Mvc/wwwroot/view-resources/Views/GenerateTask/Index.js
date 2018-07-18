@@ -23,7 +23,7 @@
 
             e.preventDefault();
             $.ajax({
-                url: abp.appPath + 'GenerateTask/EditGenerateTaskModal?id=' + id,
+                url: abp.appPath + 'Task/EditGenerateTaskModal?id=' + id,
                 type: 'POST',
                 contentType: 'application/html',
                 success: function (content) {

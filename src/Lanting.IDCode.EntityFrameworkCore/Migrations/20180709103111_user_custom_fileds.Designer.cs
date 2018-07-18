@@ -1033,8 +1033,7 @@ namespace Lanting.IDCode.Migrations
 
             modelBuilder.Entity("Lanting.IDCode.Entity.IdentityCode", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<long>("Id");
 
                     b.Property<string>("AntiFakeCode");
 

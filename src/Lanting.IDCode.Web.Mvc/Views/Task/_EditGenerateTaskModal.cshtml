@@ -1,30 +1,34 @@
 ﻿@using Abp.MultiTenancy
 @using Lanting.IDCode.Application
 @using Lanting.IDCode.Web.Models.Common.Modals
+@using Lanting.IDCode.Utility
+@using Lanting.IDCode.Entity
 @model GenerateTaskDto
 @{
     Layout = null;
 }
 @Html.Partial("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("任务详情"))
-<div class="modal-body" >
-    <form name="GenerateTaskEditForm" role="form" novalidate class="form-validation" >
+<div class="modal-body">
+    <form name="GenerateTaskEditForm" role="form" novalidate class="form-validation">
         <input type="hidden" name="Id" value="@Model.Id" />
 
         <div class="form-group form-float">
             <div class="form-line">
                 <input class="form-control" type="text" name="Remark" value="@Model.Remark" readonly="readonly">
-                <label for="Remark" class="form-label">@L("Remark")</label>
+                <label for="Remark" class="form-label">任务名称</label>
             </div>
         </div>
         <div class="form-group form-float">
             <div class="form-line">
-                <input class="form-control" type="datetime-local" name="Created" value="@Model.Created" required maxlength="6" readonly="readonly">
+                <input class="form-control" type="datetime" name="Created" value="@Model.Created" required maxlength="6" readonly="readonly">
                 <label for="Created" class="form-label">创建时间</label>
             </div>
         </div>
         <div class="form-group form-float">
             <div class="">
-                <input id="IsSuccess" type="checkbox" name="IsSuccess" value="true" @(Model.IsSuccess ? "checked" : "") class="form-control" readonly="readonly"/>
+                <i class="material-icons" style="color:@(Model.IsSuccess ? "green":"red");">
+                    @(Model.IsSuccess ? "check_box" : "indeterminate_check_box")
+                </i>
                 <label for="IsSuccess" class="form-label">是否成功</label>
             </div>
         </div>
@@ -40,13 +44,7 @@
         }
         <div class="form-group form-float">
             <div class="form-line">
-                <input class="form-control" type="text" name="Completed" value="@Model.Completed" maxlength="6" readonly="readonly">
-                <label for="Completed" class="form-label">是否已完成</label>
-            </div>
-        </div>
-        <div class="form-group form-float">
-            <div class="form-line">
-                <input class="form-control" type="text" name="ProductId" value="@Model.ProductId" required maxlength="11" readonly="readonly">
+                <input class="form-control" type="text" name="ProductId" value="@Model.Product.FullName" required maxlength="11" readonly="readonly">
                 <label for="ProductId" class="form-label">使用页面名称</label>
             </div>
         </div>
@@ -58,23 +56,15 @@
         </div>
         <div class="form-group form-float">
             <div class="form-line">
-                <input class="form-control" type="text" name="TaskStatu" value="@Model.TaskStatu" required maxlength="11" readonly="readonly">
+                <input class="form-control" type="text" name="TaskStatu" value="@EnumHelper.Codes((TaskStatu)Model.TaskStatu)" required maxlength="11" readonly="readonly">
                 <label for="TaskStatu" class="form-label">运行状态</label>
             </div>
         </div>
-
-        @if (Model.IsSuccess)
-        {
-            <div class="form-group form-float">
-                <div class="form-line">
-                    <input class="form-control" type="text" name="DataFilePath" value="@Model.DataFilePath" readonly="readonly">
-                    <label for="DataFilePath" class="form-label">生成文件</label>
-                </div>
-            </div>
-        }
         <div class="form-group form-float">
             <div class="">
-                <input id="IsAntiFake" type="checkbox" name="IsAntiFake" value="true" @(Model.IsAntiFake ? "checked" : "") class="form-control" readonly="readonly" />
+                <i class="material-icons" style="color:@(Model.IsAntiFake ? "green":"red");">
+                    @(Model.IsAntiFake ? "check_box" : "indeterminate_check_box")
+                </i>
                 <label for="IsAntiFake" class="form-label">是否防伪</label>
             </div>
         </div>

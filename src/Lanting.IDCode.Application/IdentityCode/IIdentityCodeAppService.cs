@@ -7,6 +7,6 @@ namespace Lanting.IDCode.Application
 {
     public interface IIdentityCodeAppService : IAsyncCrudAppService<IdentityCodeDto, long, PagedResultRequestDto, CreateIdentityCodeDto, IdentityCodeDto>
     {
-     
+
     }
 }

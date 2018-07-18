@@ -40,8 +40,7 @@ namespace Lanting.IDCode.Migrations
                 name: "identity_code",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<long>(nullable: false),
                     Code = table.Column<string>(nullable: true),
                     ProductId = table.Column<int>(nullable: false),
                     AntiFakeCode = table.Column<string>(nullable: true),

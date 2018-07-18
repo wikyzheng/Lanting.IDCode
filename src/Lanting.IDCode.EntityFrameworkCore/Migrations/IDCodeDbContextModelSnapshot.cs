@@ -994,11 +994,7 @@ namespace Lanting.IDCode.Migrations
                     b.Property<int?>("AFCodeLength")
                         .HasMaxLength(8);
 
-                    b.Property<string>("AntiFackCode");
-
                     b.Property<int>("AntiFackCodeType");
-
-                    b.Property<DateTime?>("Completed");
 
                     b.Property<DateTime>("Created");
 
@@ -1026,23 +1022,28 @@ namespace Lanting.IDCode.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductId");
+
                     b.ToTable("generate_task");
                 });
 
             modelBuilder.Entity("Lanting.IDCode.Entity.IdentityCode", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<long>("Id");
 
                     b.Property<string>("AntiFakeCode");
 
                     b.Property<string>("Code");
+
+                    b.Property<string>("ComfuseCode");
 
                     b.Property<DateTime>("Created");
 
                     b.Property<bool>("IsActived");
 
                     b.Property<int>("ProductId");
+
+                    b.Property<int>("ScanTimes");
 
                     b.Property<int>("TaskId");
 
@@ -1073,6 +1074,17 @@ namespace Lanting.IDCode.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("product_info");
+                });
+
+            modelBuilder.Entity("Lanting.IDCode.Entity.TestKey", b =>
+                {
+                    b.Property<long>("Id");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TtestKeys");
                 });
 
             modelBuilder.Entity("Lanting.IDCode.MultiTenancy.Tenant", b =>
@@ -1273,6 +1285,14 @@ namespace Lanting.IDCode.Migrations
                     b.HasOne("Lanting.IDCode.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
+                });
+
+            modelBuilder.Entity("Lanting.IDCode.Entity.GenerateTask", b =>
+                {
+                    b.HasOne("Lanting.IDCode.Entity.ProductInfo", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Lanting.IDCode.MultiTenancy.Tenant", b =>

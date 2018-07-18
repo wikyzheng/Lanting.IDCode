@@ -2,6 +2,8 @@
 @using Abp.Authorization.Users
 @using Lanting.IDCode.Application
 @using Lanting.IDCode.Web.Startup
+@using Lanting.IDCode.Utility
+@using Lanting.IDCode.Entity
 @model Abp.Application.Services.Dto.PagedResultDto<GenerateTaskDto>
 @{
     ViewBag.CurrentPageName = PageNames.Tasks; //The menu item will be active for this page.
@@ -41,11 +43,10 @@
                             <th>任务名称</th>
                             <th>创建时间</th>
                             <th>是否成功</th>
-                            <th>是否完成</th>
                             <th>页面名称</th>
                             <th>生成数量</th>
                             <th>任务状态</th>
-                            <th>文件</th>
+
 
                         </tr>
                     </thead>
@@ -54,19 +55,22 @@
                         {
                             <tr>
                                 <td>@item.Remark</td>
-                                <td>@item.Created</td>
-                                <td>@item.IsSuccess</td>
-                                <td>@item.Completed</td>
+                                <td>@item.Created.ToLongDateString()</td>
+                                <td>
+                                    <i class="material-icons" style="color:@(item.IsSuccess ? "green":"red");">
+                                        @(item.IsSuccess ? "check_box" : "indeterminate_check_box")
+                                    </i>
+                                </td>
                                 <td>@item.Product.FullName</td>
                                 <td>@item.GenerateCount</td>
-                                <td>@item.TaskStatu</td>
-                                <td>@item.DataFilePath</td>
+                                <td>@EnumHelper.Codes((TaskStatu)item.TaskStatu)</td>
                                 <td class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">menu</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="#" class="waves-effect waves-block edit-generatetask" data-generatetask-id="@item.Id" data-toggle="modal" data-target="#GenerateTaskEditModal"><i class="material-icons">edit</i>查看</a></li>
+                                        <li><a href="#" class="waves-effect waves-block edit-generatetask" data-generatetask-id="@item.Id" data-toggle="modal" data-target="#GenerateTaskEditModal"><i class="material-icons">label</i>查看</a></li>
+                                        <li><a href="@item.DataFilePath"><i class="material-icons">grade</i>下载数据</a></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -98,13 +102,7 @@
                             <label for="Remark" class="form-label">名称</label>
                         </div>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="Completed" name="Completed" maxlength="6">
-                            <label for="Completed" class="form-label">是否完成</label>
-                        </div>
-                    </div>
-                 
+
                     <div class="form-group form-float">
                         <label for="ProductId" class="form-label" style="color:#aaa;font-weight:normal">选择页面</label>
                         <div class="form-line">
@@ -125,13 +123,13 @@
                             <label for="AFCodeLength" class="form-label">防伪码长度</label>
                         </div>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="AntiFackCodeType" name="AntiFackCodeType" required maxlength="11">
-                            <label for="AntiFackCodeType" class="form-label">防伪码类型</label>
-                        </div>
-                    </div>
-                    <p>Tips information is here</p>
+                    @*<div class="form-group form-float">
+                            <div class="form-line">
+                                <input class="form-control" type="text" id="AntiFackCodeType" name="AntiFackCodeType" required maxlength="11">
+                                <label for="AntiFackCodeType" class="form-label">防伪码类型</label>
+                            </div>
+                        </div>*@
+                    <p>防伪码类型目前只支持数字</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>

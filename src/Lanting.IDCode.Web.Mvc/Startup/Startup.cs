@@ -13,7 +13,8 @@ using Lanting.IDCode.Configuration;
 using Lanting.IDCode.Identity;
 using Lanting.IDCode.Web.Resources;
 using Abp.AspNetCore.SignalR.Hubs;
-
+using Lanting.IDCode.Core.IRepositories;
+using Lanting.IDCode.EntityFrameworkCore.Repositories;
 
 namespace Lanting.IDCode.Web.Startup
 {
@@ -37,7 +38,7 @@ namespace Lanting.IDCode.Web.Startup
             AuthConfigurer.Configure(services, _appConfiguration);
 
             services.AddScoped<IWebResourceManager, WebResourceManager>();
-
+            services.AddScoped<IIDentityCodeRepository, IdentityCodeRepository>();
             services.AddSignalR();
 
             // Configure Abp and Dependency Injection

@@ -17,15 +17,15 @@ namespace Lanting.IDCode.Application
         {
             this.Product = new ProductInfoDto();
         }
-        [Required]
+      
         public int UserId { get; set; }
 
         public string Remark { get; set; }
 
-        [Required]
+      
         public DateTime Created { get; set; }
 
-        [Required]
+       
         public bool IsSuccess { get; set; }
 
         public string FailReason { get; set; }
@@ -40,23 +40,25 @@ namespace Lanting.IDCode.Application
         [Required]
         public int GenerateCount { get; set; }
 
-        [Required]
+        
         public int TaskStatu { get; set; }
 
         public string DataFilePath { get; set; }
 
-        [Required]
+        
         public bool IsAntiFake { get; set; }
 
+        [MinLength(4)]
+        [MaxLength(8)]
         public int? AFCodeLength { get; set; }
 
-        [Required]
+       
         public int AntiFackCodeType { get; set; }
 
-        [Required]
+       
         public Int64 StartOne { get; set; }
 
-        [Required]
+       
         public Int64 EndOne { get; set; }
     }
 }

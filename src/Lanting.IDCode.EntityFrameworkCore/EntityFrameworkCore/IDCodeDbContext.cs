@@ -18,5 +18,6 @@ namespace Lanting.IDCode.EntityFrameworkCore
         public virtual DbSet<ProductInfo> ProductInfos { get; set; }
         public virtual DbSet<GenerateTask> GenerateTasks { get; set; }
         public virtual DbSet<IdentityCode> IdentityCodes { get; set; }
+        public virtual DbSet<TestKey> TtestKeys { get; set; }
     }
 }
