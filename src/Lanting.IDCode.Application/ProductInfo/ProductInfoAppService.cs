@@ -94,7 +94,9 @@ namespace Lanting.IDCode.Application
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
             string filePath = Path.Combine(dir, fileName);
-            await File.WriteAllTextAsync(filePath, htmlContent);
+            string utf8_line = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">";
+            htmlContent = utf8_line + htmlContent;
+            File.WriteAllText(filePath, htmlContent, System.Text.Encoding.UTF8);
         }
 
         public async Task<string> GetHtmlContent(string productCode)

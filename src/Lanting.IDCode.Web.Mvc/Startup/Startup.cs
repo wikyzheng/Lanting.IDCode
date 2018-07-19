@@ -83,6 +83,11 @@ namespace Lanting.IDCode.Web.Startup
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    "codeUrl",
+                    "{code?}",
+                    new { controller = "Home", action = "Index" });
             });
         }
     }

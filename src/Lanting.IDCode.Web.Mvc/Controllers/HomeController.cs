@@ -51,7 +51,7 @@ namespace Lanting.IDCode.Web.Controllers
             string username = user.UserName;
             string productcode = product.Code;
             //get the html url
-            return Redirect($"{_defaultUrl}/codepage/{username}/{productcode}.html");
+            return Redirect($"{_defaultUrl}codepage/{username}/{productcode}.html");
         }
     }
 }
