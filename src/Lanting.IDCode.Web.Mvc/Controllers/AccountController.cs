@@ -370,12 +370,12 @@ namespace Lanting.IDCode.Web.Controllers
 
         public ActionResult RedirectToAppHome()
         {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Task");
         }
 
         public string GetAppHomeUrl()
         {
-            return Url.Action("Index", "Home");
+            return Url.Action("Index", "Task");
         }
 
         #endregion

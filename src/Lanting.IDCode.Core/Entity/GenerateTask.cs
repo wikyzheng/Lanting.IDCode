@@ -10,10 +10,7 @@ namespace Lanting.IDCode.Entity
     [Table("generate_task")]
     public class GenerateTask : Abp.Domain.Entities.Entity
     {
-        public GenerateTask()
-        {
-            this.Product = new ProductInfo();
-        }
+     
         public int UserId { get; set; }
         public string Remark { get; set; }
         public DateTime Created { get; set; }
@@ -30,8 +27,6 @@ namespace Lanting.IDCode.Entity
         public AntiFackCodeType AntiFackCodeType { get; set; }
         public long StartOne { get; set; }
         public long EndOne { get; set; }
-        [ForeignKey("ProductId")]
-        public virtual ProductInfo Product { get; set; }
     }
 
     public enum TaskStatu

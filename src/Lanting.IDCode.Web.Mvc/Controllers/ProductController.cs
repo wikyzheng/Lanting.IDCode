@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lanting.IDCode.Web.Mvc.Controllers
 {
-    //[AbpMvcAuthorize(PermissionNames.Pages_Codes)]
+    [AbpMvcAuthorize(PermissionNames.Pages_Codes)]
     public class ProductController : IDCodeControllerBase
     {
         private readonly IProductInfoAppService _appService;

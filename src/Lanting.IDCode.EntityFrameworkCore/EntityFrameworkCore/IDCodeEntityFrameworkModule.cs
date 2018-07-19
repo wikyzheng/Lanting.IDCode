@@ -31,6 +31,7 @@ namespace Lanting.IDCode.EntityFrameworkCore
                         IDCodeDbContextConfigurer.Configure(options.DbContextOptions, options.ConnectionString);
                     }
                 });
+
             }
         }
 

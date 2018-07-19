@@ -14,14 +14,6 @@ namespace Lanting.IDCode.Web.Startup
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
-                        PageNames.Home,
-                        L("HomePage"),
-                        url: "",
-                        icon: "home",
-                        requiresAuthentication: true
-                    )
-                ).AddItem(
-                    new MenuItemDefinition(
                         PageNames.Tenants,
                         L("Tenants"),
                         url: "Tenants",
@@ -49,7 +41,7 @@ namespace Lanting.IDCode.Web.Startup
                         PageNames.Tasks,
                         L("Tasks"),
                         url: "Task",
-                        icon: "info",
+                        icon: "event",
                         requiredPermissionName: PermissionNames.Pages_Codes
                     )
                 ).AddItem(
@@ -57,7 +49,7 @@ namespace Lanting.IDCode.Web.Startup
                         PageNames.Products,
                         L("Products"),
                         url: "Product",
-                       icon: "info",
+                       icon: "settings",
                         requiredPermissionName: PermissionNames.Pages_Codes
                     )
                 );

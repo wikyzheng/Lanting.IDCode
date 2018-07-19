@@ -17,6 +17,7 @@ using Lanting.IDCode.Sessions;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using Lanting.IDCode.Utility;
 
 namespace Lanting.IDCode.Application
 {
@@ -54,7 +55,7 @@ namespace Lanting.IDCode.Application
         public override async Task<GenerateTaskDto> Create(CreateGenerateTaskDto input)
         {
 
-            var isExist = _generateTaskRepository.GetAll().Any(x => x.Remark.Equals(input.Remark, StringComparison.OrdinalIgnoreCase));
+            var isExist = _generateTaskRepository.GetAll().AsNoTracking().Any(x => x.Remark.Equals(input.Remark, StringComparison.OrdinalIgnoreCase));
             if (isExist)
                 throw new UserFriendlyException("任务名重复！");
 
@@ -71,7 +72,7 @@ namespace Lanting.IDCode.Application
 
             try
             {
-                var maxOne = await _identityCodeRepository.GetAll().OrderByDescending(x => x.Id).FirstOrDefaultAsync();
+                var maxOne = await _identityCodeRepository.GetAll().AsNoTracking().OrderByDescending(x => x.Id).FirstOrDefaultAsync();
 
                 long maxIndex = maxOne == null ? 0 : maxOne.Id;
 
@@ -82,13 +83,13 @@ namespace Lanting.IDCode.Application
                 //run the task
                 for (int i = 0; i < input.GenerateCount; i++)
                 {
-                    var random = this.GenerateRandomCode(12);
+                    var random = RandomHelper.GenerateRandomCode(12);
                     maxIndex++;
                     IdentityCode code = new IdentityCode()
                     {
                         Id = maxIndex,
                         ComfuseCode = random,
-                        AntiFakeCode = input.IsAntiFake ? GenerateRandomCode(input.AFCodeLength.Value) : string.Empty,
+                        AntiFakeCode = input.IsAntiFake ? RandomHelper.GenerateRandomCode(input.AFCodeLength.Value) : string.Empty,
                         Created = input.Created,
                         IsActived = true,
                         ProductId = input.ProductId,
@@ -103,9 +104,9 @@ namespace Lanting.IDCode.Application
 
                 var fileUrl = await this.GenerateFile(input.Remark, codeNums);
 
-                await _identityCodeRepository.BatchInsert(codes);
+                int count = await _identityCodeRepository.BatchInsert(codes);
 
-                currentTask.StartOne = startIndex;
+                currentTask.StartOne = startIndex + 1;
                 currentTask.EndOne = maxIndex;
                 currentTask.TaskStatu = TaskStatu.Completed;
                 currentTask.IsSuccess = true;
@@ -126,24 +127,15 @@ namespace Lanting.IDCode.Application
         }
 
 
-        public string GenerateRandomCode(int length)
-        {
-            StringBuilder sb = new StringBuilder();
-            Random r = new Random(System.Environment.TickCount);
-            for (int i = 0; i < length; i++)
-            {
-                sb.Append(r.Next(9).ToString());
-            }
-            return sb.ToString();
 
-        }
-
-        public override Task<GenerateTaskDto> Get(EntityDto<int> input)
+        public override async Task<GenerateTaskDto> Get(EntityDto<int> input)
         {
-            var entity = _generateTaskRepository.Get(input.Id);
-            entity.Product = _productRepository.Get(entity.ProductId);
+            var entity = await _generateTaskRepository.GetAsync(input.Id);
             var dto = ObjectMapper.Map<GenerateTaskDto>(entity);
-            return Task.FromResult<GenerateTaskDto>(dto);
+            var product = await _productRepository.GetAsync(entity.ProductId);
+            var productDto = ObjectMapper.Map<ProductInfoDto>(product);
+            dto.Product = productDto;
+            return dto;
         }
 
         public override async Task<GenerateTaskDto> Update(GenerateTaskDto input)
@@ -172,14 +164,22 @@ namespace Lanting.IDCode.Application
 
         public override async Task<PagedResultDto<GenerateTaskDto>> GetAll(PagedResultRequestDto input)
         {
-            var all = from x in _generateTaskRepository.GetAll().Include(x => x.Product)
+            var currentUserId = (int)(base.AbpSession.UserId ?? 0);
+            var all = from x in _generateTaskRepository.GetAll()
+                      where x.UserId == currentUserId
                       select ObjectMapper.Map<GenerateTaskDto>(x);
 
-            var pagedResultDto = new PagedResultDto<GenerateTaskDto>();
-            pagedResultDto.Items = all.ToList().AsReadOnly();
-            pagedResultDto.TotalCount = all.Count();
 
-            return await Task.FromResult(pagedResultDto);
+            var pagedResultDto = new PagedResultDto<GenerateTaskDto>();
+            pagedResultDto.Items = (await all.ToListAsync()).AsReadOnly();
+            foreach (var item in pagedResultDto.Items)
+            {
+                var product = await _productRepository.GetAsync(item.ProductId);
+                item.Product = ObjectMapper.Map<ProductInfoDto>(product);
+            }
+            pagedResultDto.TotalCount = await all.CountAsync();
+
+            return pagedResultDto;
         }
 
         public async Task<string> GenerateFile(string remark, IEnumerable<string> fileContents)
@@ -187,13 +187,13 @@ namespace Lanting.IDCode.Application
             var user = await _sessionAppService.GetCurrentLoginInformations();
             var fileName = $"{remark}.txt";
 
-            string dir = Path.Combine(_hostingEnvironment.WebRootPath, _fileDiretory, user.User.UserName);
+            string dir = Path.Combine(_hostingEnvironment.WebRootPath, _fileDiretory, user.User.UserName, DateTime.Now.ToString("yyMMdd"));
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
             string filePath = Path.Combine(dir, fileName);
             await File.AppendAllLinesAsync(filePath, fileContents);
             //http://xxx/codefile/baolong/remark.txt
-            return $"{_defaultUrl}{_fileDiretory}/{user.User.UserName}/{fileName}";
+            return $"{_defaultUrl}{_fileDiretory}/{user.User.UserName}/{DateTime.Now.ToString("yyMMdd")}/{fileName}";
         }
     }
 }

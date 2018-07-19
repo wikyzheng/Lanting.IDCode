@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
-using Abp.AspNetCore.Mvc.Controllers;
+using Abp.AspNetCore.Mvc.Authorization;
 using Lanting.IDCode.Application;
+using Lanting.IDCode.Authorization;
 using Lanting.IDCode.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace OneCode.BaseInfo.Web.Controllers
 {
+    [AbpMvcAuthorize(PermissionNames.Pages_Codes)]
     public class TaskController : IDCodeControllerBase
     {
         private readonly IGenerateTaskAppService _appService;

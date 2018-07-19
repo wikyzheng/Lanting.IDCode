@@ -1,13 +1,15 @@
 ﻿using Abp.Application.Services.Dto;
+using Abp.AspNetCore.Mvc.Authorization;
 using Abp.AspNetCore.Mvc.Controllers;
 using Lanting.IDCode.Application;
+using Lanting.IDCode.Authorization;
 using Lanting.IDCode.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace OneCode.BaseInfo.Web.Controllers
 {
-
+    [AbpMvcAuthorize(PermissionNames.Pages_Codes)]
     public class IdentityCodeController : IDCodeControllerBase
     {
         private readonly IIdentityCodeAppService _appService;

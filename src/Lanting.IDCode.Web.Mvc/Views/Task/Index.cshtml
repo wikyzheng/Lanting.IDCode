@@ -70,80 +70,83 @@
                                     </a>
                                     <ul class="dropdown-menu pull-right">
                                         <li><a href="#" class="waves-effect waves-block edit-generatetask" data-generatetask-id="@item.Id" data-toggle="modal" data-target="#GenerateTaskEditModal"><i class="material-icons">label</i>查看</a></li>
-                                        <li><a href="@item.DataFilePath"><i class="material-icons">grade</i>下载数据</a></li>
+                                        @if (item.IsSuccess)
+                                        {
+                                            <li><a href="@item.DataFilePath" download=""><i class="material-icons">grade</i>下载数据</a></li>
+                                        }
                                     </ul>
                                 </td>
                             </tr>
                         }
-                    </tbody>
-                </table>
-                <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#GenerateTaskCreateModal">
-                    <i class="material-icons">add</i>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="GenerateTaskCreateModal" tabindex="-1" role="dialog" aria-labelledby="GenerateTaskCreateModalLabel" data-backdrop="static">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form name="generateTaskCreateForm" role="form" novalidate class="form-validation">
-                <div class="modal-header">
-                    <h4 class="modal-title">
-                        <span>创建任务</span>
-                    </h4>
-                </div>
-                <div class="modal-body">
-
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="Remark" name="Remark">
-                            <label for="Remark" class="form-label">名称</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group form-float">
-                        <label for="ProductId" class="form-label" style="color:#aaa;font-weight:normal">选择页面</label>
-                        <div class="form-line">
-                            @Html.DropDownList("ProductId", ViewBag.Products as IEnumerable<SelectListItem>, new { @class = "form-control" })
-
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="GenerateCount" name="GenerateCount" required maxlength="11">
-                            <label for="GenerateCount" class="form-label">生成数量</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input class="form-control" type="text" id="AFCodeLength" name="AFCodeLength" maxlength="11">
-                            <label for="AFCodeLength" class="form-label">防伪码长度</label>
-                        </div>
-                    </div>
-                    @*<div class="form-group form-float">
-                            <div class="form-line">
-                                <input class="form-control" type="text" id="AntiFackCodeType" name="AntiFackCodeType" required maxlength="11">
-                                <label for="AntiFackCodeType" class="form-label">防伪码类型</label>
+                                    </tbody>
+                                </table>
+                                <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#GenerateTaskCreateModal">
+                                    <i class="material-icons">add</i>
+                                </button>
                             </div>
-                        </div>*@
-                    <p>防伪码类型目前只支持数字</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
-                    <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
+
+                <div class="modal fade" id="GenerateTaskCreateModal" tabindex="-1" role="dialog" aria-labelledby="GenerateTaskCreateModalLabel" data-backdrop="static">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form name="generateTaskCreateForm" role="form" novalidate class="form-validation">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        <span>创建任务</span>
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="Remark" name="Remark">
+                                            <label for="Remark" class="form-label">名称</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <label for="ProductId" class="form-label" style="color:#aaa;font-weight:normal">选择页面</label>
+                                        <div class="form-line">
+                                            @Html.DropDownList("ProductId", ViewBag.Products as IEnumerable<SelectListItem>, new { @class = "form-control" })
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="GenerateCount" name="GenerateCount" required maxlength="11">
+                                            <label for="GenerateCount" class="form-label">生成数量</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="AFCodeLength" name="AFCodeLength" maxlength="11">
+                                            <label for="AFCodeLength" class="form-label">防伪码长度</label>
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input class="form-control" type="text" id="AntiFackCodeType" name="AntiFackCodeType" required maxlength="11">
+                                                <label for="AntiFackCodeType" class="form-label">防伪码类型</label>
+                                            </div>
+                                        </div>*@
+                                    <p>防伪码类型目前只支持数字</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
+                                    <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="GenerateTaskEditModal" tabindex="-1" role="dialog" aria-labelledby="GenerateTaskEditModalLabel" data-backdrop="static">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+                <div class="modal fade" id="GenerateTaskEditModal" tabindex="-1" role="dialog" aria-labelledby="GenerateTaskEditModalLabel" data-backdrop="static">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
 
-        </div>
-    </div>
-</div>
+                        </div>
+                    </div>
+                </div>

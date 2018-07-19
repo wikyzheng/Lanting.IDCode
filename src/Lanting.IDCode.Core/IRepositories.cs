@@ -9,7 +9,7 @@ namespace Lanting.IDCode.Core.IRepositories
 {
     public interface IIDentityCodeRepository : IRepository<IdentityCode, long>
     {
-        Task BatchInsert(IEnumerable<IdentityCode> list);
+        Task<int> BatchInsert(IEnumerable<IdentityCode> list);
     }
 
 

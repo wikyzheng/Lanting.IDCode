@@ -12,7 +12,7 @@ namespace Lanting.IDCode.Application
             //CreateMap<GenerateTaskDto, GenerateTask>().ForMember(x => x.Subtables, opt => opt.Ignore());
 
             CreateMap<CreateGenerateTaskDto, GenerateTask>();
-            //CreateMap<CreateGenerateTaskDto, GenerateTask>().ForMember(x => x.Subtables, opt => opt.Ignore());
+            //CreateMap<CreateGenerateTaskDto, GenerateTask>().ForMember(x => x.Product, opt => opt.Ignore());
         }
     }
 }
