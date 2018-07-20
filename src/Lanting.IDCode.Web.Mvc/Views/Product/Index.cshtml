@@ -8,10 +8,35 @@
 }
 
 <script src="~/view-resources/Views/Product/tiny/tinymce.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/metro/easyui.css">
+<link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/mobile.css">
+<link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/icon.css">
+<script src="~/view-resources/Views/Product/lib/jquery.easyui.min.js"></script>
+<script src="~/view-resources/Views/Product/lib/jquery.easyui.mobile.js"></script>
+
+<style type="text/css">
+    .device {
+        width: 400px;
+        height: 760px;
+        margin: 10px 0 0 170px;
+        background: url('~/view-resources/Views/Product/image/phone.png') no-repeat;
+        position: relative;
+    }
+
+    .demo-wrap {
+        position: absolute;
+        width: 322px;
+        height: 482px;
+        background: #ccc;
+        top: 117px;
+        left: 23px;
+    }
+</style>
 
 @section scripts
     {
     <script src="~/view-resources/Views/Product/Index.js" asp-append-version="true"></script>
+
 }
 
 
@@ -112,8 +137,26 @@
                     <div class="form-group form-float">
                         <div class="activityshow_box" style="margin-top:40%;width: 100%;display:none;margin-left:15%;margin-right:15%;padding:0;margin:2px 0;">
                         </div>
-                        <textarea id="elm1" name="HtmlContent" >请输入页面图文内容...</textarea>
-                       
+                        <div class="device">
+                            <div class="demo-wrap panel-noscroll">
+                                <div class="panel navpanel panel-htop easyui-fluid" style="display: block; width: 322px;">
+                                    <header class="panel-header panel-header-noborder" style="width: 322px;">
+                                        <div class="m-toolbar">
+                                            <div class="m-title">页面预览效果</div>
+                                        </div>
+                                    </header>
+                                    <div id="elm1" class="easyui-navpanel panel-body panel-body-nobottom panel-body-noborder" data-options="href:'_content.html'" style="padding: 10px; width: 322px; height: 402px;" title="">
+
+                                    </div>
+                                    <footer class="panel-footer panel-footer-noborder">
+                                        <div class="m-toolbar">
+                                            <div class="m-title">xxxx系统</div>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>

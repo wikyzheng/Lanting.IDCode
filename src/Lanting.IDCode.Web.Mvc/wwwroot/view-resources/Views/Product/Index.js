@@ -8,19 +8,16 @@
             menubar: false
         });
         tinymce.init({
-            selector: 'textarea#elm1',          //<textarea>中为编辑区域
+            selector: 'elm1',          //<textarea>中为编辑区域
             theme: "modern",                  //主题
             language: "zh_cn",                //语言 ，可自行下载中文
-
             height: 280,
-
             plugins: [                             //插件，可自行根据现实内容删除
                 "advlist autolink lists charmap print preview hr anchor pagebreak spellchecker",
                 "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime  nonbreaking image imagetools template",
                 "save table contextmenu directionality emoticons paste textcolor"
             ],
-
-            //content_css: "css/content.css",      //引用的外部CSS样式，可删除
+            content_css: "codepage/codepage.css",      //引用的外部CSS样式，可删除
             toolbar: "insertfile undo redo | styleselect fontselect fontsizeselect| bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      | print preview fullpage | forecolor backcolor | image | template",                          //工具栏，可根据需求删除
             style_formats: [                        //初始时提供的默认格式
                 { title: 'Bold text', inline: 'b' },
