@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /src/Lanting.IDCode.Web.Mvc/wwwroot/images/products
 /src/Lanting.IDCode.Web.Mvc/wwwroot/codepage/baolong
+/src/Lanting.IDCode.Web.Mvc/wwwroot/codefile/baolong/180720/taskone.txt

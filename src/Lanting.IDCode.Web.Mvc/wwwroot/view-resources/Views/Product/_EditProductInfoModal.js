@@ -30,7 +30,13 @@
                 tooltip: '手机预览效果',
                 onclick: function () {
                     //editor.insertContent('&nbsp;<b>It\'s my button!</b>&nbsp;');
-                    $('#previewModal').modal('show')
+                    var tmp = editor.getContent();
+                    $('.easyui-navpanel').html(tmp);
+                    var imgs = $('.easyui-navpanel').find('img');
+                    var attrs = imgs.attr('style');
+                    attrs = attrs + "width:100%;height:100%";
+                    imgs.attr('style', attrs);
+                    $('#previewModal').modal('show');
                 }
             });
         },
@@ -96,7 +102,7 @@
     var _$form = $('form[name=ProductInfoEditForm]');
 
     function save() {
-        
+
         if (!_$form.valid()) {
             return;
         }
@@ -119,10 +125,10 @@
     });
 
     _$form.closest('div.modal-content').find(".close-button").click(function (e) {
-       
+
         _$modal.modal('hide');
         location.reload(true); //reload page to see edited productinfo!
-      
+
     });
 
     //Handle enter key
