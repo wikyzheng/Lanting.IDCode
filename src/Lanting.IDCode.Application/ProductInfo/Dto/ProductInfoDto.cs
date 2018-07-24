@@ -17,7 +17,7 @@ namespace Lanting.IDCode.Application
         public int UserId { get; set; }
 
         [Required]
-        
+
         public string Code { get; set; }
 
         [Required]
@@ -33,6 +33,8 @@ namespace Lanting.IDCode.Application
         public DateTime? Modified { get; set; }
 
         public string HtmlContent { get; set; }
+
+        public string QRCodeImage { get; set; }
     }
 }
 

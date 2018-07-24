@@ -137,6 +137,12 @@
             });
         });
 
+        $('.show-qr').click(function (e) {
+            var imageUrl = $(this).attr("data-productinfo-code");
+            e.preventDefault();
+            $('#showQrImage').attr('src', imageUrl);
+        });
+
         _$form.find('button[type="submit"]').click(function (e) {
             e.preventDefault();
 

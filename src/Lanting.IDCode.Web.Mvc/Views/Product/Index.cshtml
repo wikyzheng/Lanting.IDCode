@@ -27,7 +27,6 @@
         margin: 10px 0 0 20px;
         background: url('/view-resources/Views/Product/image/phone.png') no-repeat;
         position: relative;
-      
     }
 
     .demo-wrap {
@@ -86,6 +85,8 @@
                                     <ul class="dropdown-menu pull-right">
                                         <li><a href="#" class="waves-effect waves-block edit-productinfo" data-productinfo-id="@item.Id" data-toggle="modal" data-target="#ProductInfoEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
                                         <li><a href="#" class="waves-effect waves-block delete-productinfo" data-productinfo-id="@item.Id" data-productinfo-name="@item.Id"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                        <li><a href="#" class="waves-effect waves-block show-qr" data-productinfo-code="@item.QRCodeImage" data-toggle="modal" data-target="#ShowQRCode"><i class="material-icons">label</i>二维码</a></li>
+
                                     </ul>
                                 </td>
                             </tr>
@@ -160,7 +161,7 @@
 
 <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 400px;">
-        <div class="modal-content" >
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="previewModalLabel"><span>手机预览效果</span></h4>
@@ -168,10 +169,23 @@
             <div class="device">
                 <div class="demo-wrap">
                     <div class="easyui-navpanel" style="padding:10px">
-                       
+
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ShowQRCode" tabindex="-1" role="dialog" aria-labelledby="ShowQRCodeLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 150px">
+        <div class="modal-content">
+            
+            <div style="vertical-align:central;text-align:center">
+                <img id="showQrImage" />
+            </div>
+
         </div>
     </div>
 </div>

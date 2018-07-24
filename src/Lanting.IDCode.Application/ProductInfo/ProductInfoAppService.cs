@@ -12,6 +12,8 @@ using Lanting.IDCode.Authorization;
 using Lanting.IDCode.Sessions;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using System.Net.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace Lanting.IDCode.Application
 {
@@ -25,17 +27,22 @@ namespace Lanting.IDCode.Application
         private readonly ISessionAppService _sessionAppService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly string _htmlDiretory = "codepage";
+        private readonly string _qrGenerateApi = "http://bshare.optimix.asia/barCode?site=weixin&url=";
+        private string _defaultUrl { get; set; }
+        private readonly IConfiguration _configuration;
         /// <summary>
         /// EventBus
         /// </summary>
         public IEventBus EventBus { get; set; }
 
-        public ProductInfoAppService(IRepository<ProductInfo, int> productInfoRepository, ISessionAppService sessionAppService, IHostingEnvironment hostingEnvironment) : base(productInfoRepository)
+        public ProductInfoAppService(IRepository<ProductInfo, int> productInfoRepository, ISessionAppService sessionAppService, IHostingEnvironment hostingEnvironment, IConfiguration configuration) : base(productInfoRepository)
         {
             _productInfoRepository = productInfoRepository;
             _sessionAppService = sessionAppService;
             _hostingEnvironment = hostingEnvironment;
             EventBus = NullEventBus.Instance;
+            _configuration = configuration;
+            _defaultUrl = _configuration.GetSection("DefaultUrl").Value;
         }
 
         public override async Task<ProductInfoDto> Create(CreateProductInfoDto input)
@@ -75,11 +82,19 @@ namespace Lanting.IDCode.Application
 
         public override async Task<PagedResultDto<ProductInfoDto>> GetAll(PagedResultRequestDto input)
         {
+            var user = await _sessionAppService.GetCurrentLoginInformations();
+
             var all = from x in _productInfoRepository.GetAll()
                       select ObjectMapper.Map<ProductInfoDto>(x);
 
             var pagedResultDto = new PagedResultDto<ProductInfoDto>();
             pagedResultDto.Items = all.ToList().AsReadOnly();
+
+            foreach (var item in pagedResultDto.Items)
+            {
+                item.QRCodeImage = $"{_defaultUrl}images/{user.User.UserName}/{item.Code}.png";
+            }
+
             pagedResultDto.TotalCount = all.Count();
 
             return await Task.FromResult(pagedResultDto);
@@ -97,6 +112,16 @@ namespace Lanting.IDCode.Application
             string utf8_line = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">";
             htmlContent = utf8_line + htmlContent;
             File.WriteAllText(filePath, htmlContent, System.Text.Encoding.UTF8);
+
+            //即时生成二维码图片
+            string imageDir = Path.Combine(_hostingEnvironment.WebRootPath, "images", user.User.UserName);
+            if (!Directory.Exists(imageDir))
+                Directory.CreateDirectory(imageDir);
+            string imageName = $"{productCode}.png";
+            // string imagePath = Path.Combine(imageDir, imageName);
+            string imageUrl = $"{_defaultUrl}images/{user.User.UserName}/{imageName}";
+            await GetQrImage(imageUrl, _qrGenerateApi, imageDir, imageName);
+
         }
 
         public async Task<string> GetHtmlContent(string productCode)
@@ -110,6 +135,20 @@ namespace Lanting.IDCode.Application
             return await File.ReadAllTextAsync(filePath);
         }
 
-
+        public async Task<string> GetQrImage(string genearteUrl, string generateApi, string savePath, string fileName)
+        {
+            string imagePath = Path.Combine(savePath, fileName);
+            if (File.Exists(imagePath))
+                File.Delete(imagePath);
+            HttpClient hc = new HttpClient();
+            var result = hc.GetStreamAsync(generateApi + genearteUrl).Result;
+            string fullFilePath = System.IO.Path.Combine(savePath, fileName);
+            using (FileStream fs = File.Create(fullFilePath))
+            {
+                await result.CopyToAsync(fs);
+                await fs.FlushAsync();
+            }
+            return fullFilePath;
+        }
     }
 }
