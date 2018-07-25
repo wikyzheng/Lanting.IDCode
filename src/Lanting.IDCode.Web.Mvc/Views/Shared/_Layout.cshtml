@@ -166,7 +166,7 @@
         </div>
     </section>
 
-    <environment names="Development">
+    <environment names="Development,Staging,Production">
         <script src="~/lib/json2/json2.js" asp-append-version="true"></script>
         <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>
@@ -195,10 +195,6 @@
         {
             <script src="~/lib/jquery-validation/src/localization/messages_@Html.Raw(CultureInfo.CurrentUICulture.Name.Replace("-", "_") + ".js")" asp-append-version="true"></script>
         }
-    </environment>
-
-    <environment names="Staging,Production">
-        <script src="~/view-resources/Views/_Bundles/shared-layout.min.js" asp-append-version="true"></script>
     </environment>
 
     <script>

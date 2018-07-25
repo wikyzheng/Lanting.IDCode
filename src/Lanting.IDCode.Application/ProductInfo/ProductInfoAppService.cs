@@ -119,8 +119,8 @@ namespace Lanting.IDCode.Application
                 Directory.CreateDirectory(imageDir);
             string imageName = $"{productCode}.png";
             // string imagePath = Path.Combine(imageDir, imageName);
-            string imageUrl = $"{_defaultUrl}images/{user.User.UserName}/{imageName}";
-            await GetQrImage(imageUrl, _qrGenerateApi, imageDir, imageName);
+            string qrContent = $"{_defaultUrl}codepage/{user.User.UserName}/{fileName}";
+            await GetQrImage(qrContent, _qrGenerateApi, imageDir, imageName);
 
         }
 

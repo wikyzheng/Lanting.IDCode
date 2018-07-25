@@ -39,10 +39,6 @@
                         //editor.insertContent('&nbsp;<b>It\'s my button!</b>&nbsp;');
                         var tmp = editor.getContent();
                         $('.easyui-navpanel').html(tmp);
-                        var imgs = $('.easyui-navpanel').find('img');
-                        var attrs = imgs.attr('style');
-                        attrs = attrs + "width:100%;height:100%";
-                        imgs.attr('style', attrs);
                         $('#previewModal').modal('show');
                     }
                 });
@@ -126,12 +122,16 @@
             var id = $(this).attr("data-productinfo-id");
 
             e.preventDefault();
+
+            abp.ui.setBusy(_$modal);
             $.ajax({
                 url: abp.appPath + 'Product/EditProductInfoModal?id=' + id,
                 type: 'POST',
+                async: true,
                 contentType: 'application/html',
                 success: function (content) {
                     $('#ProductInfoEditModal div.modal-content').html(content);
+                    abp.ui.clearBusy(_$modal);
                 },
                 error: function (e) { }
             });
