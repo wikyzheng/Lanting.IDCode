@@ -14,6 +14,8 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
+using Castle.Core.Logging;
+using System.Text;
 
 namespace Lanting.IDCode.Application
 {
@@ -30,6 +32,7 @@ namespace Lanting.IDCode.Application
         private readonly string _qrGenerateApi = "http://bshare.optimix.asia/barCode?site=weixin&url=";
         private string _defaultUrl { get; set; }
         private readonly IConfiguration _configuration;
+        private ILogger _logger { get; set; }
         /// <summary>
         /// EventBus
         /// </summary>
@@ -43,6 +46,7 @@ namespace Lanting.IDCode.Application
             EventBus = NullEventBus.Instance;
             _configuration = configuration;
             _defaultUrl = _configuration.GetSection("DefaultUrl").Value;
+            _logger = NullLogger.Instance;
         }
 
         public override async Task<ProductInfoDto> Create(CreateProductInfoDto input)
@@ -109,17 +113,25 @@ namespace Lanting.IDCode.Application
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
             string filePath = Path.Combine(dir, fileName);
-            string utf8_line = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">";
-            htmlContent = utf8_line + htmlContent;
-            File.WriteAllText(filePath, htmlContent, System.Text.Encoding.UTF8);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
+            sb.AppendLine("<link href=\"../codepage.css\" rel=\"stylesheet\" />");
+            sb.Append(htmlContent);
+            File.WriteAllText(filePath, sb.ToString(), System.Text.Encoding.UTF8);
 
             //即时生成二维码图片
             string imageDir = Path.Combine(_hostingEnvironment.WebRootPath, "images", user.User.UserName);
+
+            _logger.Info($"image path is {imageDir}");
+
             if (!Directory.Exists(imageDir))
                 Directory.CreateDirectory(imageDir);
             string imageName = $"{productCode}.png";
             // string imagePath = Path.Combine(imageDir, imageName);
             string qrContent = $"{_defaultUrl}codepage/{user.User.UserName}/{fileName}";
+
+            _logger.Info($"qr content is {qrContent}");
+
             await GetQrImage(qrContent, _qrGenerateApi, imageDir, imageName);
 
         }
