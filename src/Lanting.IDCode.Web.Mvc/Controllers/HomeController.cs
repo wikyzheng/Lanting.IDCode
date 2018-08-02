@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Abp.Domain.Repositories;
 using Lanting.IDCode.Entity;
 using Lanting.IDCode.Core.IRepositories;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Lanting.IDCode.Web.Controllers
 {
@@ -17,15 +19,17 @@ namespace Lanting.IDCode.Web.Controllers
         private readonly IIDentityCodeRepository _identityCodeRepository;
         private readonly IRepository<ProductInfo> _productRepository;
         private readonly IRepository<Authorization.Users.User, long> _userRepository;
-        public HomeController(IConfiguration configuration, IIDentityCodeRepository identityCodeRepository, IRepository<ProductInfo> productRepository, IRepository<Authorization.Users.User, long> userRepository)
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public HomeController(IConfiguration configuration, IIDentityCodeRepository identityCodeRepository, IRepository<ProductInfo> productRepository, IRepository<Authorization.Users.User, long> userRepository, IHostingEnvironment hostingEnvironment)
         {
             _configuration = configuration;
             _defaultUrl = _configuration.GetSection("DefaultUrl").Value;
             _identityCodeRepository = identityCodeRepository;
             _productRepository = productRepository;
             _userRepository = userRepository;
+            _hostingEnvironment = hostingEnvironment;
         }
-        public async Task<ActionResult> Index(string code)
+        public async Task<IActionResult> Index(string code)
         {
             if (string.IsNullOrEmpty(code))
             {
@@ -50,8 +54,9 @@ namespace Lanting.IDCode.Web.Controllers
 
             string username = user.UserName;
             string productcode = product.Code;
-            //get the html url
-            return Redirect($"{_defaultUrl}codepage/{username}/{productcode}.html");
+            string htmlPath = Path.Combine(_hostingEnvironment.WebRootPath, "codepage", username, $"{productcode}.html");
+
+            return new Commons.HtmlFileResult(htmlPath, "text/html");
         }
     }
 }
