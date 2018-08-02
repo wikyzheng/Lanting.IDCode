@@ -38,5 +38,10 @@ namespace Lanting.IDCode.Authorization.Users
         /// 可设置页面数量
         /// </summary>
         public virtual int AllowProductCount { get; set; }
+
+        /// <summary>
+        /// 已生成的码数
+        /// </summary>
+        public virtual int TotalCountCount { get; set; }
     }
 }

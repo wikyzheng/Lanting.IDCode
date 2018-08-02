@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using Lanting.IDCode.Utility;
+using Lanting.IDCode.Authorization.Users;
 
 namespace Lanting.IDCode.Application
 {
@@ -35,12 +36,13 @@ namespace Lanting.IDCode.Application
         private readonly string _fileDiretory = "codefile";
         private string _defaultUrl { get; set; }
         private readonly IConfiguration _configuration;
+        private readonly IRepository<User, long> _userRepository;
         /// <summary>
         /// EventBus
         /// </summary>
         public IEventBus EventBus { get; set; }
 
-        public GenerateTaskAppService(IRepository<GenerateTask, int> generateTaskRepository, IIDentityCodeRepository identityCodeRepository, IRepository<ProductInfo> productRepository, ISessionAppService sessionAppService, IHostingEnvironment hostingEnvironment, IConfiguration configuration) : base(generateTaskRepository)
+        public GenerateTaskAppService(IRepository<GenerateTask, int> generateTaskRepository, IIDentityCodeRepository identityCodeRepository, IRepository<ProductInfo> productRepository, ISessionAppService sessionAppService, IHostingEnvironment hostingEnvironment, IConfiguration configuration, IRepository<User, long> userRepository) : base(generateTaskRepository)
         {
             _generateTaskRepository = generateTaskRepository;
             _identityCodeRepository = identityCodeRepository;
@@ -50,14 +52,23 @@ namespace Lanting.IDCode.Application
             _hostingEnvironment = hostingEnvironment;
             _configuration = configuration;
             _defaultUrl = _configuration.GetSection("DefaultUrl").Value;
+            _userRepository = userRepository;
         }
 
         public override async Task<GenerateTaskDto> Create(CreateGenerateTaskDto input)
         {
+            int currentUserId = (int)(base.AbpSession.UserId ?? 0);
 
             var isExist = _generateTaskRepository.GetAll().AsNoTracking().Any(x => x.Remark.Equals(input.Remark, StringComparison.OrdinalIgnoreCase));
             if (isExist)
                 throw new UserFriendlyException("任务名重复！");
+
+            var currentUser = await _userRepository.GetAsync(currentUserId);
+
+            var generateCount = input.GenerateCount;
+
+            if (currentUser.TotalCountCount + generateCount > currentUser.AllowCodeCount)
+                throw new UserFriendlyException($"当前用户只允许生成{currentUser.AllowCodeCount}个码，请联系管理员！");
 
             //generate the task
             input.Created = DateTime.Now;
@@ -111,6 +122,10 @@ namespace Lanting.IDCode.Application
                 currentTask.TaskStatu = TaskStatu.Completed;
                 currentTask.IsSuccess = true;
                 currentTask.DataFilePath = fileUrl;
+
+                currentUser.TotalCountCount += count;
+
+                await _userRepository.UpdateAsync(currentUser);
 
 
             }

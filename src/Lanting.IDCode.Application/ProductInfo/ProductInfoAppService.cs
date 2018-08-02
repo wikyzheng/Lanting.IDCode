@@ -17,6 +17,8 @@ using Microsoft.Extensions.Configuration;
 using Castle.Core.Logging;
 using System.Text;
 using Abp.UI;
+using Lanting.IDCode.Users;
+using Lanting.IDCode.Authorization.Users;
 
 namespace Lanting.IDCode.Application
 {
@@ -34,12 +36,13 @@ namespace Lanting.IDCode.Application
         private string _defaultUrl { get; set; }
         private readonly IConfiguration _configuration;
         private ILogger _logger { get; set; }
+        private readonly IRepository<User, long> _userRepository;
         /// <summary>
         /// EventBus
         /// </summary>
         public IEventBus EventBus { get; set; }
 
-        public ProductInfoAppService(IRepository<ProductInfo, int> productInfoRepository, ISessionAppService sessionAppService, IHostingEnvironment hostingEnvironment, IConfiguration configuration) : base(productInfoRepository)
+        public ProductInfoAppService(IRepository<ProductInfo, int> productInfoRepository, ISessionAppService sessionAppService, IHostingEnvironment hostingEnvironment, IConfiguration configuration, IRepository<User, long> userRepository) : base(productInfoRepository)
         {
             _productInfoRepository = productInfoRepository;
             _sessionAppService = sessionAppService;
@@ -48,6 +51,7 @@ namespace Lanting.IDCode.Application
             _configuration = configuration;
             _defaultUrl = _configuration.GetSection("DefaultUrl").Value;
             _logger = NullLogger.Instance;
+            _userRepository = userRepository;
         }
 
         public override async Task<ProductInfoDto> Create(CreateProductInfoDto input)
@@ -58,6 +62,13 @@ namespace Lanting.IDCode.Application
 
             if (dupliatedOne != null)
                 throw new UserFriendlyException("名称有重复！");
+
+            var currentUser = await _userRepository.GetAsync(currentUserId);
+
+            int productCount = await _productInfoRepository.CountAsync(x => x.UserId == currentUserId);
+
+            if (productCount + 1 > currentUser.AllowProductCount)
+                throw new UserFriendlyException($"当前用户只允许创建{currentUser.AllowProductCount}个页面，请联系管理员！");
 
             var productInfo = ObjectMapper.Map<ProductInfo>(input);
 
