@@ -16,6 +16,7 @@ using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using Castle.Core.Logging;
 using System.Text;
+using Abp.UI;
 
 namespace Lanting.IDCode.Application
 {
@@ -51,11 +52,18 @@ namespace Lanting.IDCode.Application
 
         public override async Task<ProductInfoDto> Create(CreateProductInfoDto input)
         {
+            int currentUserId = (int)(base.AbpSession.UserId ?? 0);
+
+            var dupliatedOne = await _productInfoRepository.FirstOrDefaultAsync(x => (x.Code.Equals(input.Code, StringComparison.OrdinalIgnoreCase) || x.FullName.Equals(input.FullName, StringComparison.OrdinalIgnoreCase)) && x.UserId == currentUserId);
+
+            if (dupliatedOne != null)
+                throw new UserFriendlyException("名称有重复！");
+
             var productInfo = ObjectMapper.Map<ProductInfo>(input);
 
             productInfo.Created = DateTime.Now;
             productInfo.IsEnabled = true;
-            productInfo.UserId = (int)(base.AbpSession.UserId ?? 0);
+            productInfo.UserId = currentUserId;
 
             var entity = await _productInfoRepository.InsertAsync(productInfo);
             var dto = ObjectMapper.Map<ProductInfoDto>(entity);
@@ -88,7 +96,7 @@ namespace Lanting.IDCode.Application
         {
             var user = await _sessionAppService.GetCurrentLoginInformations();
 
-            var all = from x in _productInfoRepository.GetAll()
+            var all = from x in _productInfoRepository.GetAll().Where(x => x.UserId == user.User.Id)
                       select ObjectMapper.Map<ProductInfoDto>(x);
 
             var pagedResultDto = new PagedResultDto<ProductInfoDto>();
