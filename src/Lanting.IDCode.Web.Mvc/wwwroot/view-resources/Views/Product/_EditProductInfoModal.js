@@ -4,7 +4,7 @@
         selector: '#htmlContentEdit',          //<textarea>中为编辑区域
         theme: "modern",                  //主题
         language: "zh_cn",                //语言 ，可自行下载中文
-        height: 480,
+        height: 500,
         plugins: [                             //插件，可自行根据现实内容删除
             "advlist autolink lists charmap print preview hr anchor pagebreak spellchecker",
             "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime  nonbreaking image imagetools template",
