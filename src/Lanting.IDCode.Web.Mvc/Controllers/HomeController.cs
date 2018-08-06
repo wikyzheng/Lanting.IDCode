@@ -33,7 +33,7 @@ namespace Lanting.IDCode.Web.Controllers
         {
             if (string.IsNullOrEmpty(code))
             {
-                return RedirectToAction("Index", "Task");
+                return Redirect("home.html");
             }
             //get the index
             string indexStr = code.Substring(6, 8);
