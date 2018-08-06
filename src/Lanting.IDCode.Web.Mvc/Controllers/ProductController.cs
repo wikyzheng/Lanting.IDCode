@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AspNetCore.Mvc.Authorization;
+using ImageMagick;
 using Lanting.IDCode.Application;
 using Lanting.IDCode.Authorization;
 using Lanting.IDCode.Controllers;
@@ -31,16 +32,20 @@ namespace Lanting.IDCode.Web.Mvc.Controllers
             return View(output);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        public async Task<ActionResult> EditProductInfoModal(int id)
+        [HttpGet]
+        public async Task<ActionResult> Edit(int id)
         {
             var dto = await _appService.Get(new EntityDto(id));
-            return View("_EditProductInfoModal", dto);
+            return View(dto);
+
         }
+        
 
         [HttpPost]
         public async Task<ActionResult> FileUpload()
@@ -68,6 +73,12 @@ namespace Lanting.IDCode.Web.Mvc.Controllers
                 await file.CopyToAsync(fs);
                 await fs.FlushAsync();
             }
+
+            var savedFile = new System.IO.FileInfo(fullFilePath);
+            var optimizer = new ImageOptimizer();
+            optimizer.Compress(savedFile);
+            savedFile.Refresh();
+
             return Json(new
             {
                 StatusCode = 200,

@@ -11,6 +11,8 @@
             refreshList();
         });
 
+      
+
         $('.delete-productinfo').click(function () {
             var id = $(this).attr("data-productinfo-id");
             var productinfoName = $(this).attr('data-productinfo-name');
@@ -43,7 +45,7 @@
             $('#showQrImage').attr('src', imageUrl);
         });
 
-      
+
 
         _$modal.on('shown.bs.modal', function () {
             _$modal.find('input:not([type=hidden]):first').focus();

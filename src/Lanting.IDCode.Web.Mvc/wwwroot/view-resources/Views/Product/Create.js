@@ -1,12 +1,15 @@
 ﻿(function () {
     $(function () {
 
+        var _showPreview = true;
+
         tinymce.init({
             selector: "h1.editable#elm2",       //elm2为ID                 可将selector值理解为css中class、ID等，以此使用tinymce中样式（比如编辑框内文本显示样式、工具栏样式）--个人理解，不保证正确
             inline: true,                       //为true时，编辑工具栏隐藏
             toolbar: "undo redo",
             menubar: false
         });
+
         tinymce.init({
             selector: 'textarea#elm1',          //<textarea>中为编辑区域
             theme: "modern",                  //主题
@@ -17,7 +20,7 @@
                 "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime  nonbreaking image imagetools template",
                 "save table contextmenu directionality emoticons paste textcolor"
             ],
-            //content_css: "codepage/codepage.css",      //引用的外部CSS样式，可删除
+            content_css: "codepage/codepage.css",      //引用的外部CSS样式，可删除
             toolbar: "insertfile undo redo | styleselect fontselect fontsizeselect| bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      | print previewButton fullpage | forecolor backcolor | image | template",                          //工具栏，可根据需求删除
             style_formats: [                        //初始时提供的默认格式
                 { title: 'Bold text', inline: 'b' },
@@ -26,7 +29,31 @@
                 { title: 'Example 1', inline: 'span', classes: 'example1' },
                 { title: 'Example 2', inline: 'span', classes: 'example2' },
                 { title: 'Table styles' },
-                { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
+                { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' },
+                {
+                    title: 'Image Left', selector: 'img', styles: {
+                        'float': 'left',
+                        'margin': '0 10px 0 10px',
+                        'width': '100%',
+                        'height': '100%',
+                    }
+                },
+                {
+                    title: 'Image Right', selector: 'img', styles: {
+                        'float': 'right',
+                        'margin': '0 10px 0 10px',
+                        'width': '100%',
+                        'height': '100%',
+                    }
+                },
+                {
+                    title: 'Image Center', selector: 'img', styles: {
+                        'float': 'center',
+                        'margin': '0 10px 0 10px',
+                        'width': '100%',
+                        'height': '100%',
+                    }
+                }
             ],
             language: 'zh_CN',
 
@@ -37,14 +64,16 @@
                     tooltip: '手机预览效果',
                     onclick: function () {
                         //editor.insertContent('&nbsp;<b>It\'s my button!</b>&nbsp;');
-                        var tmp = editor.getContent();
+                        var css = "<style type='text/css'>img {width: 100%; height:100%;}</style>";
+                        var tmp = css + editor.getContent();
                         $('.easyui-navpanel').html(tmp);
-                        $('#previewModal').modal('show');
                     }
                 });
             },
 
             images_upload_handler: function (blobInfo, success, failure) {
+
+                _showPreview = false;
 
                 var formData = new FormData();
                 // formData.ppend(name, element);
@@ -70,6 +99,7 @@
                     console.log('fail');
                 }).always(function (data) {
                     console.log('always');
+                    _showPreview = true;
                 });
             },
 
@@ -102,46 +132,12 @@
         });
 
         var _service = abp.services.app.productInfo;
-        var _$modal = $('#ProductInfoCreateModal');
+        var _$modal = $('.body');
         var _$form = _$modal.find('form');
 
+
+
         _$form.validate();
-
-        $('#RefreshButton').click(function () {
-            refreshList();
-        });
-
-        $('.delete-productinfo').click(function () {
-            var id = $(this).attr("data-productinfo-id");
-            var productinfoName = $(this).attr('data-productinfo-name');
-
-            deleteSingle(id, productinfoName);
-        });
-
-        $('.edit-productinfo').click(function (e) {
-            var id = $(this).attr("data-productinfo-id");
-
-            e.preventDefault();
-
-            abp.ui.setBusy(_$modal);
-            $.ajax({
-                url: abp.appPath + 'Product/EditProductInfoModal?id=' + id,
-                type: 'POST',
-                async: true,
-                contentType: 'application/html',
-                success: function (content) {
-                    $('#ProductInfoEditModal div.modal-content').html(content);
-                    abp.ui.clearBusy(_$modal);
-                },
-                error: function (e) { }
-            });
-        });
-
-        $('.show-qr').click(function (e) {
-            var imageUrl = $(this).attr("data-productinfo-code");
-            e.preventDefault();
-            $('#showQrImage').attr('src', imageUrl);
-        });
 
         _$form.find('button[type="submit"]').click(function (e) {
             e.preventDefault();
@@ -154,14 +150,20 @@
             productinfo.htmlContent = tmp;
             abp.ui.setBusy(_$modal);
             _service.create(productinfo).done(function () {
-                _$modal.modal('hide');
-                location.reload(true); //reload page to see new productinfo!
+                location.href = abp.appPath + 'Product/Index';//reload page to see new productinfo!
             }).always(function () {
                 abp.ui.clearBusy(_$modal);
             });
         });
 
-      
-       
+        function show() {
+            if (_showPreview) {
+                var css = "<style type='text/css'>img {width: 100%; height:100%;}</style>";
+                var tmp = css + tinymce.get('elm1').getContent();
+                $('.easyui-navpanel').html(tmp);
+            }
+        }
+        setInterval(show, 100);// 注意函数名没有引号和括弧！
+
     });
 })();

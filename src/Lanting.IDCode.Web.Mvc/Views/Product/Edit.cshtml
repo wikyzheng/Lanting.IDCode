@@ -1,0 +1,92 @@
+﻿@using Abp.MultiTenancy
+@using Lanting.IDCode.Application
+@using Lanting.IDCode.Web.Models.Common.Modals
+@model ProductInfoDto
+
+<script src="~/view-resources/Views/Product/tiny/tinymce.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/metro/easyui.css">
+<link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/mobile.css">
+<link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/icon.css">
+<script src="~/view-resources/Views/Product/lib/jquery.min.js"></script>
+<script src="~/view-resources/Views/Product/lib/jquery.easyui.min.js"></script>
+<script src="~/view-resources/Views/Product/lib/jquery.easyui.mobile.js"></script>
+
+<style type="text/css">
+    .device {
+        width: 400px;
+        height: 760px;
+        background: url('/view-resources/Views/Product/image/phone.png') no-repeat;
+        position: relative;
+    }
+
+    .demo-wrap {
+        position: absolute;
+        width: 322px;
+        height: 482px;
+        background: #ccc;
+        top: 117px;
+        left: 23px;
+    }
+</style>
+
+<div class="body">
+    <form name="ProductInfoEditForm" role="form" novalidate class="form-validation">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="row clearfix">
+            <div class="col-sm-3">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input class="form-control" type="text" id="Code" name="Code" value="@Model.Code">
+                        <label for="Code" class="form-label">页面代号</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input class="form-control" type="text" id="FullName" name="FullName" value="@Model.FullName">
+                        <label for="FullName" class="form-label">页面名称</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input class="form-control" type="text" id="Description" name="Description" value="@Model.Description">
+                        <label for="Description" class="form-label">描述</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-sm-7">
+                <div class="form-group form-float">
+                    <div class="activityshow_box" style="margin-top:40%;width: 100%;display:none;margin-left:15%;margin-right:15%;padding:0;margin:2px 0;">
+                    </div>
+                    <textarea id="elm1" name="HtmlContent">@Model.HtmlContent</textarea>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="device">
+                    <div class="demo-wrap">
+                        <div class="easyui-navpanel" style="padding:10px">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default waves-effect" onClick="location.href='@Url.Action("Index")'">@L("Cancel")</button>
+            <button type="submit" class="btn btn-primary save-button waves-effect">修改</button>
+        </div>
+
+    </form>
+</div>
+
+
+<script src="~/view-resources/Views/Product/Edit.js" asp-append-version="true"></script>
