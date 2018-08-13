@@ -163,7 +163,7 @@
                 $('.easyui-navpanel').html(tmp);
             }
         }
-        setInterval(show, 100);// 注意函数名没有引号和括弧！
+      
 
     });
 })();
