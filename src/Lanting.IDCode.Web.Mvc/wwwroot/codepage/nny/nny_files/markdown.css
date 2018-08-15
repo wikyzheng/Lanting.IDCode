@@ -1,0 +1,422 @@
+
+.markdown:not(code) {
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6 !important;
+  word-wrap: break-word;
+}
+.markdown:not(code).file-view {
+  padding: 2em 2em 2em !important;
+}
+.markdown:not(code) > *:first-child {
+  margin-top: 0 !important;
+}
+.markdown:not(code) > *:last-child {
+  margin-bottom: 0 !important;
+}
+.markdown:not(code) a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+.markdown:not(code) .absent {
+  color: #c00;
+}
+.markdown:not(code) .anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+.markdown:not(code) .anchor:focus {
+  outline: none;
+}
+.markdown:not(code) h1,
+.markdown:not(code) h2,
+.markdown:not(code) h3,
+.markdown:not(code) h4,
+.markdown:not(code) h5,
+.markdown:not(code) h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+.markdown:not(code) h1:first-of-type,
+.markdown:not(code) h2:first-of-type,
+.markdown:not(code) h3:first-of-type,
+.markdown:not(code) h4:first-of-type,
+.markdown:not(code) h5:first-of-type,
+.markdown:not(code) h6:first-of-type {
+  margin-top: 0 !important;
+}
+.markdown:not(code) h1 .octicon-link,
+.markdown:not(code) h2 .octicon-link,
+.markdown:not(code) h3 .octicon-link,
+.markdown:not(code) h4 .octicon-link,
+.markdown:not(code) h5 .octicon-link,
+.markdown:not(code) h6 .octicon-link {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+.markdown:not(code) h1:hover .anchor,
+.markdown:not(code) h2:hover .anchor,
+.markdown:not(code) h3:hover .anchor,
+.markdown:not(code) h4:hover .anchor,
+.markdown:not(code) h5:hover .anchor,
+.markdown:not(code) h6:hover .anchor {
+  padding-left: 8px;
+  margin-left: -30px;
+  text-decoration: none;
+}
+.markdown:not(code) h1:hover .anchor .octicon-link,
+.markdown:not(code) h2:hover .anchor .octicon-link,
+.markdown:not(code) h3:hover .anchor .octicon-link,
+.markdown:not(code) h4:hover .anchor .octicon-link,
+.markdown:not(code) h5:hover .anchor .octicon-link,
+.markdown:not(code) h6:hover .anchor .octicon-link {
+  display: inline-block;
+}
+.markdown:not(code) h1 tt,
+.markdown:not(code) h1 code,
+.markdown:not(code) h2 tt,
+.markdown:not(code) h2 code,
+.markdown:not(code) h3 tt,
+.markdown:not(code) h3 code,
+.markdown:not(code) h4 tt,
+.markdown:not(code) h4 code,
+.markdown:not(code) h5 tt,
+.markdown:not(code) h5 code,
+.markdown:not(code) h6 tt,
+.markdown:not(code) h6 code {
+  font-size: inherit;
+}
+.markdown:not(code) h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+.markdown:not(code) h1 .anchor {
+  line-height: 1;
+}
+.markdown:not(code) h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+.markdown:not(code) h2 .anchor {
+  line-height: 1;
+}
+.markdown:not(code) h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+.markdown:not(code) h3 .anchor {
+  line-height: 1.2;
+}
+.markdown:not(code) h4 {
+  font-size: 1.25em;
+}
+.markdown:not(code) h4 .anchor {
+  line-height: 1.2;
+}
+.markdown:not(code) h5 {
+  font-size: 1em;
+}
+.markdown:not(code) h5 .anchor {
+  line-height: 1.1;
+}
+.markdown:not(code) h6 {
+  font-size: 1em;
+  color: #777;
+}
+.markdown:not(code) h6 .anchor {
+  line-height: 1.1;
+}
+.markdown:not(code) p,
+.markdown:not(code) blockquote,
+.markdown:not(code) ul,
+.markdown:not(code) ol,
+.markdown:not(code) dl,
+.markdown:not(code) table,
+.markdown:not(code) pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.markdown:not(code) blockquote {
+  margin-left: 0;
+}
+.markdown:not(code) hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+.markdown:not(code) ul,
+.markdown:not(code) ol {
+  padding-left: 2em;
+}
+.markdown:not(code) ul.no-list,
+.markdown:not(code) ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+.markdown:not(code) ul ul,
+.markdown:not(code) ul ol,
+.markdown:not(code) ol ol,
+.markdown:not(code) ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.markdown:not(code) ol ol,
+.markdown:not(code) ul ol {
+  list-style-type: lower-roman;
+}
+.markdown:not(code) li > p {
+  margin-top: 16px;
+}
+.markdown:not(code) dl {
+  padding: 0;
+}
+.markdown:not(code) dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+.markdown:not(code) dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+.markdown:not(code) blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+.markdown:not(code) blockquote > :first-child {
+  margin-top: 0;
+}
+.markdown:not(code) blockquote > :last-child {
+  margin-bottom: 0;
+}
+.markdown:not(code) table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+.markdown:not(code) table th {
+  font-weight: bold;
+}
+.markdown:not(code) table th,
+.markdown:not(code) table td {
+  padding: 6px 13px !important;
+  border: 1px solid #ddd !important;
+}
+.markdown:not(code) table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+.markdown:not(code) table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.markdown:not(code) img {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.markdown:not(code) .emoji {
+  max-width: none;
+}
+.markdown:not(code) span.frame {
+  display: block;
+  overflow: hidden;
+}
+.markdown:not(code) span.frame > span {
+  display: block;
+  float: left;
+  width: auto;
+  padding: 7px;
+  margin: 13px 0 0;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+.markdown:not(code) span.frame span img {
+  display: block;
+  float: left;
+}
+.markdown:not(code) span.frame span span {
+  display: block;
+  padding: 5px 0 0;
+  clear: both;
+  color: #333;
+}
+.markdown:not(code) span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+.markdown:not(code) span.align-center > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: center;
+}
+.markdown:not(code) span.align-center span img {
+  margin: 0 auto;
+  text-align: center;
+}
+.markdown:not(code) span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+.markdown:not(code) span.align-right > span {
+  display: block;
+  margin: 13px 0 0;
+  overflow: hidden;
+  text-align: right;
+}
+.markdown:not(code) span.align-right span img {
+  margin: 0;
+  text-align: right;
+}
+.markdown:not(code) span.float-left {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  overflow: hidden;
+}
+.markdown:not(code) span.float-left span {
+  margin: 13px 0 0;
+}
+.markdown:not(code) span.float-right {
+  display: block;
+  float: right;
+  margin-left: 13px;
+  overflow: hidden;
+}
+.markdown:not(code) span.float-right > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: right;
+}
+.markdown:not(code) code,
+.markdown:not(code) tt {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+}
+.markdown:not(code) code:before,
+.markdown:not(code) code:after,
+.markdown:not(code) tt:before,
+.markdown:not(code) tt:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+.markdown:not(code) code br,
+.markdown:not(code) tt br {
+  display: none;
+}
+.markdown:not(code) del code {
+  text-decoration: inherit;
+}
+.markdown:not(code) pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+.markdown:not(code) .highlight {
+  margin-bottom: 16px;
+}
+.markdown:not(code) .highlight pre,
+.markdown:not(code) pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+.markdown:not(code) .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+.markdown:not(code) pre {
+  word-wrap: normal;
+}
+.markdown:not(code) pre code,
+.markdown:not(code) pre tt {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+.markdown:not(code) pre code:before,
+.markdown:not(code) pre code:after,
+.markdown:not(code) pre tt:before,
+.markdown:not(code) pre tt:after {
+  content: normal;
+}
+.markdown:not(code) kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+.markdown:not(code) input[type="checkbox"] {
+  vertical-align: middle !important;
+}
+.markdown:not(code) .csv-data td,
+.markdown:not(code) .csv-data th {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+.markdown:not(code) .csv-data .blob-num {
+  padding: 10px 8px 9px;
+  text-align: right;
+  background: #fff;
+  border: 0;
+}
+.markdown:not(code) .csv-data tr {
+  border-top: 0;
+}
+.markdown:not(code) .csv-data th {
+  font-weight: bold;
+  background: #f8f8f8;
+  border-top: 0;
+}

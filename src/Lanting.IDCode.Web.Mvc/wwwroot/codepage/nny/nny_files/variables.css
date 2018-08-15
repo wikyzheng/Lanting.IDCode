@@ -1,0 +1,10 @@
+
+.brandBackgroundColor{ background-color: #c00036;}  /*品牌背景色*/
+.brandNavBackgroundColor{ background-color: #c00036;}  /*品牌背景色*/
+.proContent__price{ color: #c00036;} /*价格颜色*/
+
+.brandNavBtnColor, .brandNavBtnColor:focus, .brandNavBtnColor:visited{ color: #FFF;}
+
+.brandNavBtn__moreColor{ background-color: #c00036;}
+.brandNavBtn__parameter{ background-color: #c00036;}
+.brandNavBtn__factory{ background-color: #c00036;}
