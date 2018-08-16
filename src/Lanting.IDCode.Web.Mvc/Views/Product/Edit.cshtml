@@ -60,18 +60,12 @@
         </div>
 
         <div class="row clearfix">
-            <div class="col-sm-7">
-                <div class="form-group form-float">
-                    <div class="activityshow_box" style="margin-top:40%;width: 100%;display:none;margin-left:15%;margin-right:15%;padding:0;margin:2px 0;">
-                    </div>
-                    <textarea id="elm1" name="HtmlContent">@Model.HtmlContent</textarea>
-                </div>
-            </div>
-            <div class="col-sm-5">
+
+            <div class="col-sm-12">
                 <div class="device">
                     <div class="demo-wrap">
-                        <div class="easyui-navpanel" style="padding:10px">
-
+                        <div class="easyui-navpanel" style="padding:10px" contenteditable="true">
+                            <iframe src="@string.Format("~/codepage/nny/{0}.html",Model.Code)" height="95%" contenteditable="true"></iframe>
                         </div>
                     </div>
                 </div>

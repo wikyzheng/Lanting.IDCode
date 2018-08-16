@@ -35,6 +35,8 @@ namespace Lanting.IDCode.Application
         public string HtmlContent { get; set; }
 
         public string QRCodeImage { get; set; }
+
+        public string LabelContent { get; set; }
     }
 }
 

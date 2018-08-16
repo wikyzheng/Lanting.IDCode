@@ -55,8 +55,36 @@ namespace Lanting.IDCode.Web.Controllers
             string username = user.UserName;
             string productcode = product.Code;
             string htmlPath = Path.Combine(_hostingEnvironment.WebRootPath, "codepage", username, $"{productcode}.html");
+            return new Commons.HtmlFileResult(htmlPath, "text/html", codeRecord.AntiFakeCode);
+        }
 
-            return new Commons.HtmlFileResult(htmlPath, "text/html");
+        public async Task<IActionResult> Label(string code)
+        {
+            if (string.IsNullOrEmpty(code))
+            {
+                return Redirect("home.html");
+            }
+            //get the index
+            string indexStr = code.Substring(6, 8);
+
+            long index = long.Parse(indexStr);
+
+            //get the code data form db
+            var codeRecord = await _identityCodeRepository.GetAsync(index);
+            if (codeRecord == null)
+                throw new Abp.UI.UserFriendlyException(404, "invalid code");
+            if (!code.Equals(codeRecord.Code))
+                throw new Abp.UI.UserFriendlyException(404, "invalid code");
+
+            //get the product
+            var product = await _productRepository.GetAsync(codeRecord.ProductId);
+
+            var user = await _userRepository.GetAsync(product.UserId);
+
+            string username = user.UserName;
+            string productcode = product.Code;
+            string htmlPath = Path.Combine(_hostingEnvironment.WebRootPath, "codepage", username, $"{productcode}_label.html");
+            return new Commons.HtmlFileResult(htmlPath, "text/html", codeRecord.AntiFakeCode);
         }
     }
 }

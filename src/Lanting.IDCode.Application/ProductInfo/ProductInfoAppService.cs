@@ -79,7 +79,10 @@ namespace Lanting.IDCode.Application
             var entity = await _productInfoRepository.InsertAsync(productInfo);
             var dto = ObjectMapper.Map<ProductInfoDto>(entity);
             if (!string.IsNullOrEmpty(input.HtmlContent))
+            {
                 await GenerateHtml(input.Code, input.HtmlContent);
+                await GenerateLabel(input.Code, input.LabelContent);
+            }
             return await Task.FromResult(dto);
 
         }
@@ -99,7 +102,10 @@ namespace Lanting.IDCode.Application
             productInfo.Description = input.Description;
             productInfo.Modified = DateTime.Now;
             if (!string.IsNullOrEmpty(input.HtmlContent))
+            {
                 await GenerateHtml(input.Code, input.HtmlContent);
+                await GenerateLabel(input.Code, input.LabelContent);
+            }
             return ObjectMapper.Map<ProductInfoDto>(productInfo);
         }
 
@@ -127,16 +133,22 @@ namespace Lanting.IDCode.Application
         {
             var user = await _sessionAppService.GetCurrentLoginInformations();
             var fileName = $"{productCode}.html";
-            //  root/codepage/baolong/dd.html
+
+            //  root/codepage/nny/dd.html
             string dir = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName);
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
+
+            //将要创建或被替换的页面
             string filePath = Path.Combine(dir, fileName);
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-            sb.AppendLine("<link href=\"../codepage.css\" rel=\"stylesheet\" />");
-            sb.Append(htmlContent);
-            File.WriteAllText(filePath, sb.ToString(), System.Text.Encoding.UTF8);
+
+            //容器页面的内容
+            string containerFilePath = Path.Combine(dir, "container.html");
+            var containnerFileContent = File.ReadAllText(containerFilePath);
+
+            //将内容添加到容器页面，再生成一个页面文件
+            string newContent = containnerFileContent.Replace("{bodyCotent}", htmlContent);
+            File.WriteAllText(filePath, newContent, System.Text.Encoding.UTF8);
 
             //即时生成二维码图片
             string imageDir = Path.Combine(_hostingEnvironment.WebRootPath, "images", user.User.UserName);
@@ -159,6 +171,40 @@ namespace Lanting.IDCode.Application
         {
             var user = await _sessionAppService.GetCurrentLoginInformations();
             var fileName = $"{productCode}.html";
+            //  root/codepage/baolong/dd.html
+            string filePath = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName, fileName);
+            if (!File.Exists(filePath))
+                return string.Empty;
+            return await File.ReadAllTextAsync(filePath);
+        }
+
+        public async Task GenerateLabel(string productCode, string labelContent)
+        {
+            var user = await _sessionAppService.GetCurrentLoginInformations();
+            var fileName = $"{productCode}_label.html";
+
+            //  root/codepage/nny/dd.html
+            string dir = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName);
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+            //将要创建或被替换的页面
+            string filePath = Path.Combine(dir, fileName);
+
+            //容器页面的内容
+            string containerFilePath = Path.Combine(dir, "container_label.html");
+            var containnerFileContent = File.ReadAllText(containerFilePath);
+
+            //将内容添加到容器页面，再生成一个页面文件
+            string newContent = containnerFileContent.Replace("{bodyCotent}", labelContent);
+            File.WriteAllText(filePath, newContent, System.Text.Encoding.UTF8);
+
+        }
+
+        public async Task<string> GetLabelContent(string productCode)
+        {
+            var user = await _sessionAppService.GetCurrentLoginInformations();
+            var fileName = $"{productCode}_label.html";
             //  root/codepage/baolong/dd.html
             string filePath = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName, fileName);
             if (!File.Exists(filePath))

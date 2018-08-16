@@ -100,7 +100,7 @@ namespace Lanting.IDCode.Application
                     {
                         Id = maxIndex,
                         ComfuseCode = random,
-                        AntiFakeCode = input.IsAntiFake ? RandomHelper.GenerateRandomCode(input.AFCodeLength.Value) : string.Empty,
+                        AntiFakeCode = input.IsAntiFake ? RandomHelper.GenerateAntiCode() : string.Empty,
                         Created = input.Created,
                         IsActived = true,
                         ProductId = input.ProductId,
