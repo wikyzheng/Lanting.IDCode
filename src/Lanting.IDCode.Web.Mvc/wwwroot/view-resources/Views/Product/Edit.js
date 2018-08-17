@@ -15,9 +15,11 @@
             if (!_$form.valid()) {
                 return;
             }
-            var tmp = tinymce.get('elm1').getContent();
+            var htmlContent = $('#pageHtml').contents().find("body").html();
+            var labelContent = $('#pageLabel').contents().find("body").html();
             var productinfo = _$form.serializeFormToObject(); //serializeFormToObject is defined in main.js
-            productinfo.htmlContent = tmp;
+            productinfo.htmlContent = htmlContent;
+            productinfo.labelContent = labelContent;
             abp.ui.setBusy(_$modal);
             _service.update(productinfo).done(function () {
                 location.href = abp.appPath + 'Product/Index';//reload page to see new productinfo!
