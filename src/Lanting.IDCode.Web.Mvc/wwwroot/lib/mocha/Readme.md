@@ -91,7 +91,7 @@
      1    Stephen Mathieson       0.1%
      1    Steve Mason             0.1%
      1    Tapiwa Kelvin           0.1%
-     1    Teddy Zeenny            0.1%
+     1    Teddy Zeenne            0.1%
      1    Tim Ehat                0.1%
      1    Vadim Nikitin           0.1%
      1    Victor Costan           0.1%

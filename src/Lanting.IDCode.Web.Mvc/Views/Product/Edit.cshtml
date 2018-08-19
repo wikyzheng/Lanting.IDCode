@@ -65,7 +65,7 @@
                 <div class="device">
                     <div class="demo-wrap">
                         <div class="easyui-navpanel" style="padding:10px" contenteditable="true">
-                            <iframe id="pageHtml" src="@string.Format("~/codepage/nny/{0}.html",Model.Code)" height="95%" contenteditable="true"></iframe>
+                            <iframe id="pageHtml" src="@string.Format("/codepage/nne/{0}.html",Model.Code)" height="95%" contenteditable="true"></iframe>
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,9 @@
 
             <div class="col-sm-6">
 
-                <div contenteditable="true" style="width: 450px;height: 720px;padding-top:15px">
-                    <iframe id="pageLabel" src="@string.Format("~/codepage/nny/{0}_label.html",Model.Code)" height="95%" contenteditable="true"></iframe>
+                <div contenteditable="true" >
+                    
+                    <iframe scrolling="no" id="pageLabel" style="width:350px; height: 720px;padding-top:15px" src="@string.Format("/codepage/nne/{0}_label.html",Model.Code)" height="95%"></iframe>
                 </div>
 
             </div>
@@ -92,3 +93,4 @@
 
 
 <script src="~/view-resources/Views/Product/Edit.js" asp-append-version="true"></script>
+

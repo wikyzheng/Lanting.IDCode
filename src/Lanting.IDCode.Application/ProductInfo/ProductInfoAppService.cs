@@ -134,7 +134,7 @@ namespace Lanting.IDCode.Application
             var user = await _sessionAppService.GetCurrentLoginInformations();
             var fileName = $"{productCode}.html";
 
-            //  root/codepage/nny/dd.html
+            //  root/codepage/nne/dd.html
             string dir = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName);
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
@@ -183,7 +183,7 @@ namespace Lanting.IDCode.Application
             var user = await _sessionAppService.GetCurrentLoginInformations();
             var fileName = $"{productCode}_label.html";
 
-            //  root/codepage/nny/dd.html
+            //  root/codepage/nne/dd.html
             string dir = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName);
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);

@@ -27,7 +27,7 @@ namespace Lanting.IDCode.Web.Commons
             //}
             var fileContent = await File.ReadAllTextAsync(FilePath);
             fileContent = fileContent.Replace("{系统生成}", AntiCode);
-
+            fileContent = fileContent.Replace("contenteditable=\"true\"", "");
             byte[] buffer = System.Text.Encoding.UTF8.GetBytes(fileContent);
             await response.Body.WriteAsync(buffer, 0, buffer.Length);
             await response.Body.FlushAsync();

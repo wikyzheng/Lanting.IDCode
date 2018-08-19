@@ -205,7 +205,7 @@ Anthony Ryan <anthonyryan1@gmail.com>
 Dominik D. Geyer <dominik.geyer@gmail.com>
 George Kats <katsgeorgeek@gmail.com>
 Lihan Li <frankieteardrop@gmail.com>
-Ronny Springer <springer.ronny@gmail.com>
+Ronne Springer <springer.ronne@gmail.com>
 Chris Antaki <ChrisAntaki@gmail.com>
 Marian Sollmann <marian.sollmann@cargomedia.ch>
 njhamann <njhamann@gmail.com>

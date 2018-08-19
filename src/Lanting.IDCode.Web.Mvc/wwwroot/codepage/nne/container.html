@@ -5,14 +5,14 @@
 
     <title>纳妮儿防伪查询平台</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <script src="./nny_files/global.js"></script>
-    <link rel="stylesheet" type="text/css" href="./nny_files/markdown.css">
-    <link rel="stylesheet" type="text/css" href="./nny_files/variables.css">
-    <link rel="stylesheet" type="text/css" href="./nny_files/detail_style.css">
-    <link rel="stylesheet" type="text/css" href="./nny_files/animate.css">
-    <link rel="stylesheet" type="text/css" href="./nny_files/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./nny_files/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./nny_files/detail_main.css">
+    <script src="./nne_files/global.js"></script>
+    <link rel="stylesheet" type="text/css" href="./nne_files/markdown.css">
+    <link rel="stylesheet" type="text/css" href="./nne_files/variables.css">
+    <link rel="stylesheet" type="text/css" href="./nne_files/detail_style.css">
+    <link rel="stylesheet" type="text/css" href="./nne_files/animate.css">
+    <link rel="stylesheet" type="text/css" href="./nne_files/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./nne_files/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./nne_files/detail_main.css">
     <style>
         .power {
             color: #999;
@@ -30,11 +30,13 @@
                     text-decoration: underline;
                 }
     </style>
-    <script src="./nny_files/jquery.min.js"></script>
-    <script src="./nny_files/bootstrap.min.js"></script>
-    <script src="./nny_files/TouchSlide.1.1.js"></script>
+    <script src="./nne_files/jquery.min.js"></script>
+    <script src="./nne_files/bootstrap.min.js"></script>
+    <script src="./nne_files/TouchSlide.1.1.js"></script>
 </head>
-<body>{bodyCotent}</body>
+<body style="" contenteditable="true">
+    {bodyCotent}
+</body>
 </html>
 <script type="text/javascript">
     TouchSlide({
@@ -148,43 +150,6 @@
         $(".moreColorBox .popupBox__Info").on('click', 'a', function (e) {
             collectionsColorBoxShow(".collectionsColorBox", $(this));
             return false;
-        });
-
-        $("#btnCheck").on("click", function (e) {
-            var code = $("#txtSecurityCode").val();
-            var url = '/Store/VerifySecurityCode/a91c00b7-8806-b700-1ca9-06884c34ade5';
-            url = url + "?code=" + code;
-            $.ajax({
-                type: 'post',
-                url: url,
-                contentType: "application/json; charset=utf-8",
-                dataType: 'json',
-            }).done(function (response, status, xhr) {
-                if (response.Error === 0) {
-                    alert(response.Data);
-                } else {
-                    alert(response.Errors.message);
-                }
-                $("#txtSecurityCode").val("");
-            });
-        });
-
-        $("#btnSecurityCode").on("click", function (e) {
-            var url = '/Store/StatVerify/a91c00b7-8806-b700-1ca9-06884c34ade5';
-            $.ajax({
-                type: 'post',
-                url: url,
-                contentType: "application/json; charset=utf-8",
-                dataType: 'json',
-            }).done(function (response, status, xhr) {
-                $("#btnSecurityCode").hide();
-                if (response.Error === 0) {
-                    $("#txtCode").text(response.Data);
-                } else {
-                    $("#txtCode").text(response.Errors.message);
-                }
-                $("#txtCode").show();
-            });
         });
     });
 </script>
