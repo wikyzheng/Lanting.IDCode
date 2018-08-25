@@ -1,5 +1,5 @@
 ﻿
-<script src="~/view-resources/Views/Product/tiny/tinymce.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/metro/easyui.css">
 <link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/mobile.css">
 <link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/icon.css">
@@ -62,7 +62,7 @@
                     <div class="device">
                         <div class="demo-wrap">
                             <div class="easyui-navpanel" style="padding:10px" contenteditable="true">
-                                <iframe id="pageHtml" src="~/codepage/nne/template.html" height="95%" contenteditable="true"></iframe>
+                                <iframe id="pageHtml" src="@string.Format("/codepage/{0}/mobile/template.html",ViewBag.UserName)" height="97%" width="120%" contenteditable="true"></iframe>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
 
                 <div class="col-sm-6">
                     <div contenteditable="true">
-                        <iframe scrolling="no" id="pageLabel" style="width:350px; height: 720px;padding-top:15px" src="~/codepage/nne/template_label.html" height="95%"></iframe>
+                        <iframe scrolling="no" id="pageLabel" style="width:350px; height: 720px;padding-top:15px" src="@string.Format("/codepage/{0}/label/template.html",ViewBag.UserName)" height="95%"></iframe>
                     </div>
 
                 </div>
@@ -84,31 +84,7 @@
         </div>
     </form>
 
-    <div class="modal fade" id="ProductInfoEditModal" tabindex="-1" role="dialog" aria-labelledby="ProductInfoEditModalLabel" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
 
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 400px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="previewModalLabel"><span>手机预览效果</span></h4>
-                </div>
-                <div class="device">
-                    <div class="demo-wrap">
-                        <div class="easyui-navpanel" data-options="href:'home.html'" style="padding:10px">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </div>
 

@@ -6,7 +6,7 @@ namespace Lanting.IDCode.Web.Commons
 {
     public class HtmlFileResult : IActionResult
     {
-        public HtmlFileResult(string filePath, string contentType, string antiCode)
+        public HtmlFileResult(string filePath, string contentType, string antiCode = null)
         {
             FilePath = filePath;
             ContentType = contentType;
@@ -20,13 +20,11 @@ namespace Lanting.IDCode.Web.Commons
         {
             Microsoft.AspNetCore.Http.HttpResponse response = context.HttpContext.Response;
             response.ContentType = "text/html";
-
-            //using (var fileStream = new System.IO.FileStream(FilePath, System.IO.FileMode.Open))
-            //{
-            //    await fileStream.CopyToAsync(context.HttpContext.Response.Body);
-            //}
             var fileContent = await File.ReadAllTextAsync(FilePath);
-            fileContent = fileContent.Replace("{系统生成}", AntiCode);
+            if (!string.IsNullOrEmpty(AntiCode))
+            {
+                fileContent = fileContent.Replace("{系统生成}", AntiCode);
+            }
             fileContent = fileContent.Replace("contenteditable=\"true\"", "");
             byte[] buffer = System.Text.Encoding.UTF8.GetBytes(fileContent);
             await response.Body.WriteAsync(buffer, 0, buffer.Length);

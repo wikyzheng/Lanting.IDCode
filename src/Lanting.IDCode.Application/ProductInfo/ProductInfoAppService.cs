@@ -80,8 +80,7 @@ namespace Lanting.IDCode.Application
             var dto = ObjectMapper.Map<ProductInfoDto>(entity);
             if (!string.IsNullOrEmpty(input.HtmlContent))
             {
-                await GenerateHtml(input.Code, input.HtmlContent);
-                await GenerateLabel(input.Code, input.LabelContent);
+                await GenerateHtml(input.Code, input.HtmlContent, input.LabelContent);
             }
             return await Task.FromResult(dto);
 
@@ -91,7 +90,8 @@ namespace Lanting.IDCode.Application
         {
             var entity = _productInfoRepository.Get(input.Id);
             var dto = ObjectMapper.Map<ProductInfoDto>(entity);
-            dto.HtmlContent = await GetHtmlContent(dto.Code);
+            dto.HtmlContent = await GetContent(dto.Code, PageType.mobile);
+            dto.LabelContent = await GetContent(dto.Code, PageType.label);
             return await Task.FromResult<ProductInfoDto>(dto);
         }
 
@@ -103,8 +103,7 @@ namespace Lanting.IDCode.Application
             productInfo.Modified = DateTime.Now;
             if (!string.IsNullOrEmpty(input.HtmlContent))
             {
-                await GenerateHtml(input.Code, input.HtmlContent);
-                await GenerateLabel(input.Code, input.LabelContent);
+                await GenerateHtml(input.Code, input.HtmlContent, input.LabelContent);
             }
             return ObjectMapper.Map<ProductInfoDto>(productInfo);
         }
@@ -121,7 +120,7 @@ namespace Lanting.IDCode.Application
 
             foreach (var item in pagedResultDto.Items)
             {
-                item.QRCodeImage = $"{_defaultUrl}images/{user.User.UserName}/{item.Code}.png";
+                item.QRCodeImage = $"{_defaultUrl}images/{user.User.Name}/{item.Code}.png";
             }
 
             pagedResultDto.TotalCount = all.Count();
@@ -129,91 +128,34 @@ namespace Lanting.IDCode.Application
             return await Task.FromResult(pagedResultDto);
         }
 
-        public async Task GenerateHtml(string productCode, string htmlContent)
+        public async Task GenerateHtml(string productCode, string htmlContent, string labelContent)
         {
+            if (labelContent.StartsWith("<head>"))
+                labelContent = $"<!DOCTYPE html><html>{labelContent}</html>";
+            if (htmlContent.StartsWith("<head>"))
+                htmlContent = $"<!DOCTYPE html><html>{htmlContent}</html>";
             var user = await _sessionAppService.GetCurrentLoginInformations();
-            var fileName = $"{productCode}.html";
-
-            //  root/codepage/nne/dd.html
-            string dir = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName);
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
-
-            //将要创建或被替换的页面
-            string filePath = Path.Combine(dir, fileName);
-
-            //容器页面的内容
-            string containerFilePath = Path.Combine(dir, "container.html");
-            var containnerFileContent = File.ReadAllText(containerFilePath);
-
-            //将内容添加到容器页面，再生成一个页面文件
-            string newContent = containnerFileContent.Replace("{bodyCotent}", htmlContent);
-            File.WriteAllText(filePath, newContent, System.Text.Encoding.UTF8);
-
-            //即时生成二维码图片
-            string imageDir = Path.Combine(_hostingEnvironment.WebRootPath, "images", user.User.UserName);
-
-            _logger.Info($"image path is {imageDir}");
-
-            if (!Directory.Exists(imageDir))
-                Directory.CreateDirectory(imageDir);
-            string imageName = $"{productCode}.png";
-            // string imagePath = Path.Combine(imageDir, imageName);
-            string qrContent = $"{_defaultUrl}codepage/{user.User.UserName}/{fileName}";
-
-            _logger.Info($"qr content is {qrContent}");
-
-            await GetQrImage(qrContent, _qrGenerateApi, imageDir, imageName);
-
+            string htmlFilePath = await GetPath(PageType.mobile, productCode, FileType.html.ToString());
+            string lableFilePath = await GetPath(PageType.label, productCode, FileType.html.ToString());
+            File.WriteAllText(htmlFilePath, htmlContent, Encoding.UTF8);
+            File.WriteAllText(lableFilePath, labelContent, Encoding.UTF8);
+            string qrCodeImagePath = await GetDir(PageType.label, productCode);
+            string qrContent = $"{_defaultUrl}/Home/CodePreview?productCode={productCode}";
+            await GetQrImage(qrContent, _qrGenerateApi, qrCodeImagePath, productCode);
         }
 
-        public async Task<string> GetHtmlContent(string productCode)
+        public async Task<string> GetContent(string productCode, PageType type)
         {
-            var user = await _sessionAppService.GetCurrentLoginInformations();
-            var fileName = $"{productCode}.html";
-            //  root/codepage/baolong/dd.html
-            string filePath = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName, fileName);
-            if (!File.Exists(filePath))
+            string path = await GetPath(type, productCode, FileType.html.ToString());
+            if (!File.Exists(path))
                 return string.Empty;
-            return await File.ReadAllTextAsync(filePath);
-        }
-
-        public async Task GenerateLabel(string productCode, string labelContent)
-        {
-            var user = await _sessionAppService.GetCurrentLoginInformations();
-            var fileName = $"{productCode}_label.html";
-
-            //  root/codepage/nne/dd.html
-            string dir = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName);
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
-
-            //将要创建或被替换的页面
-            string filePath = Path.Combine(dir, fileName);
-
-            //容器页面的内容
-            string containerFilePath = Path.Combine(dir, "container_label.html");
-            var containnerFileContent = File.ReadAllText(containerFilePath);
-
-            //将内容添加到容器页面，再生成一个页面文件
-            string newContent = containnerFileContent.Replace("{bodyCotent}", labelContent);
-            File.WriteAllText(filePath, newContent, System.Text.Encoding.UTF8);
-
-        }
-
-        public async Task<string> GetLabelContent(string productCode)
-        {
-            var user = await _sessionAppService.GetCurrentLoginInformations();
-            var fileName = $"{productCode}_label.html";
-            //  root/codepage/baolong/dd.html
-            string filePath = Path.Combine(_hostingEnvironment.WebRootPath, _htmlDiretory, user.User.UserName, fileName);
-            if (!File.Exists(filePath))
-                return string.Empty;
-            return await File.ReadAllTextAsync(filePath);
+            return await File.ReadAllTextAsync(path);
         }
 
         public async Task<string> GetQrImage(string genearteUrl, string generateApi, string savePath, string fileName)
         {
+            if (!Directory.Exists(savePath))
+                Directory.CreateDirectory(savePath);
             string imagePath = Path.Combine(savePath, fileName);
             if (File.Exists(imagePath))
                 File.Delete(imagePath);
@@ -226,6 +168,18 @@ namespace Lanting.IDCode.Application
                 await fs.FlushAsync();
             }
             return fullFilePath;
+        }
+
+        public async Task<string> GetPath(PageType type, string productCode, string fredix)
+        {
+            var user = await _sessionAppService.GetCurrentLoginInformations();
+            return $"{_hostingEnvironment.WebRootPath}\\codepage\\{user.User.UserName}\\{type.ToString()}\\{productCode}.{fredix}";
+        }
+
+        public async Task<string> GetDir(PageType type, string productCode)
+        {
+            var user = await _sessionAppService.GetCurrentLoginInformations();
+            return $"{_hostingEnvironment.WebRootPath}\\codepage\\{user.User.UserName}\\{type.ToString()}\\";
         }
     }
 }

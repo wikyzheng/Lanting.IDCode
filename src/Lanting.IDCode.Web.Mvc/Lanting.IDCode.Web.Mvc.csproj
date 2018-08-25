@@ -56,15 +56,13 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\codepage\admin\" />
     <Folder Include="wwwroot\codepage\baolong\" />
     <Folder Include="wwwroot\view-resources\Views\_Bundles\" />
     <Folder Include="wwwroot\codefile\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Update="Views\Home\Label.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="Views\Product\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

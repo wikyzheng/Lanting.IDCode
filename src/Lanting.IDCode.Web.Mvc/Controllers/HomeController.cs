@@ -9,7 +9,7 @@ using Lanting.IDCode.Entity;
 using Lanting.IDCode.Core.IRepositories;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
-
+using Lanting.IDCode.Application;
 
 namespace Lanting.IDCode.Web.Controllers
 {
@@ -21,8 +21,9 @@ namespace Lanting.IDCode.Web.Controllers
         private readonly IRepository<ProductInfo> _productRepository;
         private readonly IRepository<Authorization.Users.User, long> _userRepository;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly ISessionAppService _sessionAppService;
 
-        public HomeController(IConfiguration configuration, IIDentityCodeRepository identityCodeRepository, IRepository<ProductInfo> productRepository, IRepository<Authorization.Users.User, long> userRepository, IHostingEnvironment hostingEnvironment)
+        public HomeController(IConfiguration configuration, IIDentityCodeRepository identityCodeRepository, IRepository<ProductInfo> productRepository, IRepository<Authorization.Users.User, long> userRepository, IHostingEnvironment hostingEnvironment, ISessionAppService sessionAppService)
         {
             _configuration = configuration;
             _defaultUrl = _configuration.GetSection("DefaultUrl").Value;
@@ -30,6 +31,7 @@ namespace Lanting.IDCode.Web.Controllers
             _productRepository = productRepository;
             _userRepository = userRepository;
             _hostingEnvironment = hostingEnvironment;
+            _sessionAppService = sessionAppService;
         }
         public async Task<IActionResult> Index(string code)
         {
@@ -51,12 +53,10 @@ namespace Lanting.IDCode.Web.Controllers
 
             //get the product
             var product = await _productRepository.GetAsync(codeRecord.ProductId);
-
             var user = await _userRepository.GetAsync(product.UserId);
-
             string username = user.UserName;
             string productcode = product.Code;
-            string htmlPath = Path.Combine(_hostingEnvironment.WebRootPath, "codepage", username, $"{productcode}.html");
+            string htmlPath =  $"{_hostingEnvironment.WebRootPath}\\codepage\\{username}\\{PageType.mobile.ToString()}\\{productcode}.html";
             return new Commons.HtmlFileResult(htmlPath, "text/html", codeRecord.AntiFakeCode);
         }
 
@@ -84,11 +84,18 @@ namespace Lanting.IDCode.Web.Controllers
             string username = user.UserName;
             string productcode = product.Code;
             string codeUrl = _configuration.GetSection("DefaultUrl").Value + code;
-            string imageFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "codepage", username, "qr_code_temp.gif");
+            string imageFilePath =  $"{_hostingEnvironment.WebRootPath}\\codepage\\{username}\\{PageType.label.ToString()}\\qr_code_temp.gif";
             CodeHelper.CreateCode(codeUrl, imageFilePath);
-
-            string htmlPath = Path.Combine(_hostingEnvironment.WebRootPath, "codepage", username, $"{productcode}_label.html");
+            string htmlPath = $"{_hostingEnvironment.WebRootPath}\\codepage/{username}\\{PageType.label.ToString()}\\{productcode}.html";
             return new Commons.HtmlFileResult(htmlPath, "text/html", codeRecord.AntiFakeCode);
+        }
+
+        public async Task<IActionResult> CodePreview(string productCode)
+        {
+            var currentUser = await _sessionAppService.GetCurrentLoginInformations();
+            // ./codepage/nne/mobile/xxxx.html
+            string htmlFilePath = $"{_hostingEnvironment.WebRootPath}/codepage/{currentUser.User.UserName}/{PageType.mobile.ToString()}/{productCode}.html";
+            return new Commons.HtmlFileResult(htmlFilePath, "text/html");
         }
     }
 }

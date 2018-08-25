@@ -3,7 +3,6 @@
 @using Lanting.IDCode.Web.Models.Common.Modals
 @model ProductInfoDto
 
-<script src="~/view-resources/Views/Product/tiny/tinymce.min.js"></script>
 <link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/metro/easyui.css">
 <link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/mobile.css">
 <link rel="stylesheet" type="text/css" href="~/view-resources/Views/Product/lib/themes/icon.css">
@@ -65,7 +64,7 @@
                 <div class="device">
                     <div class="demo-wrap">
                         <div class="easyui-navpanel" style="padding:10px" contenteditable="true">
-                            <iframe id="pageHtml" src="@string.Format("/codepage/nne/{0}.html",Model.Code)" height="95%" contenteditable="true"></iframe>
+                            <iframe id="pageHtml" src="@string.Format("/codepage/{0}/mobile/{1}.html",ViewBag.UserName, Model.Code)" height="97%" width="120%" contenteditable="true"></iframe>
                         </div>
                     </div>
                 </div>
@@ -75,7 +74,7 @@
 
                 <div contenteditable="true" >
                     
-                    <iframe scrolling="no" id="pageLabel" style="width:350px; height: 720px;padding-top:15px" src="@string.Format("/codepage/nne/{0}_label.html",Model.Code)" height="95%"></iframe>
+                    <iframe scrolling="no" id="pageLabel" style="width:350px; height: 720px;padding-top:15px"  src="@string.Format("/codepage/{0}/label/{1}.html",ViewBag.UserName, Model.Code)" height="95%"></iframe>
                 </div>
 
             </div>

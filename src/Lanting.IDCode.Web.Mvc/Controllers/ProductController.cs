@@ -11,6 +11,7 @@ using Lanting.IDCode.Controllers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Lanting.IDCode.Sessions;
 
 namespace Lanting.IDCode.Web.Mvc.Controllers
 {
@@ -19,11 +20,13 @@ namespace Lanting.IDCode.Web.Mvc.Controllers
     {
         private readonly IProductInfoAppService _appService;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly ISessionAppService _sessionAppService;
         private readonly string _filePath = "images/products/";
-        public ProductController(IProductInfoAppService appService, IHostingEnvironment hostingEnvironment)
+        public ProductController(IProductInfoAppService appService, IHostingEnvironment hostingEnvironment, ISessionAppService sessionAppService)
         {
             _appService = appService;
             _hostingEnvironment = hostingEnvironment;
+            _sessionAppService = sessionAppService;
         }
 
         public async Task<IActionResult> Index()
@@ -33,19 +36,23 @@ namespace Lanting.IDCode.Web.Mvc.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var currentUser = await _sessionAppService.GetCurrentLoginInformations();
+            ViewBag.UserName = currentUser.User.UserName;
             return View();
         }
 
         [HttpGet]
         public async Task<ActionResult> Edit(int id)
         {
+            var currentUser = await _sessionAppService.GetCurrentLoginInformations();
+            ViewBag.UserName = currentUser.User.UserName;
             var dto = await _appService.Get(new EntityDto(id));
             return View(dto);
 
         }
-        
+
 
         [HttpPost]
         public async Task<ActionResult> FileUpload()

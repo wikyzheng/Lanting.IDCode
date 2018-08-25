@@ -12,9 +12,21 @@
 
             if (!_$form.valid()) {
                 return;
+            } var htmlContent;
+            var labelContent;
+            if ($('#pageHtml').context == null) {
+                htmlContent = $('#pageHtml').contents().find('head').parent().html();
             }
-            var htmlContent = $('#pageHtml').contents().find("body").html();
-            var labelContent = $('#pageLabel').contents().find("body").html();
+            else {
+                htmlContent = $('#pageHtml').context.head.parentElement.outerHTML;
+            }
+
+            if ($('#pageLabel').context == null) {
+                labelContent = $('#pageLabel').contents().find('head').parent().html();
+            }
+            else {
+                labelContent = $('#pageLabel').context.head.parentElement.outerHTML;
+            }
             var productinfo = _$form.serializeFormToObject(); //serializeFormToObject is defined in main.js
             productinfo.htmlContent = htmlContent;
             productinfo.labelContent = labelContent;
