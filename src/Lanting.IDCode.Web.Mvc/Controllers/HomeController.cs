@@ -10,6 +10,7 @@ using Lanting.IDCode.Core.IRepositories;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 
+
 namespace Lanting.IDCode.Web.Controllers
 {
     public class HomeController : IDCodeControllerBase
@@ -20,6 +21,7 @@ namespace Lanting.IDCode.Web.Controllers
         private readonly IRepository<ProductInfo> _productRepository;
         private readonly IRepository<Authorization.Users.User, long> _userRepository;
         private readonly IHostingEnvironment _hostingEnvironment;
+
         public HomeController(IConfiguration configuration, IIDentityCodeRepository identityCodeRepository, IRepository<ProductInfo> productRepository, IRepository<Authorization.Users.User, long> userRepository, IHostingEnvironment hostingEnvironment)
         {
             _configuration = configuration;
@@ -78,11 +80,13 @@ namespace Lanting.IDCode.Web.Controllers
 
             //get the product
             var product = await _productRepository.GetAsync(codeRecord.ProductId);
-
             var user = await _userRepository.GetAsync(product.UserId);
-
             string username = user.UserName;
             string productcode = product.Code;
+            string codeUrl = _configuration.GetSection("DefaultUrl").Value + code;
+            string imageFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "codepage", username, "qr_code_temp.gif");
+            CodeHelper.CreateCode(codeUrl, imageFilePath);
+
             string htmlPath = Path.Combine(_hostingEnvironment.WebRootPath, "codepage", username, $"{productcode}_label.html");
             return new Commons.HtmlFileResult(htmlPath, "text/html", codeRecord.AntiFakeCode);
         }

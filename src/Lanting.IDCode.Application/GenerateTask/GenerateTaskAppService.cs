@@ -74,7 +74,8 @@ namespace Lanting.IDCode.Application
             input.Created = DateTime.Now;
             input.TaskStatu = (int)TaskStatu.Init;
             input.UserId = (int)(base.AbpSession.UserId ?? 0);
-            input.IsAntiFake = input.AFCodeLength.HasValue && input.AFCodeLength.Value > 0;
+            //input.IsAntiFake = input.AFCodeLength.HasValue && input.AFCodeLength.Value > 0;
+            input.IsAntiFake = true;
             input.IsSuccess = false;
             input.AntiFackCodeType = (int)AntiFackCodeType.Letter;
             var generateTask = ObjectMapper.Map<GenerateTask>(input);
