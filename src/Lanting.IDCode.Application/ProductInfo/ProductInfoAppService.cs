@@ -120,7 +120,7 @@ namespace Lanting.IDCode.Application
 
             foreach (var item in pagedResultDto.Items)
             {
-                item.QRCodeImage = $"{_defaultUrl}images/{user.User.Name}/{item.Code}.png";
+                item.QRCodeImage = $"{_defaultUrl}codepage/{user.User.UserName}/label/{item.Code}.png";
             }
 
             pagedResultDto.TotalCount = all.Count();
@@ -154,6 +154,7 @@ namespace Lanting.IDCode.Application
 
         public async Task<string> GetQrImage(string genearteUrl, string generateApi, string savePath, string fileName)
         {
+            fileName = fileName + ".png";
             if (!Directory.Exists(savePath))
                 Directory.CreateDirectory(savePath);
             string imagePath = Path.Combine(savePath, fileName);
