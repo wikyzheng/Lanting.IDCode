@@ -125,16 +125,7 @@
 
             @await Component.InvokeAsync(typeof(SideBarNavViewComponent), new { activeMenu = ViewBag.CurrentPageName })
 
-            <!-- Footer -->
-            <div class="legal">
-                <div class="copyright">
-                    &copy; @DateTime.Now.Year <a href="javascript:void(0);">IDCode</a>.
-                </div>
-                <div class="version">
-                    <b>@L("Version") </b> @AppVersionHelper.Version [@AppVersionHelper.ReleaseDate.ToString("yyyyMMdd")]
-                </div>
-            </div>
-            <!-- #Footer -->
+
         </aside>
 
         @await Component.InvokeAsync(typeof(RightSideBarViewComponent))
@@ -213,5 +204,13 @@
 
     <!-- View specific scripts -->
     @RenderSection("scripts", required: false)
+
+    <footer>
+        <div class="container" style="text-align:center">
+            <span class="copyright"> &copy; @DateTime.Now.Year <a href="javascript:void(0);">码农之田</a>.<b>Version </b> @AppVersionHelper.Version [@AppVersionHelper.ReleaseDate.ToString("yyyyMMdd")]</span>
+            </br>
+            <a href="http://www.miitbeian.gov.cn/"><span class="copyright">粤ICP备18100973号</span></a>
+        </div>
+    </footer>
 </body>
 </html>
