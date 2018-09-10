@@ -182,5 +182,7 @@ namespace Lanting.IDCode.Application
             var user = await _sessionAppService.GetCurrentLoginInformations();
             return $"{_hostingEnvironment.WebRootPath}\\codepage\\{user.User.UserName}\\{type.ToString()}\\";
         }
+
+    
     }
 }

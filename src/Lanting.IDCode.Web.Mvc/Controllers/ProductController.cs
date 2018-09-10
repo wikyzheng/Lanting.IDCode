@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Lanting.IDCode.Sessions;
+using Lanting.IDCode.Web.Models;
 
 namespace Lanting.IDCode.Web.Mvc.Controllers
 {
@@ -29,11 +30,13 @@ namespace Lanting.IDCode.Web.Mvc.Controllers
             _sessionAppService = sessionAppService;
         }
 
+
         public async Task<IActionResult> Index()
         {
             var output = await _appService.GetAll(new PagedResultRequestDto { MaxResultCount = int.MaxValue }); //Paging not implemented yet
             return View(output);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Create()
@@ -42,6 +45,7 @@ namespace Lanting.IDCode.Web.Mvc.Controllers
             ViewBag.UserName = currentUser.User.UserName;
             return View();
         }
+
 
         [HttpGet]
         public async Task<ActionResult> Edit(int id)
@@ -96,6 +100,33 @@ namespace Lanting.IDCode.Web.Mvc.Controllers
                     name = fileName,
                 }
             });
+        }
+
+        [HttpPost]
+        [RequestFormLimits(
+            BufferBody = false,
+            BufferBodyLengthLimit = 0,
+            KeyLengthLimit = 100000000,
+            MemoryBufferThreshold = 0,
+            MultipartBodyLengthLimit = 0,
+            MultipartBoundaryLengthLimit = 0,
+            MultipartHeadersCountLimit = 0,
+            Order = 1,
+            ValueCountLimit = 2,
+            ValueLengthLimit = 100000000)]
+        public async Task<JsonResult> SaveSnapshot([FromBody]ImageModel input)
+        {
+            var currentUser = await _sessionAppService.GetCurrentLoginInformations();
+            string filePath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, _filePath);
+            bool saved = false;
+            byte[] data = Convert.FromBase64String(input.DataUrl);
+
+            string fileName = DateTime.Now.ToString("yyyyMMddHHmm") + ".png";
+            string fullFilePath = System.IO.Path.Combine(filePath, fileName);
+
+            System.IO.File.WriteAllBytes(fullFilePath, data);
+            saved = true;
+            return Json(saved ? "image saved" : "image not saved");
         }
     }
 }

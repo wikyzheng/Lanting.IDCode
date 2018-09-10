@@ -15,6 +15,7 @@ using Lanting.IDCode.Web.Resources;
 using Abp.AspNetCore.SignalR.Hubs;
 using Lanting.IDCode.Core.IRepositories;
 using Lanting.IDCode.EntityFrameworkCore.Repositories;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace Lanting.IDCode.Web.Startup
 {
@@ -25,14 +26,20 @@ namespace Lanting.IDCode.Web.Startup
         public Startup(IHostingEnvironment env)
         {
             _appConfiguration = env.GetAppConfiguration();
+           
         }
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+
             // MVC
             services.AddMvc(
-                options => options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute())
+                options => {
+                    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                }
             );
+
+           
 
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
@@ -48,6 +55,8 @@ namespace Lanting.IDCode.Web.Startup
                     f => f.UseAbpLog4Net().WithConfig("log4net.config")
                 )
             );
+
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

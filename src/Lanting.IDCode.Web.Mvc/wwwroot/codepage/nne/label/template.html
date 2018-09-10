@@ -1,11 +1,22 @@
 ﻿<!DOCTYPE html>
+<!-- saved from url=(0054)http://47.106.228.149/codepage/nne/label/template.html -->
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Screen shoter</title>
+    <style>
+        .container {
+            margin-top: 10px;
+            border: solid 1px black;
+        }
+    </style>
+    <script src="../../../codepage/nne/content/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
 </head>
-<body style="width: 320px;height: 720px; " contenteditable="true">
-    <div>
+<body style="width: 320px;height: 600px; " contenteditable="true">
+    <img />
+    <div id="content">
         <style type="text/css">
             img {
                 width: 100%;
@@ -41,5 +52,42 @@
         </div>
         <div style="text-align:center;"><span><strong>统一零售价：279元</strong></span></div>
     </div>
+    <script>
+
+        let region = document.querySelector("#content"); // whole screen
+        var img = document.createElement("img");
+        html2canvas(region, {
+            onrendered: function (canvas) {
+                let pngUrl = canvas.toDataURL();
+                var extra_canvas = document.createElement("canvas");
+                extra_canvas.setAttribute('width', 320);
+                extra_canvas.setAttribute('height', 600);
+                var ctx = extra_canvas.getContext('2d');
+                ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 320, 600);
+                var dataURL = extra_canvas.toDataURL();
+
+                img.src = dataURL;
+                // here you can allow user to set bug-region
+                // and send it with 'pngUrl' to server
+                var image = pngUrl.replace('data:image/png;base64,', '');
+
+                $.ajax({
+                    type: "POST",
+                    url: '/Product/SaveSnapshot',
+                    data: { DataUrl: image, FileName: "aaa" },
+                    contentType: "application/json; charset=utf-8", // this
+                    dataType: "json", // and this
+                    success: function (msg) {
+                        alert(msg);
+                    },
+                    error: function (errormessage) {
+                        //do something else
+                    }
+                });
+            },
+        });
+
+
+    </script>
 </body>
 </html>
