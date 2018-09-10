@@ -53,41 +53,48 @@
         <div style="text-align:center;"><span><strong>统一零售价：279元</strong></span></div>
     </div>
     <script>
+        var action = GetQueryString('action');
+        if (action == 'print') {
+            var code = GetQueryString('code');
+            let region = document.querySelector("#content"); // whole screen
+            var img = document.createElement("img");
+            html2canvas(region, {
+                onrendered: function (canvas) {
+                    let pngUrl = canvas.toDataURL();
+                    var extra_canvas = document.createElement("canvas");
+                    extra_canvas.setAttribute('width', 320);
+                    extra_canvas.setAttribute('height', 600);
+                    var ctx = extra_canvas.getContext('2d');
+                    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 320, 600);
+                    var dataURL = extra_canvas.toDataURL();
 
-        let region = document.querySelector("#content"); // whole screen
-        var img = document.createElement("img");
-        html2canvas(region, {
-            onrendered: function (canvas) {
-                let pngUrl = canvas.toDataURL();
-                var extra_canvas = document.createElement("canvas");
-                extra_canvas.setAttribute('width', 320);
-                extra_canvas.setAttribute('height', 600);
-                var ctx = extra_canvas.getContext('2d');
-                ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 320, 600);
-                var dataURL = extra_canvas.toDataURL();
+                    img.src = dataURL;
+                    // here you can allow user to set bug-region
+                    // and send it with 'pngUrl' to server
+                    var image = pngUrl.replace('data:image/png;base64,', '');
 
-                img.src = dataURL;
-                // here you can allow user to set bug-region
-                // and send it with 'pngUrl' to server
-                var image = pngUrl.replace('data:image/png;base64,', '');
-
-                $.ajax({
-                    type: "POST",
-                    url: '/Product/SaveSnapshot',
-                    data: { DataUrl: image, FileName: "aaa" },
-                    contentType: "application/json; charset=utf-8", // this
-                    dataType: "json", // and this
-                    success: function (msg) {
-                        alert(msg);
-                    },
-                    error: function (errormessage) {
-                        //do something else
-                    }
-                });
-            },
-        });
-
-
+                    $.ajax({
+                        type: "POST",
+                        url: '/Product/Test',
+                        data: JSON.stringify({ DataUrl: "xxxx", FileName: "dddd" }),
+                        contentType: "application/json; charset=utf-8", // this
+                        dataType: "json", // and this
+                        success: function (result) {
+                            if (result.next != '')
+                                window.location.url = "/home/label?code=" + result.next;
+                        },
+                        error: function (errormessage) {
+                            //do something else
+                        }
+                    });
+                },
+            });
+        }
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
     </script>
 </body>
 </html>

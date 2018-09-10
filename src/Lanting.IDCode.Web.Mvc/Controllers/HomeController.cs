@@ -10,6 +10,8 @@ using Lanting.IDCode.Core.IRepositories;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Lanting.IDCode.Application;
+using Lanting.IDCode.Web.Models;
+using System;
 
 namespace Lanting.IDCode.Web.Controllers
 {
@@ -56,7 +58,7 @@ namespace Lanting.IDCode.Web.Controllers
             var user = await _userRepository.GetAsync(product.UserId);
             string username = user.UserName;
             string productcode = product.Code;
-            string htmlPath =  $"{_hostingEnvironment.WebRootPath}\\codepage\\{username}\\{PageType.mobile.ToString()}\\{productcode}.html";
+            string htmlPath = $"{_hostingEnvironment.WebRootPath}\\codepage\\{username}\\{PageType.mobile.ToString()}\\{productcode}.html";
             return new Commons.HtmlFileResult(htmlPath, "text/html", codeRecord.AntiFakeCode);
         }
 
@@ -84,9 +86,9 @@ namespace Lanting.IDCode.Web.Controllers
             string username = user.UserName;
             string productcode = product.Code;
             string codeUrl = _configuration.GetSection("DefaultUrl").Value + code;
-            string imageFilePath =  $"{_hostingEnvironment.WebRootPath}\\codepage\\{username}\\{PageType.label.ToString()}\\qr_code_temp.gif";
+            string imageFilePath = $"{_hostingEnvironment.WebRootPath}\\codepage\\{username}\\{PageType.label.ToString()}\\qr_code_temp.gif";
             CodeHelper.CreateCode(codeUrl, imageFilePath);
-            string htmlPath = $"{_hostingEnvironment.WebRootPath}\\codepage/{username}\\{PageType.label.ToString()}\\{productcode}.html";
+            string htmlPath = $"{_hostingEnvironment.WebRootPath}\\codepage\\{username}\\{PageType.label.ToString()}\\{productcode}.html";
             return new Commons.HtmlFileResult(htmlPath, "text/html", codeRecord.AntiFakeCode);
         }
 
@@ -97,5 +99,7 @@ namespace Lanting.IDCode.Web.Controllers
             string htmlFilePath = $"{_hostingEnvironment.WebRootPath}/codepage/{currentUser.User.UserName}/{PageType.mobile.ToString()}/{productCode}.html";
             return new Commons.HtmlFileResult(htmlFilePath, "text/html");
         }
+
+       
     }
 }

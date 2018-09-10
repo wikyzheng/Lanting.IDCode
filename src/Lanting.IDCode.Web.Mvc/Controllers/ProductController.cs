@@ -13,21 +13,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Lanting.IDCode.Sessions;
 using Lanting.IDCode.Web.Models;
+using Lanting.IDCode.Core.IRepositories;
+using Abp.Domain.Repositories;
+using Lanting.IDCode.Entity;
+using System.IO;
 
 namespace Lanting.IDCode.Web.Mvc.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Codes)]
+    //[AbpMvcAuthorize(PermissionNames.Pages_Codes)]
     public class ProductController : IDCodeControllerBase
     {
         private readonly IProductInfoAppService _appService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly ISessionAppService _sessionAppService;
+        private readonly IIDentityCodeRepository _identityCodeRepository;
+        private readonly IRepository<ProductInfo> _productRepository;
         private readonly string _filePath = "images/products/";
-        public ProductController(IProductInfoAppService appService, IHostingEnvironment hostingEnvironment, ISessionAppService sessionAppService)
+        public ProductController(IProductInfoAppService appService, IHostingEnvironment hostingEnvironment, ISessionAppService sessionAppService, IIDentityCodeRepository identityCodeRepository, IRepository<ProductInfo> productRepository)
         {
             _appService = appService;
             _hostingEnvironment = hostingEnvironment;
             _sessionAppService = sessionAppService;
+            _identityCodeRepository = identityCodeRepository;
+            _productRepository = productRepository;
         }
 
 
@@ -104,29 +112,55 @@ namespace Lanting.IDCode.Web.Mvc.Controllers
 
         [HttpPost]
         [RequestFormLimits(
-            BufferBody = false,
-            BufferBodyLengthLimit = 0,
-            KeyLengthLimit = 100000000,
-            MemoryBufferThreshold = 0,
-            MultipartBodyLengthLimit = 0,
-            MultipartBoundaryLengthLimit = 0,
-            MultipartHeadersCountLimit = 0,
-            Order = 1,
-            ValueCountLimit = 2,
-            ValueLengthLimit = 100000000)]
+           BufferBody = false,
+           BufferBodyLengthLimit = 0,
+           KeyLengthLimit = 100000000,
+           MemoryBufferThreshold = 0,
+           MultipartBodyLengthLimit = 0,
+           MultipartBoundaryLengthLimit = 0,
+           MultipartHeadersCountLimit = 0,
+           Order = 1,
+           ValueCountLimit = 2,
+           ValueLengthLimit = 100000000)]
         public async Task<JsonResult> SaveSnapshot([FromBody]ImageModel input)
         {
             var currentUser = await _sessionAppService.GetCurrentLoginInformations();
-            string filePath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, _filePath);
-            bool saved = false;
+            //get the current code and index and next code and product code
+            string indexStr = input.FileName.Substring(6, 8);
+            long index = long.Parse(indexStr);
+            var codeRecord = await _identityCodeRepository.GetAsync(index);
+            if (codeRecord == null)
+                throw new Abp.UI.UserFriendlyException(404, "invalid code");
+            if (!input.FileName.Equals(codeRecord.Code))
+                throw new Abp.UI.UserFriendlyException(404, "invalid code");
+            int folderIndex = (int)index / 1000;
+            string folederName = $"{folderIndex * 1000 + 1}-{(folderIndex + 1) * 1000}";
+
+            //if the current code is 1000's times under this proudct code, create new folder,and save the image to new folder
+
+            var product = await _productRepository.GetAsync(codeRecord.ProductId);
+            var productCode = product.Code;
+            string _filePath = $"\\{currentUser.User.UserName}\\label\\image\\{productCode}\\folederName";
+            string fullFilePath = System.IO.Path.Combine(_hostingEnvironment.WebRootPath, _filePath);
+            if (!Directory.Exists(fullFilePath))
+                Directory.CreateDirectory(fullFilePath);
+
+            string fullImagePath = Path.Combine(fullFilePath, $"{input.FileName}.png");
             byte[] data = Convert.FromBase64String(input.DataUrl);
+            System.IO.File.WriteAllBytes(fullImagePath, data);
 
-            string fileName = DateTime.Now.ToString("yyyyMMddHHmm") + ".png";
-            string fullFilePath = System.IO.Path.Combine(filePath, fileName);
+            var nextOne = await _identityCodeRepository.GetAsync(index + 1);
+            string nextCode = string.Empty;
+            if (nextOne != null)
+                nextCode = nextOne.Code;
 
-            System.IO.File.WriteAllBytes(fullFilePath, data);
-            saved = true;
-            return Json(saved ? "image saved" : "image not saved");
+            return Json(new { next = nextCode });
+        }
+
+        [HttpPost]
+        public JsonResult Test([FromBody]ImageModel input)
+        {
+            return Json(1);
         }
     }
 }
