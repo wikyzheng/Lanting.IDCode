@@ -65,6 +65,8 @@
                     extra_canvas.setAttribute('width', 320);
                     extra_canvas.setAttribute('height', 600);
                     var ctx = extra_canvas.getContext('2d');
+                    ctx.fillStyle = '#fff';
+                    ctx.fillRect(0, 0, extra_canvas.width, extra_canvas.height);
                     ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 320, 600);
                     var dataURL = extra_canvas.toDataURL();
 
