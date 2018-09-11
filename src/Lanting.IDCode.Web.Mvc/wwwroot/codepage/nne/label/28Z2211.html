@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Screen shoter</title>
     <style>
+
         .container {
             margin-top: 10px;
             border: solid 1px black;
@@ -11,11 +12,12 @@
     </style>
     <script src="../../../codepage/nne/content/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-
 </head>
-<body style="width: 320px;height: 720px; " contenteditable="true">
+<body style="width: 320px;height: 600px; " contenteditable="true">
+
     <div id="content">
         <style type="text/css">
+
             img {
                 width: 100%;
                 height: 100%;
@@ -43,7 +45,7 @@
         <p style="text-align: left;padding-left:40px;"><strong>品名：针织女套&nbsp; &nbsp; 颜色：虾色</strong></p>
         <p style="text-align: left;padding-left:40px;"><strong>款号：28Z2211&nbsp; &nbsp;尺码：L</strong></p>
         <div id="barcode" style="text-align:center;width:230px;padding-left:45px">
-            <img src="../../../codepage/nne/content/barcode.png">
+            <img src="../../../codepage/nne/content/barcode.jpg">
         </div>
         <div style="text-align:center;"><span><strong>统一零售价：279元</strong></span></div>
     </div>
@@ -52,10 +54,10 @@
         if (action == 'print') {
             var code = GetQueryString('code');
             let region = document.querySelector("#content"); // whole screen
-            var img = document.createElement("img");
+
             html2canvas(region, {
                 onrendered: function (canvas) {
-                    let pngUrl = canvas.toDataURL();
+
                     var extra_canvas = document.createElement("canvas");
                     extra_canvas.setAttribute('width', 320);
                     extra_canvas.setAttribute('height', 600);
@@ -63,20 +65,21 @@
                     ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 320, 600);
                     var dataURL = extra_canvas.toDataURL();
 
-                    img.src = dataURL;
                     // here you can allow user to set bug-region
                     // and send it with 'pngUrl' to server
-                    var image = pngUrl.replace('data:image/png;base64,', '');
+                    var image = dataURL.replace('data:image/png;base64,', '');
 
                     $.ajax({
                         type: "POST",
-                        url: '/Product/SaveSnapshot',
+                        url: '/api/HandelImage',
                         data: JSON.stringify({ DataUrl: image, FileName: code }),
                         contentType: "application/json; charset=utf-8", // this
                         dataType: "json", // and this
-                        success: function (result) {
-                            if (result.next != '')
-                                window.location.url = "/home/label?code=" + result.next;
+                        success: function (data) {
+                            if (data.success) {
+                                if (data.result.next != '')
+                                    window.location.href = "http://" + window.location.host + "/home/label?code=" + data.result.next + "&action=print";
+                            }
                         },
                         error: function (errormessage) {
                             //do something else

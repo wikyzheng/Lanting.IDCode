@@ -15,7 +15,7 @@
 
 </head>
 <body style="width: 320px;height: 600px; " contenteditable="true">
-    <img />
+    
     <div id="content">
         <style type="text/css">
             img {
@@ -57,10 +57,10 @@
         if (action == 'print') {
             var code = GetQueryString('code');
             let region = document.querySelector("#content"); // whole screen
-            var img = document.createElement("img");
+            
             html2canvas(region, {
                 onrendered: function (canvas) {
-                    let pngUrl = canvas.toDataURL();
+                   
                     var extra_canvas = document.createElement("canvas");
                     extra_canvas.setAttribute('width', 320);
                     extra_canvas.setAttribute('height', 600);
@@ -68,20 +68,21 @@
                     ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 320, 600);
                     var dataURL = extra_canvas.toDataURL();
 
-                    img.src = dataURL;
                     // here you can allow user to set bug-region
                     // and send it with 'pngUrl' to server
-                    var image = pngUrl.replace('data:image/png;base64,', '');
+                    var image = dataURL.replace('data:image/png;base64,', '');
 
                     $.ajax({
                         type: "POST",
-                        url: '/Product/Test',
-                        data: JSON.stringify({ DataUrl: "xxxx", FileName: "dddd" }),
+                        url: '/api/HandelImage',
+                        data: JSON.stringify({ DataUrl: image, FileName: code }),
                         contentType: "application/json; charset=utf-8", // this
                         dataType: "json", // and this
-                        success: function (result) {
-                            if (result.next != '')
-                                window.location.url = "/home/label?code=" + result.next;
+                        success: function (data) {
+                            if (data.success) {
+                                if (data.result.next != '')
+                                    window.location.url = "/home/label?code=" + data.result.next + "&action=print";
+                            }
                         },
                         error: function (errormessage) {
                             //do something else

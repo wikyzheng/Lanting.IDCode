@@ -62,7 +62,7 @@ namespace Lanting.IDCode.Web.Controllers
             return new Commons.HtmlFileResult(htmlPath, "text/html", codeRecord.AntiFakeCode);
         }
 
-        public async Task<IActionResult> Label(string code)
+        public async Task<IActionResult> Label(string code, string action = null)
         {
             if (string.IsNullOrEmpty(code))
             {
@@ -100,6 +100,6 @@ namespace Lanting.IDCode.Web.Controllers
             return new Commons.HtmlFileResult(htmlFilePath, "text/html");
         }
 
-       
+
     }
 }
