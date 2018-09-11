@@ -59,6 +59,7 @@
     <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\codepage\admin\" />
     <Folder Include="wwwroot\codepage\baolong\" />
+    <Folder Include="wwwroot\codepage\nne\mobile\product_image\" />
     <Folder Include="wwwroot\images\products\" />
     <Folder Include="wwwroot\view-resources\Views\_Bundles\" />
     <Folder Include="wwwroot\codefile\" />
